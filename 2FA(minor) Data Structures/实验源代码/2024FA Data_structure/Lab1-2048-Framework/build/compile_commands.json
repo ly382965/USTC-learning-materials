@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/Codes/Data_structure/Lab1-2048-Framework/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\2048.dir\\src\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab1-2048-Framework\\src\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab1-2048-Framework/src/main.cpp",
+  "output": "CMakeFiles/2048.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab1-2048-Framework/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\2048.dir\\src\\Game.cpp.obj -c D:\\Codes\\Data_structure\\Lab1-2048-Framework\\src\\Game.cpp",
+  "file": "D:/Codes/Data_structure/Lab1-2048-Framework/src/Game.cpp",
+  "output": "CMakeFiles/2048.dir/src/Game.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab1-2048-Framework/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\2048.dir\\src\\GameBoard.cpp.obj -c D:\\Codes\\Data_structure\\Lab1-2048-Framework\\src\\GameBoard.cpp",
+  "file": "D:/Codes/Data_structure/Lab1-2048-Framework/src/GameBoard.cpp",
+  "output": "CMakeFiles/2048.dir/src/GameBoard.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab1-2048-Framework/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\2048.dir\\src\\InputHandler.cpp.obj -c D:\\Codes\\Data_structure\\Lab1-2048-Framework\\src\\InputHandler.cpp",
+  "file": "D:/Codes/Data_structure/Lab1-2048-Framework/src/InputHandler.cpp",
+  "output": "CMakeFiles/2048.dir/src/InputHandler.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab1-2048-Framework/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\2048.dir\\src\\GameRender.cpp.obj -c D:\\Codes\\Data_structure\\Lab1-2048-Framework\\src\\GameRender.cpp",
+  "file": "D:/Codes/Data_structure/Lab1-2048-Framework/src/GameRender.cpp",
+  "output": "CMakeFiles/2048.dir/src/GameRender.cpp.obj"
+}
+]

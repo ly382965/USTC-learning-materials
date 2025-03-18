@@ -1,0 +1,20 @@
+9 18
+A B C D E F G H I
+A-B
+A-C
+B-D
+B-E
+B-G
+C-H
+C-G
+C-F
+D-E
+D-G
+E-H
+D-H
+D-I
+E-I
+F-H
+F-I
+H-G
+H-I

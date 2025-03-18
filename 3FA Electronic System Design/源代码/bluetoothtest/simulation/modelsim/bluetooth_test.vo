@@ -1,0 +1,179 @@
+// Copyright (C) 1991-2013 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus II 64-Bit"
+// VERSION "Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version"
+
+// DATE "11/05/2024 19:23:27"
+
+// 
+// Device: Altera 5CEFA2F23C8 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for ModelSim (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module bluetooth_test (
+	rxd,
+	txd,
+	bt_rxd_emod0,
+	bt_txd_emod0,
+	bt_at_emod0,
+	bt_sleep_emod0);
+input 	rxd;
+output 	txd;
+output 	bt_rxd_emod0;
+input 	bt_txd_emod0;
+output 	bt_at_emod0;
+output 	bt_sleep_emod0;
+
+// Design Ports Information
+// txd	=>  Location: PIN_N1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bt_rxd_emod0	=>  Location: PIN_T17,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bt_at_emod0	=>  Location: PIN_T22,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bt_sleep_emod0	=>  Location: PIN_U20,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// bt_txd_emod0	=>  Location: PIN_P18,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rxd	=>  Location: PIN_M8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \~QUARTUS_CREATED_GND~I_combout ;
+wire \bt_txd_emod0~input_o ;
+wire \rxd~input_o ;
+
+
+// Location: IOOBUF_X0_Y19_N56
+cyclonev_io_obuf \txd~output (
+	.i(\bt_txd_emod0~input_o ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(txd),
+	.obar());
+// synopsys translate_off
+defparam \txd~output .bus_hold = "false";
+defparam \txd~output .open_drain_output = "false";
+defparam \txd~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X54_Y14_N62
+cyclonev_io_obuf \bt_rxd_emod0~output (
+	.i(\rxd~input_o ),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(bt_rxd_emod0),
+	.obar());
+// synopsys translate_off
+defparam \bt_rxd_emod0~output .bus_hold = "false";
+defparam \bt_rxd_emod0~output .open_drain_output = "false";
+defparam \bt_rxd_emod0~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X54_Y15_N39
+cyclonev_io_obuf \bt_at_emod0~output (
+	.i(vcc),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(bt_at_emod0),
+	.obar());
+// synopsys translate_off
+defparam \bt_at_emod0~output .bus_hold = "false";
+defparam \bt_at_emod0~output .open_drain_output = "false";
+defparam \bt_at_emod0~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOOBUF_X52_Y0_N36
+cyclonev_io_obuf \bt_sleep_emod0~output (
+	.i(vcc),
+	.oe(vcc),
+	.dynamicterminationcontrol(gnd),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.parallelterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(bt_sleep_emod0),
+	.obar());
+// synopsys translate_off
+defparam \bt_sleep_emod0~output .bus_hold = "false";
+defparam \bt_sleep_emod0~output .open_drain_output = "false";
+defparam \bt_sleep_emod0~output .shift_series_termination_control = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X54_Y17_N55
+cyclonev_io_ibuf \bt_txd_emod0~input (
+	.i(bt_txd_emod0),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\bt_txd_emod0~input_o ));
+// synopsys translate_off
+defparam \bt_txd_emod0~input .bus_hold = "false";
+defparam \bt_txd_emod0~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X22_Y0_N18
+cyclonev_io_ibuf \rxd~input (
+	.i(rxd),
+	.ibar(gnd),
+	.dynamicterminationcontrol(gnd),
+	.o(\rxd~input_o ));
+// synopsys translate_off
+defparam \rxd~input .bus_hold = "false";
+defparam \rxd~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LABCELL_X1_Y1_N0
+cyclonev_lcell_comb \~QUARTUS_CREATED_GND~I (
+// Equation(s):
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.datae(gnd),
+	.dataf(gnd),
+	.datag(gnd),
+	.cin(gnd),
+	.sharein(gnd),
+	.combout(\~QUARTUS_CREATED_GND~I_combout ),
+	.sumout(),
+	.cout(),
+	.shareout());
+// synopsys translate_off
+defparam \~QUARTUS_CREATED_GND~I .extended_lut = "off";
+defparam \~QUARTUS_CREATED_GND~I .lut_mask = 64'h0000000000000000;
+defparam \~QUARTUS_CREATED_GND~I .shared_arith = "off";
+// synopsys translate_on
+
+endmodule

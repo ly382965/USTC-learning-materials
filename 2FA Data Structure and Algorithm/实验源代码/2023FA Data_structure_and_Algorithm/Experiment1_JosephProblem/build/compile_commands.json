@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment1_JosephProblem/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\linklist.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment1_JosephProblem\\source\\linklist.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment1_JosephProblem/source/linklist.cpp",
+  "output": "CMakeFiles/main.dir/source/linklist.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment1_JosephProblem/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\main.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment1_JosephProblem\\source\\main.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment1_JosephProblem/source/main.cpp",
+  "output": "CMakeFiles/main.dir/source/main.cpp.obj"
+}
+]

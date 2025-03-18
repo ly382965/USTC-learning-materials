@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+        "name": "Debug 2048",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/build/2048.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "miDebuggerPath":
+        "D:\\work_software\\mingw64\\bin\\gdb.exe",
+        // 修改成实际的gdb路径！ 注意\bin会被识别成\b in， 记得加多一个反斜杠
+        "setupCommands": [
+          {
+            "description": "Enable pretty-printing for gdb",
+            "text": "-enable-pretty-printing",
+            "ignoreFailures": true
+          }
+        ],
+        "preLaunchTask": "build",
+        "internalConsoleOptions": "openOnSessionStart",
+        "logging": {
+          "engineLogging": true
+        },
+        "visualizerFile": "${workspaceFolder}/.vscode/gdb_visualizers.visualizers"
+      }
+    ]
+  }

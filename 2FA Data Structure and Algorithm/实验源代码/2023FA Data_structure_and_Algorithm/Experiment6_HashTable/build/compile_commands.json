@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment6_HashTable/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\hash.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment6_HashTable\\source\\hash.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment6_HashTable/source/hash.cpp",
+  "output": "CMakeFiles/main.dir/source/hash.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment6_HashTable/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\main.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment6_HashTable\\source\\main.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment6_HashTable/source/main.cpp",
+  "output": "CMakeFiles/main.dir/source/main.cpp.obj"
+}
+]

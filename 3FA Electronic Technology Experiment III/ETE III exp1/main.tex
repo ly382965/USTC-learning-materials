@@ -1,0 +1,413 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 电子技术实验III}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3.5cm,bottom=3.5cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cclclc}
+         & \multicolumn{4}{c}{\textbf{小信号调谐放大器\quad 实验报告}}                                    &            \vspace{1ex}\\
+信息科学技术学院 & \multicolumn{2}{c}{PB22051030 王旭东} & \multicolumn{2}{c}{PB22051031 李毅} & 2024年11月1日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        \zihao{1}\textbf{电子技术实验III\quad 实验报告}\\
+        \vspace{0.5cm}
+        \zihao{2}\textbf{实验一\quad 小信号调谐放大器}
+    
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{实验人：}    \hspace{-0.5cm}	&\dlmu[5cm]{王旭东 PB22051030} \vspace{1ex}\\
+                \makebox[4em][s]{}    \hspace{-0.5cm}	&\dlmu[5cm]{李\quad 毅 PB22051031} \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年11月1日}\vspace{1ex}\\
+                \makebox[4em][s]{台\quad 号：}    \hspace{-0.5cm}	&\dlmu[5cm]{26}
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+\section{第一部分 \texorpdfstring{\quad}{} 实验目的}
+\begin{enumerate}
+    \item 理解LC谐振回路的基本理论知识、调谐放大器的工作原理及主要性能指标。
+    \item 掌握调谐放大器的调试及性能指标的测试方法
+    \item 学会使用基本测量仪器测试、分析调谐放大器的谐振特性（谐振曲线、通频带、选择性、谐振电压放大倍数）和动态特性（输入 — 输出电压传输特性和动态范围）。
+\end{enumerate}
+\section{第二部分 \texorpdfstring{\quad}{} 实验原理}
+
+调谐放大器具有高频窄带的特点，有放大、选频和滤波作用。集电极负载可以是并联谐振回路、耦合谐振回路或集中选频滤波器，要求三极管工作在线性状态。
+
+典型的单调谐放大器电路如图 \ref{subfig:mono_harmo_amplifier} 所示，输入回路主要由变压器构成，起隔直、耦合交流、阻抗匹配变换作用，晶体管Q进行电流控制和放大，输出回路是集电极的LC并联谐振回路，起选频和阻抗变换作用。
+单调谐放大器的幅频特性如图 \ref{subfig:mono_amp_f_characteristics} 所示。
+
+谐振电压放大倍数$A_{vo}=\dfrac{u_o}{u_i}$，谐振频率$f_o=\dfrac{1}{2\pi\sqrt{L_{\Sigma}C_{\Sigma}}}$，通频带$2\Delta f_{0.7}=f_H-f_L=f_0/Q_L$，矩形系数$k_{r0.1}=2\Delta f_{0.1}/2\Delta f_{0.7}$.
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/mono_harmo_amplifier.png}
+        \caption{单调谐放大器电路}\label{subfig:mono_harmo_amplifier}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/mono_amp_f_characteristics.png}\caption{单调谐放大器幅频特性曲线}\label{subfig:mono_amp_f_characteristics}
+    \end{subfigure}
+    \caption{单调谐放大器}\label{fig:mono_harmo_amplifier}
+\end{figure}
+
+典型的双调谐放大器电路如图 \ref{subfig:bi_harmo_amplifier} 所示，集电极负载改为两个相互耦合的谐振回路，目的是改善矩形系数，提高选频能力。双调谐放大器幅频特性曲线如图 \ref{subfig:bi_amp_f_characteristics} 所示。
+
+根据耦合程度不同，双调谐放大器可以分为弱耦合、临界耦合和强耦合。
+弱耦合谐振曲线为单峰，通频带较窄，类似单调谐。临界耦合谐振曲线仍为单峰， 但顶部平坦
+强耦合谐振曲线为双峰，中心频率处出现谷点，一般峰谷不低于-3dB。
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{pics/bi_harmo_amplifier.png}
+        \caption{双调谐放大电路}\label{subfig:bi_harmo_amplifier}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\textwidth]{pics/bi_amp_f_characteristics.png}
+        \caption{双调谐放大幅频特性曲线}\label{subfig:bi_amp_f_characteristics}
+    \end{subfigure}
+    \caption{双调谐放大器}\label{fig:bi_harmo_amplifier}
+\end{figure}
+
+实验电路图如图\ref{fig:exp_circuit}所示，当JK2闭合时，C18被短路，电路为单调谐放大器实验电路。当JK2断开时，C18为耦合电容，为双调谐放大器实验电路。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/exp_circuit.png}
+    \caption{实验电路图}\label{fig:exp_circuit}
+\end{figure}
+
+
+
+
+\section{第三部分 \texorpdfstring{\quad}{} 实验内容及结果}
+\subsection{单调谐放大器频域测量}
+\begin{enumerate}[(1)]
+    \item \noindent \textbf{单调谐放大器幅频特性曲线以及对应中心频率（10.7 MHz）的幅值}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/3.1.1.png}
+        ~\\
+        \caption{单调谐放大器幅频特性曲线}\label{fig:3.1.1}
+    \end{figure}
+
+    由图\ref{fig:3.1.1}中可以得到中心频率幅值为$69.48mV$。
+    
+    \item \noindent \textbf{单调谐放大器$N(3)dB$ 带宽 $N(20)dB$ 带宽与矩形系数}
+    
+    测量得单调谐放大器$N(3)dB$带宽为
+    $2\Delta f_{0.7}=1.15MHz$，$N(20)dB$带宽为
+    $2\Delta f_{0.1}=9.675MHz$
+
+    计算得到矩形系数为
+    $K_{r0.1}=\dfrac{2\Delta f_{0.1}}{2\Delta f_{0.7}}=8.413$
+    
+    \item \noindent \textbf{单调谐放大器谐振电压增益 $A_{VO}$}    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/3.1.3.png}
+        ~\\
+        \caption{单调谐放大器谐振电压增益线}\label{fig:3.1.3}
+    \end{figure}
+
+    由图\ref{fig:3.1.3}中可以读出单调谐放大器谐振电压增益 $A_{VO}=20.01dB$
+
+    如果考虑频谱仪上标注的衰减10dB，此时实际电压增益应为$A_{VO}=30.01dB$
+    
+    \item \noindent \textbf{接入阻尼电阻后，单调谐放大器幅频特性曲线以及对应中心频率（10.7 MHz）的幅值}    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/3.1.4.png}
+        ~\\
+        \caption{接入阻尼电阻后的单调谐放大器幅频特性曲线}\label{fig:3.1.4}
+    \end{figure}
+
+    由图\ref{fig:3.1.4}中可以读出接入阻尼电阻后单调谐放大器中心频率幅值为$44.97mV$。
+  
+    \item \noindent \textbf{接入阻尼电阻后，单调谐放大器$N(3)dB$ 带宽 $N(20)dB$ 带宽与矩形系数}
+
+    测量得$N(3)dB$带宽为$2\Delta f_{0.7}=1.725MHz$，
+    $N(20)dB$带宽为$2\Delta f_{0.1}=12.725MHz$
+
+    计算得到矩形系数为
+    $K_{r0.1}=\dfrac{2\Delta f_{0.1}}{2\Delta f_{0.7}}=7.377$
+    
+    \item \noindent \textbf{接入阻尼电阻后，单调谐放大器谐振电压增益 $A_{VO}$}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/3.1.6.png}
+        ~\\
+        \caption{接入阻尼电阻后的单调谐放大器幅频特性曲线}\label{fig:3.1.6}
+    \end{figure}
+
+    \vspace{-2em}
+    由图\ref{fig:3.1.6}中可以读出谐振电压增益$A_{VO}=17.63dB$
+    
+    如果考虑频谱仪上标注的衰减10dB，此时实际电压增益应为$A_{VO}=27.63dB$    
+\end{enumerate}
+
+\subsection{单调谐放大器时域测量}
+\begin{enumerate}[(1)]
+    \item \noindent\textbf{谐振电压增益 $A_{VO}$}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{pics/3.2.1.png}
+        ~\\
+        \caption{单调谐放大器时域输入输出波形}\label{fig:3.2.1}
+    \end{figure}
+    \vspace{-2em}
+    输入有效值$U_i=19.72mV$，输出有效值$U_o=744mV$，
+    谐振电压增益 $A_{VO}=\dfrac{U_o}{U_i}=37.73=31.53dB$
+
+    与频域测得的电压增益30.01dB（考虑频谱仪衰减）相比较，误差在合理范围内。
+    
+    \item \noindent\textbf{$N(3)dB$ 通频带}
+    
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[c]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pics/3.2.2.png}
+            \caption{下3dB点时域输入输出波形}\label{3.2.2}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pics/3.2.2(2).png}
+            \caption{上3dB点时域输入输出波形}\label{3.2.2(2)}
+        \end{subfigure}
+        \caption{单调谐放大器3dB点时域输入输出波形}\label{fig:bi_harmo_amplifier}
+    \end{figure}
+
+    \vspace{-2em}
+    \textbf{下3dB点：}
+
+    频率$f_L=9.70MHz$，
+    输入有效值$U_{iL}=20.64mV$，
+    输出有效值$U_{oL}=523mV$，
+    谐振电压增益 $A_{VOL}=\dfrac{U_{oL}}{U_{iL}}=25.34=28.08dB$。
+
+    \textbf{上3dB点：}
+
+    频率$f_H=11.39MHz$，
+    输入有效值$U_{iH}=20.00mV$，
+    输出有效值$U_{oH}=516mV$，
+    谐振电压增益 $A_{VOH}=\dfrac{U_{oH}}{U_{iH}}=25.8=28.23dB$。
+
+    $N(3)dB$带宽 $2\Delta f_{0.7}=f_H-f_L=1.69MHz$
+
+\end{enumerate}
+
+\subsection{双调谐放大器频域测量}
+\begin{enumerate}[(1)]
+    \item \noindent \textbf{强耦合 $N(3)dB$ 带宽}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{pics/3.3.1.png}
+        ~\\
+        \caption{双调谐放大器幅频特性曲线}\label{fig:3.3.1}
+    \end{figure}
+
+    \vspace{-2em}
+    测量得强耦合$N(3)dB$带宽：
+    $2\Delta f_{0.7}=4.5MHz$
+    
+    \item \noindent \textbf{临界耦合 $N(3)dB$ 带宽 $N(20)dB$ 带宽与矩形系数}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{pics/3.3.2.png}
+        ~\\
+        \caption{双调谐放大器幅频特性曲线}\label{fig:3.3.2}
+    \end{figure}
+
+    \vspace{-2em}
+    测量得临界耦合$N(3)dB$带宽为
+    $2\Delta f_{0.7}=1.925MHz$，$N(20)dB$带宽为
+    $2\Delta f_{0.1}=6.8MHz$，
+    矩形系数为
+    $K_{r0.1}=\dfrac{2\Delta f_{0.1}}{2\Delta f_{0.7}}=3.532$
+    
+    \item \noindent \textbf{临界耦合 谐振电压增益 $A_{VO}$}
+
+    此处由于疏忽未拍照，但记录了谐振电压增益 $A_{VO}=18.72dB$。
+
+    如果考虑频谱仪上标注的衰减10dB，此时实际电压增益应为$A_{VO}=28.72dB$  
+    
+\end{enumerate}
+\subsection{双调谐放大器时域测量}
+\begin{enumerate}[(1)]
+    \item \noindent\textbf{谐振电压增益 $A_{VO}$}
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{pics/3.4.1.png}
+        ~\\
+        \caption{双调谐放大器时域输入输出波形}\label{fig:3.4.1}
+    \end{figure}
+
+    
+    输入有效值$U_i=19.9mV$，输出有效值$U_o=537mV$，谐振电压增益 $A_{VO}=\dfrac{U_o}{U_i}=26.98=28.62dB$。
+    
+    与频域测得的电压增益28.72dB（考虑频谱仪衰减）相比较，误差在合理范围内。
+    \item \noindent\textbf{$N(3)dB$ 通频带}
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[c]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pics/3.4.2.png}
+            \caption{下3dB点时域输入输出波形}\label{3.4.2}
+        \end{subfigure}
+        \begin{subfigure}[c]{0.45\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pics/3.4.2(2).png}
+            \caption{上3dB点时域输入输出波形}\label{3.4.2(2)}
+        \end{subfigure}
+        
+        \caption{双调谐放大器3dB点时域输入输出波形}\label{3.4.2-}
+    \end{figure}
+
+    \vspace{-2em}
+    \textbf{下3dB点：}
+
+    频率$f_L=6.99MHz$，
+    输入有效值$U_{iL}=20.44mV$，
+    输出有效值$U_{oL}=394mV$，
+    谐振电压增益 $A_{VOL}=\dfrac{U_{oL}}{U_{iL}}=19.28=25.70dB$。
+
+    \textbf{上3dB点：}
+
+    频率$f_H=11.77MHz$，
+    输入有效值$U_{iH}=20.74mV$，
+    输出有效值$U_{oH}=374mV$，
+    谐振电压增益 $A_{VOH}=\dfrac{U_{oH}}{U_{iH}}=18.03=25.12dB$。
+
+    $N(3)dB$带宽 $2\Delta f_{0.7}=f_H-f_L=1.69MHz$
+    
+\end{enumerate}
+
+\section{第四部分 \texorpdfstring{\quad}{} 思考题}
+\begin{enumerate}[I.]
+    \item \textbf{比较时域测量与频域测量的特点。}
+    
+    答：
+    \textbf{（1）时域测量主要关注信号随时间的变化，通常使用示波器进行测量。}
+
+    时域测量可以直观地显示电压或电流随时间的变化，在分析信号的周期、上升下降边沿、周期、延迟、波形失真等指标时有优势。
+    缺点是对于复杂信号难以直接从时域波形中观察出频率成分或周期性特征。
+   
+    \textbf{（2）频域测量主要分析信号在不同频率下的分布情况，通常使用频谱仪进行测量。}
+    
+    频域测量能够展示信号的频率成分和对应幅值，在针对周期信号、复杂信号的分析中更有优势。通过观察信号频谱能够进行信号带宽等指标的测量。
+    
+    \item \textbf{分析阻尼电阻 $R_{12}$ 对单调谐放大器性能的影响（如通频带、矩形系数和谐振电压增益）。}
+
+    答：
+    理论上分析可以得到，阻尼电阻$R_12$接入后会使得$Q_3$集电极的并联谐振回路$Q$值减小，通频带展宽。阻尼电阻增加了能量损耗，因此接入阻尼电阻会导致增益下降。
+    
+    由实验结果可以看出，接入阻尼电阻后，单调谐放大器的中心频率幅值由69.48mV变为44.97mV，谐振电压增益由20.01dB变为27.63dB，$N(3)dB$带宽由1.15MHz变为1.725MHz，$N(20)dB$带宽由9.675MHz变为12.725MHz，矩形系数由8.413变为7.377，整体趋势为增益下降，通带展宽，矩形系数减小，频率选择性上升。
+
+    \item \textbf{比较单调谐放大器和双调谐放大器（临界耦合）选择性的优劣。}
+    
+    答：
+    不接入阻尼电阻时的单调谐放大器矩形系数为8.413，接入阻尼电阻的单调谐放大器矩形系数为7.377，均大于临界耦合时的双调谐放大器矩形系数3.532，矩形系数越小，选择性越好，因此临界耦合双调谐放大器的选择性更好。
+
+    \item \textbf{分析强耦合时谐振曲线凹陷深度的影响因素。}
+
+    答：强耦合时谐振曲线凹陷深度的影响因素如下：
+
+    （1）$C_{18}$电容值，容值越大耦合越强，谐振曲线凹陷程度越深。
+    
+    （2）$W_1$和$W_2$值，改变初级和次级回路变容管上的直流电压以改变其电容，从而改变耦合程度和谐振曲线凹陷程度。
+\end{enumerate}
+
+\end{document}

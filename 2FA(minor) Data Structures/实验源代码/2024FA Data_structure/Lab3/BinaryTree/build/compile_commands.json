@@ -1,0 +1,26 @@
+[
+{
+  "directory": "D:/Codes/Data_structure/Lab3/BinaryTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\test.dir\\src\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\BinaryTree\\src\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/BinaryTree/src/main.cpp",
+  "output": "CMakeFiles/test.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab3/BinaryTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\test.dir\\src\\HuffmanTree.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\BinaryTree\\src\\HuffmanTree.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/BinaryTree/src/HuffmanTree.cpp",
+  "output": "CMakeFiles/test.dir/src/HuffmanTree.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab3/BinaryTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\test.dir\\src\\ExpressionBinaryTree.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\BinaryTree\\src\\ExpressionBinaryTree.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/BinaryTree/src/ExpressionBinaryTree.cpp",
+  "output": "CMakeFiles/test.dir/src/ExpressionBinaryTree.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab3/BinaryTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\test.dir\\src\\BinaryTree.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\BinaryTree\\src\\BinaryTree.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/BinaryTree/src/BinaryTree.cpp",
+  "output": "CMakeFiles/test.dir/src/BinaryTree.cpp.obj"
+}
+]

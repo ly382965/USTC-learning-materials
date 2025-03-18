@@ -1,0 +1,50 @@
+[
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/structures",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/structures.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\structures.dir\\queue.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\structures\\queue.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/structures/queue.cpp",
+  "output": "src/structures/CMakeFiles/structures.dir/queue.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/structures",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/structures.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\structures.dir\\stack.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\structures\\stack.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/structures/stack.cpp",
+  "output": "src/structures/CMakeFiles/structures.dir/stack.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/structures",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/structures.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\structures.dir\\unordered_set.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\structures\\unordered_set.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/structures/unordered_set.cpp",
+  "output": "src/structures/CMakeFiles/structures.dir/unordered_set.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/1_Test",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/1_Test.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\1_Test.dir\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\1_Test\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/1_Test/main.cpp",
+  "output": "src/1_Test/CMakeFiles/1_Test.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/2_Expression",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/2_Expression.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\2_Expression.dir\\calculator.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\2_Expression\\calculator.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/2_Expression/calculator.cpp",
+  "output": "src/2_Expression/CMakeFiles/2_Expression.dir/calculator.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/2_Expression",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/2_Expression.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\2_Expression.dir\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\2_Expression\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/2_Expression/main.cpp",
+  "output": "src/2_Expression/CMakeFiles/2_Expression.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/3_Robot",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/3_Robot.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\3_Robot.dir\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\3_Robot\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/3_Robot/main.cpp",
+  "output": "src/3_Robot/CMakeFiles/3_Robot.dir/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab2/build/src/3_Robot",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/3_Robot.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\3_Robot.dir\\walk.cpp.obj -c D:\\Codes\\Data_structure\\Lab2\\src\\3_Robot\\walk.cpp",
+  "file": "D:/Codes/Data_structure/Lab2/src/3_Robot/walk.cpp",
+  "output": "src/3_Robot/CMakeFiles/3_Robot.dir/walk.cpp.obj"
+}
+]

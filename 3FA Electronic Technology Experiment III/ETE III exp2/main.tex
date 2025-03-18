@@ -1,0 +1,371 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 电子技术实验III}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3.5cm,bottom=3.5cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cccccc}
+         & \multicolumn{4}{c}{\textbf{丙类谐振功率放大器与高电平调幅\quad 实验报告}}                                    &            \vspace{1ex}\\
+信息科学技术学院 & \multicolumn{2}{c}{PB22051030 王旭东} & \multicolumn{2}{c}{PB22051031 李毅} & 2024年11月8日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        \zihao{1}\textbf{电子技术实验III\quad 实验报告}\\
+        \vspace{0.5cm}
+        \zihao{2}\textbf{实验二\quad 丙类谐振功率放大器与高电平调幅}
+    
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{实验人：}    \hspace{-0.5cm}	&\dlmu[5cm]{王旭东 PB22051030} \vspace{1ex}\\
+                \makebox[4em][s]{}    \hspace{-0.5cm}	&\dlmu[5cm]{李\quad 毅 PB22051031} \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年11月8日}\vspace{1ex}\\
+                \makebox[4em][s]{台\quad 号：}    \hspace{-0.5cm}	&\dlmu[5cm]{26}
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+\section{第一部分 \texorpdfstring{\quad}{} 实验目的}
+\begin{enumerate}
+    \item 了解丙类高频谐振功率放大器的构成及工作原理。
+    \item 熟悉谐振功率放大器的三种工作状态及负载特性、调制
+    特性、放大特性和调谐特性。
+    \item 掌握谐振功率放大器的直流功率$P_E$、输出功率$P_o$和效率
+    $\eta_c$的测量方法。 
+\end{enumerate}
+    
+\section{第二部分 \texorpdfstring{\quad}{} 实验原理}
+\begin{enumerate}
+    \item \textbf{谐振功放的工作状态根据晶体管集电极是否进入饱和区分为欠压、临界和过压状态。}
+
+    欠压状态：输出电压小，$P_O$小，$\eta_C$小，一般用于电压放大和基极调幅。
+
+    临界状态：动态线与临界线及$u_{BE}=u_{BEmax}$静态线相交于一点，此时$P_O$达到最大值，$\eta_C$较高，是功放最佳工作状态，欠压和临界状态的集电极电流波形为一正弦顶部脉冲。
+
+    过压状态：输出电压过大，以至进入饱和区。 过压状态$U_{cm}$基
+    本不变，可当做一个恒压源，另外可实现集电极调幅。过压状态的集电极电流波形为一顶部凹陷的脉冲。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/3state.png}
+        ~\\
+        \caption{谐振功放的三种工作状态}\label{fig:2.1}
+    \end{figure}
+
+    \item 负载特性反映$R_L$变化对放大器工作状态的影响，随$R_L$增大，放大器状态变化依次为欠压、临界、过压状态。
+
+    集电极调制特性反映$E_C$变化对工作状态的影响，随$E_C$增大，放大器状态变化依次为过压、临界、欠压状态。
+
+    基极调制特性反映$E_B$或$U_{bm}$变化对工作状态的影响，随着$U_{bm}$或$-E_B$增大，放大器状态变化依次为欠压、临界、过压状态。
+
+    调谐特性反映回路参数$L$和$C$对高频功放集电极基波电流、电源输出直流电流、集电极输出电压等指标的影响，随着$L$和$C$的变化会出现感性失谐或容性失谐，无失谐时$U_{Cm}$最大，$I_{C1m}$和$I_{CO}$最小
+
+    \item \textbf{丙类谐振功放的主要技术指标}
+
+    $U_{om}$为输出电压振幅，$R_L$为负载电阻，$P_C$为集电极耗散功率。
+    则电源提供的直流功率
+    $P_E=E_C\cdot I_{C0}$，
+    输出高频交流功率
+    $P_O=\dfrac{U_{om}^2}{2R_L}$，效率
+    $\eta_C=\dfrac{P_O}{P_E}=\dfrac{P_O}{P_O+P_C}$
+
+    \item 实验电路如下图所示。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.9\textwidth]{pics/circuit.png}
+
+        \caption{实验电路图}\label{fig:2.2}
+    \end{figure}
+\end{enumerate}
+
+
+\section{第三部分 \texorpdfstring{\quad}{} 实验内容及结果}
+\textbf{需要说明的是，由于实验时示波器显示的测量数据处于抖动状态，我们的测量方法是按Stop键之后读取数值作为试验记录，之后按Run键再将波形保存为图片，所以试验记录和图片中显示数据可能会有细微差别，报告中的计算全部按照原始数据来计算，图片仅作波形参考}
+\subsection*{（二）前级放大器的测量}
+TP1处输入信号波形如图 \ref{fig:3.1} 通道1所示，幅度$V_{A2}=150mV$，TP4处输出信号的波形如图 \ref{fig:3.1} 通道2所示，幅值$V_{TP4}=2.21V$，计算得到前级放大器的放大倍数$A_V=\dfrac{V_{TP4}}{V_{A2}}=14.73$。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{pics/31.png}
+
+    \caption{前级放大器输入输出信号波形}\label{fig:3.1}
+\end{figure}
+\vspace{-2em}
+\subsection*{（三）丙类功放调谐特性（放大特性）的测量}
+\begin{enumerate}
+    \item \textbf{谐振特性测试}
+
+    调整T1使得TP3处输出信号的波形最大且不失真，记录峰峰值为$3.85V $，调节高频功放输入信号的频率，在不同信号下TP3处输出信号的峰峰值电压$V_{opp}$、TP1处输入信号的峰峰值电压$V_{ipp}$以及电压增益$A_V$如表 \ref{tab:3.1} 所示。
+
+    \begin{table}[H]
+        \centering
+        \caption{谐振特性测试数据表}
+        \label{tab:3.1}
+        \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+        \hline
+        $V_{ipp}(mV)$ &  150  &  149 &  151  & 150  & 150  &  150 &150   &  151  & 152  \\ \hline
+        $f_1(MHz)$  & 10.3 & 10.4 & 10.5 & 10.6 & 10.7 & 10.8 & 10.9 & 11 & 11.1 \\ \hline
+        $V_{opp}(V)$ &  0.61  & 0.78  &  1.08 & 1.58  &  3.85 &  2.77 &  1.46 &0.94 & 0.69 \\ \hline
+        增益$A_V(dB)$ & 12.18& 14.38 & 17.09 & 20.45 & 28.19 &  25.33 & 19.77  &15.88& 13.14  \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{-2em}
+    \item \textbf{$A_V-f$特性曲线}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.63\textwidth]{pics/AV-F.png}
+        \caption{前级放大器$A_V-f$特性曲线}\label{fig:AV-F}
+    \end{figure}
+\end{enumerate}
+\subsection*{（四）丙类功放输出功率的测量}
+输入信号幅度为200mVpp左右，调整T1使得TP3处输出信号波形最大且不失真，增大输入信号幅度使得TP3处输出信号波形最大且不失真，记录输出信号波形如图 \ref{fig:41} 所示，峰峰值$V_{opp}=5.2V$，此时输出负载为100$\Omega$电阻，计算输出功率为
+\[P_O=V_{rmsI}=\dfrac{V_{rms}^2}{R}=\dfrac{(V_{opp}^2)}{100\times 2.828^2}=33.81mW\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{pics/41.png}
+
+    \caption{输出信号}\label{fig:41}
+\end{figure}
+\subsection*{（五）丙类功放输入电压\texorpdfstring{$u_b$}{}对放大器工作状态的影响}
+改变输入信号的幅度，随激励电压增大，TP5处$u_e$波形和TP3处输出$u_o$波形如图 \ref{fig:51} 、图 \ref{fig:52} 、图 \ref{fig:53} 所示。记录数据如表 \ref{table:5.1} 所示。可以看出，随着输入电压$u_b$增大，放大器工作状态由欠压变为临界再变为过压，输出功率增大，与理论相符。
+
+\begin{table}[H]
+    \centering
+    \caption{$u_b$对丙类功放工作状态的影响测试数据表}
+    \label{table:5.1}
+    \begin{tabular}{c|ccc}
+    \hline
+    $f_1(MHz)$    & \multicolumn{3}{c}{10.7}                           \\ \hline
+    $u_i(mVpp)$ & \multicolumn{1}{c|}{$200mV$} & \multicolumn{1}{c|}{$U_{i\text{临界}}=300mV$} & 500 \\ \hline
+    $u_e$峰值       & \multicolumn{1}{c|}{0.72V} & \multicolumn{1}{c|}{1.20V}   & 1.87V \\ \hline
+    $u_e$凹陷深度     & \multicolumn{1}{c|}{无} & \multicolumn{1}{c|}{无}   &  1.05V\\ \hline
+    工作状态          & \multicolumn{1}{c|}{欠压} & \multicolumn{1}{c|}{临界} &  过压\\ \hline
+    $u_{orms}(V)$ & \multicolumn{1}{c|}{0.739} & \multicolumn{1}{c|}{1.592}   & 1.990 \\ \hline
+    $P_o(mW)$     & \multicolumn{1}{c|}{5.46} & \multicolumn{1}{c|}{25.3}   &  39.6\\ \hline
+    \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/51.png}
+        \caption{$u_i=200mV$时的输出波形}\label{fig:51}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/52.png}
+        \caption{$u_i=300mV$时的输出波形}\label{fig:52}
+    \end{subfigure}
+
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/53.png}
+        \caption{$u_i=500mV$时的输出波形}\label{fig:53}
+    \end{subfigure}
+    \caption{不同激励电压下放大器$u_e$波形和输出$u_o$波形}\label{fig:5}
+\end{figure}
+
+
+\subsection*{（六）丙类功放集电极电压\texorpdfstring{$V_{cc}$}{}对放大器工作状态的影响}
+改变W1，使用示波器观察在不同集电极电压$V_{CC}$下TP5处的$u_e$波形及TP7处输出信号的幅度如图 \ref{fig:61} 、图 \ref{fig:62} 、图 \ref{fig:63} 所示，测试数据表如表 \ref{table:6.1} 所示。可以看出，随着集电极电压$V_{CC}$增大，功放由过压状态经临界状态变为欠压状态，输出电压和输出功率逐渐增加，与理论分析一致。
+\begin{table}[H]
+    \centering
+    \caption{$V_{CC}$对丙类功放工作状态的影响测试数据表}
+    \label{table:6.1}
+    \begin{tabular}{c|ccc}
+    \hline
+    输入信号          & \multicolumn{3}{c}{2MHz, 200mVpp}                \\ \hline
+    $V_{CC}(V)$   & \multicolumn{1}{c|}{6} & \multicolumn{1}{c|}{7.5} & 9 \\ \hline
+    $u_e$峰值       & \multicolumn{1}{c|}{0.99V} & \multicolumn{1}{c|}{1.12V} & 1.19V \\ \hline
+    $u_e$凹陷深度     & \multicolumn{1}{c|}{0.15V} & \multicolumn{1}{c|}{无} & 无 \\ \hline
+    工作状态          & \multicolumn{1}{c|}{过压} & \multicolumn{1}{c|}{临界} & 欠压 \\ \hline
+    $u_{orms}(V)$ & \multicolumn{1}{c|}{3.55} & \multicolumn{1}{c|}{3.93} & 4.10 \\ \hline
+    $P_o(mW)$     & \multicolumn{1}{c|}{12.603} & \multicolumn{1}{c|}{15.445} &  16.81\\ \hline
+    \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/61.png}
+        \caption{$V_{CC}=6V$时的输出波形}\label{fig:61}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/62.png}
+        \caption{$V_{CC}=7.5V$时的输出波形}\label{fig:62}
+    \end{subfigure}
+
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/63.png}
+        \caption{$V_{CC}=9V$时的输出波形}\label{fig:63}
+    \end{subfigure}
+    \caption{不同集电极电压下放大器$u_e$波形和输出$u_o$参数}\label{fig:6}
+\end{figure}
+\vspace{-1em}
+\subsection*{（七）丙类功放负载特性的测试}
+调整负载电阻为$3K\Omega$，调节W1使得功放达到临界状态，调整W2，用示波器观察不同负载阻值下的$u_e$波形及TP7处输出信号的波形如图 \ref{fig:71} 、图 \ref{fig:72} 、图 \ref{fig:73} 所示，测试数据表如表 \ref{table:7.1} 所示。可以看出，随负载增大，功放逐渐由欠压状态经临界状态变为过压状态，理论上临界状态输出功率最大，但由于此处操作不当，$3K\Omega$处并非临界状态而是有轻微过压，所以与理论分析有些出入。
+\begin{table}[H]
+    \centering
+    \caption{负载特性测试数据表}
+    \label{table:7.1}
+    \begin{tabular}{c|ccc}
+    \hline
+    输入信号           & \multicolumn{3}{c}{2MHz, 200mVpp}                      \\ \hline
+    $R_L(K\Omega)$ & \multicolumn{1}{c|}{1}  & \multicolumn{1}{c|}{3}  & 10 \\ \hline
+    $u_e$峰值        & \multicolumn{1}{c|}{0.75V}   & \multicolumn{1}{c|}{0.73V}  &    0.67V\\ \hline
+    $u_e$凹陷深度      & \multicolumn{1}{c|}{无}   & \multicolumn{1}{c|}{无}   &    156mV\\ \hline
+    工作状态           & \multicolumn{1}{c|}{欠压} & \multicolumn{1}{c|}{临界} & 过压 \\ \hline
+    $u_{orms}(V)$  & \multicolumn{1}{c|}{2.46}   & \multicolumn{1}{c|}{4.10}   &   4.55 \\ \hline
+    $P_o(mW)$      & \multicolumn{1}{c|}{6.05}   & \multicolumn{1}{c|}{5.60}   &   2.07 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/71.png}
+        \caption{$R_L=1k\Omega$时的输出波形}\label{fig:71}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/72.png}
+        \caption{$R_L=3k\Omega$时的输出波形}\label{fig:72}
+    \end{subfigure}
+
+    \begin{subfigure}[c]{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/73.png}
+        \caption{$R_L=10k\Omega$时的输出波形}\label{fig:73}
+    \end{subfigure}
+    \caption{不同负载电阻下放大器$u_e$波形和输出$u_o$参数}\label{fig:6}
+\end{figure}
+
+\section{第四部分 \texorpdfstring{\quad}{} 思考题}
+\begin{enumerate}[I.]
+
+    \item \textbf{如何有效提高丙类功放的效率？}
+    
+    答：
+    （1）\textbf{提高负载电阻大小}，随负载电阻增大，功放由欠压到临界到过压，电源电压利用系数$\xi=\dfrac{U_C}{V_{CC}}$提高，导通角$\varphi$不变，效率$\eta=\dfrac{1}{2}\dfrac{\alpha_1(\varphi)}{\alpha_0(\varphi)}\xi$提高，但在过压区增大负载会降低输出功率，所以不能一味通过增大负载来提高效率，临界状态效率较高，输出功率最大，是放大器的最佳工作状态。
+    
+    （2）\textbf{减小导通角}，$\varphi=arccos\dfrac{E_B+U_T}{U_b}$，增大$E_B$，$\varphi$减小，理想情况下$\xi=1$，效率$\eta=\dfrac{1}{2}\dfrac{\alpha_1(\varphi)}{\alpha_0(\varphi)}\xi$增大，但实际上进入过压区后$\xi$会随$E_B$增大而减小，所以效率不一定会提高。
+
+    （3）\textbf{增大$V_{CC}$}，导通角$\varphi$不变，在欠压区，$U_C$基本不变，增大$V_{CC}$会减小$\xi$从而降低效率$\eta$，但在过压区，增大$V_{CC}$会同时提高$U_C$和$V_{CC}$，所以不一定能够提高效率。
+
+    综上，功放效率与许多因素有关，提高功放的效率需要结合实际电路与功放管的性质以及电路用途，各种提高效率的方法均有其局限性，一味提高效率并不可取。
+    \item \textbf{为什么说振幅调制是一种频谱线性搬移过程？}
+    
+    答：振幅调制是用调制信号控制高频载波的振幅。
+
+    以普通AM调幅为例，时域上看，调制信号为$m(t)$，高频载波为$cos(\omega_ct)$，则已调信号
+    $$s_{AM}(t)=[A_0+m(t)]cos(\omega_ct)$$
+
+    从频域上看，调制信号的频谱为$M(\omega)$，高频载波的频谱
+    $$\mathcal{F}[cos(\omega_ct)]=\pi[\delta(\omega+\omega_c)+\delta(\omega-\omega_c)]$$
+    
+    已调信号的频谱
+    \begin{align*}
+        S_{AM}(\omega)&=\dfrac{1}{2\pi}  M(\omega)*\mathcal{F}[cos(\omega_ct+\varphi_0)] +\pi A_0[\delta(\omega+\omega_c)+\delta(\omega-\omega_c)]\\
+        &=\dfrac{1}{2}[M(\omega+\omega_c)+M(\omega-\omega_c)]+\pi A_0[\delta(\omega+\omega_c)+\delta(\omega-\omega_c)]
+    \end{align*}
+    
+    可以看出已调信号的频谱是将基带信号频谱向左和向右分别平移$\omega_c$再加上一个$\pm \omega_c$处的冲激，基带信号的频谱结构并没有发生失真，只是进行简单的平移。
+
+    \item \textbf{基极调幅要求功放处于哪种工作状态，为什么？}
+
+    答：基极调幅要求功放处于欠压状态。丙类谐振功率放大器在其他参数
+    不变的条件下，改变$-E_B$时，集电极电流直流分量$I_{CO}$、一次谐波分量$I_{C1m}$在过压区可认为不变，而在欠压区$I_{CO}$、$I_{C1m}$将随$V_{CC}$变化而近似线性变化，具有调幅特性。因此基极调幅时丙类谐振功放工作应工作于欠压状态。
+
+    \item \textbf{集电极调幅要求功放处于哪种工作状态，为什么？}
+    
+    答：集电极调幅要求功放处于过压状态。丙类谐振功率放大器在其他参数
+    不变的条件下，改变$V_{CC}$时，集电极电流直流分量$I_{CO}$、一次谐波分量$I_{C1m}$在欠压区可认为不变，而在过压区$I_{CO}$、$I_{C1m}$将随$V_{CC}$变化而近似线性变化，具有调幅特性。因此集电极调幅时丙类谐振功放工作应工作于过压状态。
+\end{enumerate}
+
+\end{document}

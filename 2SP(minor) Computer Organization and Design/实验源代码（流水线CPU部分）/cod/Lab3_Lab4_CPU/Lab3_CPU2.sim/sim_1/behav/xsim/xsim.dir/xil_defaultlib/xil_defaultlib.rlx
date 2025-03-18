@@ -1,0 +1,10 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sim_1/new/CPU_tb.v,1716386364,verilog,,,,CPU_tb,,,,,,,,
+D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/DATA_MEM/sim/DATA_MEM.v,1715156802,verilog,,D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/INST_MEM/sim/INST_MEM.v,,DATA_MEM,,,,,,,,
+D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/INST_MEM/sim/INST_MEM.v,1716386123,verilog,,D:/Codes/Verilog/vsrc/CPU/CPU.v,,INST_MEM,,,,,,,,
+D:/Codes/Verilog/vsrc/CPU/CPU.v,1715159037,verilog,,D:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sim_1/new/CPU_tb.v,D:/Codes/Verilog/vsrc/CPU/include/config.v,ADD4;ALU;BRANCH;CPU;DECODER;Forwarding;Intersegment_reg;MUX1;MUX2;NPCMUX;PC;REG_FILE;SLU;Segctr,,,,,,,,
+D:/Codes/Verilog/vsrc/CPU/include/config.v,1712595761,verilog,,,,,,,,,,,,

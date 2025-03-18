@@ -1,0 +1,411 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 电子技术实验III}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=3cm,bottom=3.5cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cccccc}
+         & \multicolumn{4}{c}{\textbf{模拟乘法器调幅、解调与峰值检波\quad 实验报告}}                                    &            \vspace{1ex}\\
+信息科学技术学院 & \multicolumn{2}{c}{PB22051030 王旭东} & \multicolumn{2}{c}{PB22051031 李毅} & 2024年11月22日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        \zihao{1}\textbf{电子技术实验III\quad 实验报告}\\
+        \vspace{0.5cm}
+        \zihao{2}\textbf{实验四\quad 模拟乘法器调幅、解调与峰值检波}
+    
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{实验人：}    \hspace{-0.5cm}	&\dlmu[5cm]{王旭东 PB22051030} \vspace{1ex}\\
+                \makebox[4em][s]{}    \hspace{-0.5cm}	&\dlmu[5cm]{李\quad 毅 PB22051031} \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年11月22日}\vspace{1ex}\\
+                \makebox[4em][s]{台\quad 号：}    \hspace{-0.5cm}	&\dlmu[5cm]{26}
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+\section{第一部分 \texorpdfstring{\quad}{} 实验目的}
+\begin{enumerate}
+    \item 了解模拟乘法器的基本工作原理。
+    \item 掌握用模拟乘法器（MC1496）实现AM 、 DSB和SSB信号的调制方法。
+    \item 掌握模拟乘法器（MC1496）实现AM、 DSB和SSB已调波的解调（同步检波）方法。
+    \item 掌握二极管峰值检波电路的实现方法。
+\end{enumerate}
+    
+\section{第二部分 \texorpdfstring{\quad}{} 实验原理}
+\begin{enumerate}
+    \item \textbf{模拟相乘器芯片---MC1496}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/2.1.png}
+        ~\\
+        \caption{模拟相乘器芯片---MC1496}\label{fig:2.1}
+    \end{figure}
+
+经理论推导，当满足$u_x ≤u_T (26mV)$时， MC1496即可实现两个模拟信号的线性相乘，即
+$$U_o=\dfrac{R_C}{R_f U_T} u_x u_y$$
+
+    \item \textbf{模拟乘法器调幅}
+    
+    设高频载波信号为：$u_c=U_{Cm} cos \omega_c t$；低频调制信号为：$U_\Omega=U_{\Omega m}cos\Omega t$。
+    \begin{enumerate}[(1)]
+        \item 将$u_\Omega$与一直流$U_{\text{直流}}$叠加后再与$u_c$相乘，则可得到普通调幅信号：
+        \begin{equation*}
+            \begin{split}
+                U_{AM} &=k_1 u_c (U_{\text{直流}}+k_2 u_\Omega) \\
+                &= k_1 U_{Cm} cos \omega_c t(U_{\text{直流}}+k_2 U_{\Omega m}cos\Omega t) \\
+                &= k_1 U_{\text{直流}} U_{Cm} cos \omega_c t + \dfrac{k_1 k_2}{2}U_{\Omega m}U_{Cm}	[cos(\omega_c+\Omega)t+cos(\omega_c - \Omega)t] \\
+            \end{split}
+        \end{equation*}
+        \item 载波信号$u_c$与调制信号$u_\Omega$直接相乘，可得到抑制载波的DSB信号
+        \begin{equation*}
+            \begin{split}
+                U_{DSB} &=k u_\Omega u_c \\
+                &= k U_{\Omega m} U_{Cm} cos\Omega t  cos \omega_c t\\
+                &= \dfrac{k}{2}U_{\Omega m}U_{Cm}	[cos(\omega_c+\Omega)t+cos(\omega_c - \Omega)t] \\
+            \end{split}
+        \end{equation*}
+        \item 在DSB信号的输出端再加一级带通滤波器，取出双边带信号的一个边带，则可得到单边带调制SSB信号：
+        \begin{equation*}
+                U_{SSB}=\dfrac{k}{2}U_{\Omega m}U_{Cm} cos(\omega_c+\Omega)t 
+        \end{equation*}
+        或
+        \begin{equation*}
+                U_{SSB}=\dfrac{k}{2}U_{\Omega m}U_{Cm} cos(\omega_c - \Omega)t 
+        \end{equation*}
+    \end{enumerate}
+
+    \item 模拟乘法器同步检波
+
+    如图，设$u_s=k_3 U_{sm} cos\Omega t cos \omega_c t$，$u_\tau =k_4 U_{\tau m} cos(\omega_\tau t + \phi$。
+
+    当$\omega_c=\omega_\tau$，$\phi=0$时，$u_o=U_{om}cos \Omega t$。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.45\textwidth]{pics/2.2.png}
+        ~\\
+        \caption{模拟乘法器同步检波示意图}\label{fig:2.2}
+    \end{figure}
+
+    \item 二极管峰值包络检波
+
+    如图为二极管峰值包络检波原理图。利用二极管单向导电特性和RC低通滤波器充放电特性，直接提取出AM波中的包络就还原出调制信号。充电时间常数远小于放电时间常数。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{pics/2.3.png}
+        ~\\
+        \caption{二极管峰值包络检波原理图}\label{fig:2.3}
+    \end{figure}
+    
+\end{enumerate} 
+
+
+\section{第三部分 \texorpdfstring{\quad}{} 实验内容及结果}
+\textbf{需要说明的是，由于实验时示波器显示的测量数据处于抖动状态，我们的测量方法是按Stop键之后读取数值作为试验记录，之后按Run键再将波形保存为图片，所以试验记录和图片中显示数据可能会有细微差别，报告中的计算全部按照原始数据来计算，图片仅作波形参考}
+
+\subsection{普通调幅（AM）信号的产生与解调}
+\subsubsection{AM波形及频谱观测}
+调节W1，在TP3得到全载波AM信号如图 \ref{fig:11} 所示，记录信号参数如表 \ref{tab:1} 所示。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/11.png}
+    \caption{全载波AM信号波形}\label{fig:11}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \vspace{-2em}
+    \caption{全载波AM信号参数}
+    \label{tab:1}
+    \begin{tabular}{c|c|c|c|c}
+    \hline
+               & $Vpp$ & $f$       & $A_{max}$ & $A_{min}$ \\ \hline
+    $u_\Omega$ & 500mV & 1.0027KHz &           &           \\ \hline
+    $u_c$      & 600mV & 460KHz    &           &           \\ \hline
+    $u_{AM}$   &       &           & 1.0125V   & 0.550V    \\ \hline
+    $u_o$      & 760mV & 999.4Hz   &           &           \\ \hline
+    \end{tabular}
+\end{table}
+
+计算得到此时的信号调制度
+$$m=\dfrac{A_{max}-A_{min}}{A_{max}+A_{min}}=29.6\%$$
+
+调节W1增大加入$u_\Omega$的直流量，测量数据如表\ref{tab:2}所示，可以观察到，$u_\Omega$直流量越大，AM信号的幅值波动相对于整体均值而言越小，相对应地调制度m越小。
+\begin{table}[H]
+    \centering
+    \caption{不同$u_\Omega$直流量下调制度变化}
+    \label{tab:2}
+    \begin{tabular}{c|c|c|c}
+    \hline
+    $u_{\Omega}$直流量 & $A_{max}$ & $A_{min}$ & $m$    \\ \hline
+    0.700V          & 1.0125V   & 0.550V    & 29.6\% \\ \hline
+    0.764V          & 1.0875V   & 0.625V    & 27.0\% \\ \hline
+    0.827V          & 1.1500V   & 0.712V    & 23.5\% \\ \hline
+    \end{tabular}
+\end{table}
+
+调节同步检波电路移相网络的W5，观测$u_o$波形如图 \ref{fig:14} 所示，记录波形参数为：
+$U_{opp}=1.65V,f_o=998.4Hz$。调节W5，观测到$u_o$波形最大不失真时的幅度值为1.67V。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/14.png}
+    \caption{同步检波后的AM信号波形}\label{fig:14}
+\end{figure}
+
+用频谱仪观察AM信号的频谱如图 \ref{fig:15} 所示，可以观察到中心频率处的载波谱峰和两边调制信号的两个谱峰。中心频率与最大边频的频率差值$\Delta f=1KHz$，误差允许范围内，$\Delta f$等于低频调制信号的频率$f_\Omega$。
+
+读取幅度差值 $\Delta A=-16.69dB$，调制度$m=\dfrac{2}{10^{\left\lvert \Delta A\right\rvert/20 }}=29.3\%$，与时域测量得到的调制度$m=29.6\%$在误差允许范围内近似相等。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{pics/15.png}
+    \caption{AM信号频谱}\label{fig:15}
+\end{figure}
+
+改变低频调制信号幅值为300mVpp，观察到AM信号频谱如图 \ref{fig:16} 所示，$\Delta A=-19.85dB$，$m=\dfrac{2}{10^{\left\lvert \Delta A\right\rvert/20 }}=20.3\%$，调制信号幅值减小，调制度减小，与理论分析一致。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{pics/16.png}
+    \caption{调制信号幅值为300mVpp时的AM信号频谱}\label{fig:16}
+\end{figure}
+\subsection{抑制载波的双边带（DSB）调幅信号的产生与检波}
+用示波器观察记录DSB信号 $u_\Omega,u_C,u_{DSB},u_o$ 的波形如图 \ref{fig:21} 所示，记录信号参数如表 \ref{tab:3} 所示。从图中通道 3 可以较为清晰地看到DSB信号在过零点时的反相现象。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{pics/21.png}
+    \caption{DSB信号波形}\label{fig:21}
+\end{figure}
+\begin{table}[H]
+    \centering
+    \vspace{-2em}
+    \caption{DSB信号参数}
+    \label{tab:3}
+    \begin{tabular}{c|c|c}
+    \hline
+               & $Vpp$ & $f$       \\ \hline
+    $u_\Omega$ & 599mV & 99.985KHz \\ \hline
+    $u_C$      & 607mV & 5.020KHz  \\ \hline
+    $u_{DSB}$  & 780mV &           \\ \hline
+    $u_o$      & 3.0V  & 4.96KHz   \\ \hline
+    \end{tabular}
+\end{table}
+
+调节同步检波模块的W5，观测$u_o$波形如图 \ref{fig:22} 所示，W5右移，$u_o$幅值增大，$u_o$波形最大不失真时的幅度值为3.76V。
+
+用频谱仪观测DSB信号频谱如图 \ref{fig:23} 所示，可以看出DSB信号具有明显的抑制载波特征，几乎没有中心载波频率处的尖峰，只有两侧调制信号对应的峰。测得DSB信号单侧峰值与中心频率间的差值$\Delta f=4.967KHz$，近似等于调制信号频率$5KHz$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/22.png}
+    \caption{$u_o$波形}\label{fig:22}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/23.png}
+    \caption{DSB信号频谱图}\label{fig:23}
+\end{figure}
+\subsection{抑制载波的单边带（SSB）调幅信号的产生与检波}
+\subsubsection{测试465KHz陶瓷滤波器的幅频特性}
+\noindent 用频谱仪观测465KHz陶瓷滤波器的幅频特性曲线如图 \ref{fig:30} 所示，读出滤波器-3dB带宽为10.333KHz。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/30.png}
+    \caption{465KHz陶瓷滤波器的幅频特性曲线}\label{fig:30}
+\end{figure}
+\subsubsection{SSB波形及频谱观测}
+用示波器观察记录SSB信号 $u_\Omega,u_{DSB},u_{SSB},u_o$ 的波形如图 \ref{fig:31} 所示，记录信号参数如表 \ref{tab:4} 所示。\textbf{此处调节输入信号参数为：$f_c=435KHz,f_\Omega=30KHz$}。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/31.png}
+    \caption{SSB信号波形}\label{fig:31}
+\end{figure}
+
+
+\begin{table}[H]
+    \centering
+    \vspace{-1em}
+    \caption{SSB信号参数}
+    \label{tab:4}
+    \begin{tabular}{c|c|c}
+    \hline
+               & $Vpp$ & $f$       \\ \hline
+    $u_\Omega$ & 620mV & 30.135KHz \\ \hline
+    $u_{DSB}$  & 700mV &           \\ \hline
+    $u_{SSB}$  & 760mV &           \\ \hline
+    $u_o$      & 1.33V & 29.996KHz \\ \hline
+    \end{tabular}
+\end{table}
+
+调节同步检波模块的W5，观测$u_o$波形，W5右移，$u_o$波形整体向右发生相移，未观察到明显幅值变化。$u_o$波形幅度值保持在1.33V左右。
+
+用频谱仪观测SSB信号频谱如图 \ref{fig:33} 所示，可以看出SSB信号具有明显的抑制载波和单边带特征，几乎没有载波频率处的尖峰以及下边带尖峰，只保留了上边带尖峰。测得SSB信号上边带峰值频率为$f=464.67KHz$，与中心频率$435KHz$间的差值$\Delta f=29.67KHz$，近似等于调制信号频率$30KHz$。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{pics/33.png}
+    \caption{SSB信号频谱图}\label{fig:33}
+\end{figure}
+
+\subsection{二极管峰值检波器测试}
+观测二极管包络检波$u_{AM}$信号的波形如图 \ref{fig:41} 通道1所示，测量得到：$A_{max}=925mV,A_{min}=487.5mV$,$m=\dfrac{A_{max}-A_{min}}{A_{max}+A_{min}}=30.97\%$，
+输出信号$u_o$波形如图 \ref{fig:41} 通道4所示，测量得到输入AM信号正包络变化幅值 $\Delta U_{AMpp}=437.5mV$，输出电压幅值 $U_{opp}=960mV$，交流检波效率$k_\Omega=\dfrac{U_{opp}}{\Delta U_{AMpp}}=2.194$。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/41.png}
+    \caption{二极管包络检波输入输出信号波形}\label{fig:41}
+\end{figure}
+
+\vspace{-1em}
+在不同幅值输入高频正弦信号下，用示波器观察记录输入信号波形正半周幅值$U_{cm+}$，用万用表测量检波输出直流电压$V_o$如表 \ref{tab:5} 所示，计算直流检波效率 $k_d$，绘制$k_d\thicksim U_{cm+}$曲线如图 \ref{fig:42} 所示。
+\begin{table}[H]
+    \centering
+    \vspace{-1em}
+    \caption{二极管包络检波信号参数}
+    \label{tab:5}
+    \begin{tabular}{c|c|c|c|c|c}
+    \hline
+    输入高频幅值(Vpp)  & 1.0    & 1.5    & 2.0    & 2.5    & 3.0    \\ \hline
+    $U_{cm+}$(V) & 0.4775 & 0.6875 & 0.9000 & 1.1375 & 1.4400 \\ \hline
+    $V_o$(V)     & 0.234  & 0.700  & 1.200  & 1.700  & 2.200  \\ \hline
+    $k_d$        & 0.490  & 1.018  & 1.333  & 1.495  & 1.528  \\ \hline
+    \end{tabular}
+\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.57\textwidth]{pics/42.png}
+    \caption{$k_d\thicksim U_{cm+}$曲线}\label{fig:42}
+\end{figure}
+
+用示波器观测检波输出信号的波形，调节二极管包络检波直流负载W3，观察到对角线切割失真现象如图 \ref{fig:51} 通道2所示，记录信号峰峰值为800mV。调节二极管包络检波的交流负载W4，观察到底部切割失真现象如图 \ref{fig:52} 通道2所示，记录信号峰峰值为440mV。
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/51.png}
+    \caption{对角线切割失真现象}\label{fig:51}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/52.png}
+    \caption{底部切割失真现象}\label{fig:52}
+\end{figure}
+\newpage
+\section{第四部分 \texorpdfstring{\quad}{} 思考题}
+\begin{enumerate}[I.]
+
+    \item \textbf{简述乘法器调幅与集电极调幅/基极调幅有什么异同？}
+    
+    相同点：都属于幅度调制，通过一个低频信号调节高频信号的幅度。
+    
+    不同点：
+    \begin{enumerate}[(1)]
+        \item 乘法器调幅使用乘法器电路，电路较为复杂。集电极调幅/基极调幅通过晶体管的工作特性直接控制信号幅度。电路实现比较简单。
+        \item 乘法器调幅使用了乘法器电路，调制的精度较高，灵活性更强，适合对调制精度有较高要求的应用。集电极调幅/基极调幅直接依赖于晶体管的非线性特性，精度相对较低，并且调制深度的控制较为有限。
+        \item 乘法器调幅使用乘法器电路，使用差分对，受噪声影响较小，可靠性较高。集电极调幅/基极调幅相对更容易受到噪声的影响，可能导致调制信号失真或幅度变化。
+    \end{enumerate}
+    
+    \item \textbf{简述同步检波与峰值包络检波有什么异同？}
+    
+    相同点：两种方法均可用于从AM信号中提取原始的调制信号（基带信号）。还原载波信号调制的原始信息。
+
+    不同点：
+    \begin{enumerate}[(1)]
+    \item 工作原理不同。同步检波通过与载波信号同步的本地振荡器恢复基带信号。峰值包络检波使用二极管和电容提取调制信号的包络。
+    
+    \item 精度不同。同步检波精度较高，尤其适用于高质量信号传输。峰值包络检波精度较低，可能会受失真和噪声影响。
+    
+    \item 解调系统复杂度不同。同步检波需要精确的本地载波同步电路，设计复杂。峰值包络检波电路简单，通常只需二极管、电容和电阻即可。
+    
+    \item 抗噪声能力不同。同步检波抗噪性能较好，适合低信噪比的信号解调。峰值包络检波抗噪性能差，容易受噪声干扰。
+    
+    \item 对载波同步要求不同。同步检波对载波同步要求高，需要准确的相位和频率匹配。峰值包络检波不需要载波同步，仅检测信号包络。
+    
+    \item 适用场景不同。同步检波适用于高质量通信，如广播和数字通信系统。峰值包络检波适用于低成本、简单系统，如模拟无线电接收器。
+    \end{enumerate}
+
+    
+
+\end{enumerate}
+
+\end{document}

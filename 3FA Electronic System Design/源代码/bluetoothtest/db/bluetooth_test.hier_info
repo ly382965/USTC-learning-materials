@@ -1,0 +1,9 @@
+|bluetooth_test
+rxd => bt_rxd_emod0.DATAIN
+txd <= bt_txd_emod0.DB_MAX_OUTPUT_PORT_TYPE
+bt_rxd_emod0 <= rxd.DB_MAX_OUTPUT_PORT_TYPE
+bt_txd_emod0 => txd.DATAIN
+bt_at_emod0 <= <VCC>
+bt_sleep_emod0 <= <VCC>
+
+

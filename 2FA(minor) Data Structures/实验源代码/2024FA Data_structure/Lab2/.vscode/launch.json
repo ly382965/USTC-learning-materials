@@ -1,0 +1,83 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "Debug 1_Test",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/build/src/1_Test/1_Test.exe",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "miDebuggerPath": "D:\\work_software\\mingw64\\bin\\gdb.exe",// 需要修改成本地gdb.exe的路径，下面同理
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build",
+          "internalConsoleOptions": "openOnSessionStart",
+          "logging": {
+              "engineLogging": true
+          },
+          "visualizerFile": "${workspaceFolder}/.vscode/gdb_visualizers.visualizers"
+      },
+      {
+          "name": "Debug 2_Expression",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/build/src/2_Expression/2_Expression.exe",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "miDebuggerPath": "D:\\work_software\\mingw64\\bin\\gdb.exe",    // TO BE MODIFIED
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build",
+          "internalConsoleOptions": "openOnSessionStart",
+          "logging": {
+              "engineLogging": true
+          },
+          "visualizerFile": "${workspaceFolder}/.vscode/gdb_visualizers.visualizers"
+      },
+      {
+          "name": "Debug 3_Robot",
+          "type": "cppdbg",
+          "request": "launch",
+          "program": "${workspaceFolder}/build/src/3_Robot/3_Robot.exe",
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": false,
+          "MIMode": "gdb",
+          "miDebuggerPath": "D:\\work_software\\mingw64\\bin\\gdb.exe",    // TO BE MODIFIED
+          "setupCommands": [
+              {
+                  "description": "Enable pretty-printing for gdb",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              }
+          ],
+          "preLaunchTask": "build",
+          "internalConsoleOptions": "openOnSessionStart",
+          "logging": {
+              "engineLogging": true
+          },
+          "visualizerFile": "${workspaceFolder}/.vscode/gdb_visualizers.visualizers"
+      }
+  ]
+}

@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment5_MinimunSpanningTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\graph.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment5_MinimunSpanningTree\\source\\graph.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment5_MinimunSpanningTree/source/graph.cpp",
+  "output": "CMakeFiles/main.dir/source/graph.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment5_MinimunSpanningTree/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\main.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment5_MinimunSpanningTree\\source\\main.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment5_MinimunSpanningTree/source/main.cpp",
+  "output": "CMakeFiles/main.dir/source/main.cpp.obj"
+}
+]

@@ -1,0 +1,211 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "src",
+					"childIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-src-Debug-c94b7c2814d5a21df52c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src"
+				},
+				{
+					"build" : "src/structures",
+					"jsonFile" : "directory-src.structures-Debug-dc3b9da5f73b59c50242.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 1,
+					"source" : "src/structures",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "src/1_Test",
+					"jsonFile" : "directory-src.1_Test-Debug-561bedc440642d5d824b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 2,
+					"source" : "src/1_Test",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "src/2_Expression",
+					"jsonFile" : "directory-src.2_Expression-Debug-dde6163aed999e85fa72.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 3,
+					"source" : "src/2_Expression",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "src/3_Robot",
+					"jsonFile" : "directory-src.3_Robot-Debug-e79c7ffafcec94fc2ac0.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.14"
+					},
+					"parentIndex" : 1,
+					"projectIndex" : 4,
+					"source" : "src/3_Robot",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "DATA_STRUCTURE_LAB"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "structures",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						3
+					],
+					"name" : "1_Test",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						4
+					],
+					"name" : "2_Expression",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "3_Robot",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 3,
+					"id" : "1_Test::@dfd1ad418ac862d16a4a",
+					"jsonFile" : "target-1_Test-Debug-14654869ee766aface55.json",
+					"name" : "1_Test",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "2_Expression::@2830a4bf8f9754d02403",
+					"jsonFile" : "target-2_Expression-Debug-ea852f704f114a6579b8.json",
+					"name" : "2_Expression",
+					"projectIndex" : 3
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "3_Robot::@dfbfb78f604453ec8bdb",
+					"jsonFile" : "target-3_Robot-Debug-19629d76ed984bd62e6f.json",
+					"name" : "3_Robot",
+					"projectIndex" : 4
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "structures::@39e8018059144bd64ea7",
+					"jsonFile" : "target-structures-Debug-4881a74c9363cde7eed8.json",
+					"name" : "structures",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Codes/Data_structure/Lab2/build",
+		"source" : "D:/Codes/Data_structure/Lab2"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

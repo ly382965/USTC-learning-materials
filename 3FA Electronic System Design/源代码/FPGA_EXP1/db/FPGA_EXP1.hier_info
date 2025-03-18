@@ -1,0 +1,14 @@
+|FPGA_EXP1
+a => Decoder0.IN0
+b => Decoder0.IN1
+c => Decoder0.IN2
+y0 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y1 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y2 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y3 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y4 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y5 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y6 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+y7 <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+
+

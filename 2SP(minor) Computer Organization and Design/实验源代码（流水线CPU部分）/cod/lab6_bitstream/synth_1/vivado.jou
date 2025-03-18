@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed May  8 17:10:01 2024
+# Process ID: 18300
+# Current directory: D:/Codes/Verilog/lab6_bitstream/synth_1
+# Command line: vivado.exe -log TOP.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
+# Log file: D:/Codes/Verilog/lab6_bitstream/synth_1/TOP.vds
+# Journal file: D:/Codes/Verilog/lab6_bitstream/synth_1\vivado.jou
+#-----------------------------------------------------------
+source TOP.tcl -notrace

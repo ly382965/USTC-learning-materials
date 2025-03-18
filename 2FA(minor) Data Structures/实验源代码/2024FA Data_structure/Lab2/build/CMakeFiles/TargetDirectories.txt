@@ -1,0 +1,16 @@
+D:/Codes/Data_structure/Lab2/build/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/CMakeFiles/rebuild_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/CMakeFiles/rebuild_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/structures/CMakeFiles/structures.dir
+D:/Codes/Data_structure/Lab2/build/src/structures/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/structures/CMakeFiles/rebuild_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/1_Test/CMakeFiles/1_Test.dir
+D:/Codes/Data_structure/Lab2/build/src/1_Test/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/1_Test/CMakeFiles/rebuild_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/2_Expression/CMakeFiles/2_Expression.dir
+D:/Codes/Data_structure/Lab2/build/src/2_Expression/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/2_Expression/CMakeFiles/rebuild_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/3_Robot/CMakeFiles/3_Robot.dir
+D:/Codes/Data_structure/Lab2/build/src/3_Robot/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab2/build/src/3_Robot/CMakeFiles/rebuild_cache.dir

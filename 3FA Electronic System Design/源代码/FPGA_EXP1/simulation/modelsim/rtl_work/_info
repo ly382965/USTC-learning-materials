@@ -1,0 +1,62 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Codes/quartusII/FPGA_EXP1/simulation/modelsim
+T_opt
+!s110 1728389013
+VoBhY?2?889=ZoOEfz0aEN1
+04 12 4 work FPGA_EXP1_tb fast 0
+=1-8cb87eb5174c-67051f94-3a7-1834
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work +acc
+n@_opt
+OL;O;10.4;61
+vFPGA_EXP1
+Z1 !s110 1728389012
+!i10b 1
+!s100 aDahNGnhcEGP8m;e@lne62
+IW7`GJGnRLjz[;1HN>^YV01
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1728386407
+8D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1.v
+FD:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1.v
+L0 1
+Z3 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1728389012.341000
+!s107 D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Codes/quartusII/FPGA_EXP1|D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1.v|
+!i113 0
+Z4 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z5 !s92 -vlog01compat -work work +incdir+D:/Codes/quartusII/FPGA_EXP1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@f@p@g@a_@e@x@p1
+vFPGA_EXP1_tb
+R1
+!i10b 1
+!s100 iM99;mo=`H06XE6cSmCdT1
+IXNjV57?aAV[N13c7WTQdV2
+R2
+R0
+w1728387515
+8D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1_tb.v
+FD:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+!s108 1728389012.482000
+!s107 D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Codes/quartusII/FPGA_EXP1|D:/Codes/quartusII/FPGA_EXP1/FPGA_EXP1_tb.v|
+!i113 0
+R4
+R5
+n@f@p@g@a_@e@x@p1_tb

@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/Codes/Data_structure/Lab3/graph/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\main.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\graph\\src\\main.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/graph/src/main.cpp",
+  "output": "CMakeFiles/main.dir/src/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab3/graph/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\graph.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\graph\\src\\graph.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/graph/src/graph.cpp",
+  "output": "CMakeFiles/main.dir/src/graph.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Data_structure/Lab3/graph/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\dijkstra.cpp.obj -c D:\\Codes\\Data_structure\\Lab3\\graph\\src\\dijkstra.cpp",
+  "file": "D:/Codes/Data_structure/Lab3/graph/src/dijkstra.cpp",
+  "output": "CMakeFiles/main.dir/src/dijkstra.cpp.obj"
+}
+]

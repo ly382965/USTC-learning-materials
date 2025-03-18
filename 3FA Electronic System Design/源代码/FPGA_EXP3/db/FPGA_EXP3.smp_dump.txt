@@ -1,0 +1,37 @@
+
+State Machine - |FPGA_EXP3|seq_detector:detector|st
+Name st.s9 st.s8 st.s7 st.s6 st.s5 st.s4 st.s3 st.s2 st.s1 st.s0 
+st.s0 0 0 0 0 0 0 0 0 0 0 
+st.s1 0 0 0 0 0 0 0 0 1 1 
+st.s2 0 0 0 0 0 0 0 1 0 1 
+st.s3 0 0 0 0 0 0 1 0 0 1 
+st.s4 0 0 0 0 0 1 0 0 0 1 
+st.s5 0 0 0 0 1 0 0 0 0 1 
+st.s6 0 0 0 1 0 0 0 0 0 1 
+st.s7 0 0 1 0 0 0 0 0 0 1 
+st.s8 0 1 0 0 0 0 0 0 0 1 
+st.s9 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |FPGA_EXP3|seq_generator_2:gen2|st
+Name st.s7 st.s6 st.s5 st.s4 st.s3 st.s2 st.s1 st.s0 st.s8 
+st.s0 0 0 0 0 0 0 0 0 0 
+st.s1 0 0 0 0 0 0 1 1 0 
+st.s2 0 0 0 0 0 1 0 1 0 
+st.s3 0 0 0 0 1 0 0 1 0 
+st.s4 0 0 0 1 0 0 0 1 0 
+st.s5 0 0 1 0 0 0 0 1 0 
+st.s6 0 1 0 0 0 0 0 1 0 
+st.s7 1 0 0 0 0 0 0 1 0 
+st.s8 0 0 0 0 0 0 0 1 1 
+
+State Machine - |FPGA_EXP3|seq_generator:gen1|st
+Name st.s7 st.s6 st.s5 st.s4 st.s3 st.s2 st.s1 st.s0 st.s8 
+st.s0 0 0 0 0 0 0 0 0 0 
+st.s1 0 0 0 0 0 0 1 1 0 
+st.s2 0 0 0 0 0 1 0 1 0 
+st.s3 0 0 0 0 1 0 0 1 0 
+st.s4 0 0 0 1 0 0 0 1 0 
+st.s5 0 0 1 0 0 0 0 1 0 
+st.s6 0 1 0 0 0 0 0 1 0 
+st.s7 1 0 0 0 0 0 0 1 0 
+st.s8 0 0 0 0 0 0 0 1 1 

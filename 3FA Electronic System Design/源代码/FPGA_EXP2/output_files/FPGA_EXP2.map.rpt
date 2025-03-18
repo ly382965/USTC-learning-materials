@@ -1,0 +1,436 @@
+Analysis & Synthesis report for FPGA_EXP2
+Mon Oct 21 21:58:30 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                           ;
++-------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status         ; Successful - Mon Oct 21 21:58:30 2024            ;
+; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                       ; FPGA_EXP2                                        ;
+; Top-level Entity Name               ; FPGA_EXP2                                        ;
+; Family                              ; Cyclone V                                        ;
+; Logic utilization (in ALMs)         ; N/A                                              ;
+; Total registers                     ; 47                                               ;
+; Total pins                          ; 27                                               ;
+; Total virtual pins                  ; 0                                                ;
+; Total block memory bits             ; 0                                                ;
+; Total DSP Blocks                    ; 0                                                ;
+; Total HSSI RX PCSs                  ; 0                                                ;
+; Total HSSI PMA RX Deserializers     ; 0                                                ;
+; Total HSSI PMA RX ATT Deserializers ; 0                                                ;
+; Total HSSI TX PCSs                  ; 0                                                ;
+; Total HSSI PMA TX Serializers       ; 0                                                ;
+; Total HSSI PMA TX ATT Serializers   ; 0                                                ;
+; Total PLLs                          ; 0                                                ;
+; Total DLLs                          ; 0                                                ;
++-------------------------------------+--------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEFA2F23C8        ;                    ;
+; Top-level entity name                                                           ; FPGA_EXP2          ; FPGA_EXP2          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone IV GX      ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                       ; Off                ; Off                ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization                                                    ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Synthesis Seed                                                                  ; 1                  ; 1                  ;
+; Automatic Parallel Synthesis                                                    ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path             ; Library ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+; FPGA_EXP2.v                      ; yes             ; User Verilog HDL File  ; D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2.v ;         ;
++----------------------------------+-----------------+------------------------+------------------------------------------+---------+
+
+
++-------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                       ;
++---------------------------------------------+---------------------+
+; Resource                                    ; Usage               ;
++---------------------------------------------+---------------------+
+; Estimate of Logic utilization (ALMs needed) ; 95                  ;
+;                                             ;                     ;
+; Combinational ALUT usage for logic          ; 181                 ;
+;     -- 7 input functions                    ; 0                   ;
+;     -- 6 input functions                    ; 9                   ;
+;     -- 5 input functions                    ; 25                  ;
+;     -- 4 input functions                    ; 54                  ;
+;     -- <=3 input functions                  ; 93                  ;
+;                                             ;                     ;
+; Dedicated logic registers                   ; 47                  ;
+;                                             ;                     ;
+; I/O pins                                    ; 27                  ;
+; Total DSP Blocks                            ; 0                   ;
+; Maximum fan-out node                        ; reg_choose[2]~input ;
+; Maximum fan-out                             ; 40                  ;
+; Total fan-out                               ; 794                 ;
+; Average fan-out                             ; 2.82                ;
++---------------------------------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                   ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name             ; Library Name ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------+--------------+
+; |FPGA_EXP2                 ; 181 (63)          ; 47 (47)      ; 0                 ; 0          ; 27   ; 0            ; |FPGA_EXP2                      ; work         ;
+;    |LED_decoder:decoder1|  ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |FPGA_EXP2|LED_decoder:decoder1 ; work         ;
+;    |div50MHZ:div1|         ; 111 (111)         ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |FPGA_EXP2|div50MHZ:div1        ; work         ;
++----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++-----------------------------------------------------+----------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal  ; Free of Timing Hazards ;
++-----------------------------------------------------+----------------------+------------------------+
+; div50MHZ:div1|clkout                                ; div50MHZ:div1|clkout ; yes                    ;
+; div50MHZ:div1|cnt[28]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[29]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[30]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[31]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[15]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[16]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[17]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[18]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[19]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[20]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[21]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[22]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[23]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[24]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[25]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[26]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[27]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[13]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[14]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[9]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[10]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[11]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[12]                               ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[7]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[8]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[6]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[5]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[3]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[4]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[2]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[1]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; div50MHZ:div1|cnt[0]                                ; div50MHZ:div1|cnt[0] ; yes                    ;
+; Number of user-specified and inferred latches = 33  ;                      ;                        ;
++-----------------------------------------------------+----------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 47    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 32    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S7[2]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S6[3]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S5[0]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S4[1]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S3[3]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S2[0]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S1[0]            ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA_EXP2|data_S0[3]            ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |FPGA_EXP2|num[2]                ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |FPGA_EXP2|output_data[1]        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |FPGA_EXP2|div50MHZ:div1|cnt[31] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Mon Oct 21 21:58:28 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA_EXP2 -c FPGA_EXP2
+Info (11104): Parallel Compilation has detected 16 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 12 of the 12 physical processors detected instead.
+Info (12021): Found 3 design units, including 3 entities, in source file fpga_exp2.v
+    Info (12023): Found entity 1: FPGA_EXP2
+    Info (12023): Found entity 2: LED_decoder
+    Info (12023): Found entity 3: div50MHZ
+Info (12127): Elaborating entity "FPGA_EXP2" for the top level hierarchy
+Info (12128): Elaborating entity "div50MHZ" for hierarchy "div50MHZ:div1"
+Warning (10240): Verilog HDL Always Construct warning at FPGA_EXP2.v(134): inferring latch(es) for variable "cnt", which holds its previous value in one or more paths through the always construct
+Warning (10240): Verilog HDL Always Construct warning at FPGA_EXP2.v(134): inferring latch(es) for variable "clkout", which holds its previous value in one or more paths through the always construct
+Info (10041): Inferred latch for "clkout" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[0]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[1]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[2]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[3]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[4]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[5]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[6]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[7]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[8]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[9]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[10]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[11]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[12]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[13]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[14]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[15]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[16]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[17]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[18]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[19]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[20]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[21]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[22]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[23]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[24]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[25]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[26]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[27]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[28]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[29]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[30]" at FPGA_EXP2.v(134)
+Info (10041): Inferred latch for "cnt[31]" at FPGA_EXP2.v(134)
+Info (12128): Elaborating entity "LED_decoder" for hierarchy "LED_decoder:decoder1"
+Warning (13012): Latch div50MHZ:div1|clkout has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[28] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[29] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[30] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[31] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[15] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[16] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[17] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[18] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[19] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[20] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[21] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[22] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[23] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[24] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[25] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[26] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[27] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[13] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[14] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[9] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[10] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[11] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[12] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[7] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[8] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[6] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[5] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[3] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[4] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[2] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[1] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13012): Latch div50MHZ:div1|cnt[0] has unsafe behavior
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal clk
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "DP" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 208 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 181 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
+    Info: Peak virtual memory: 4679 megabytes
+    Info: Processing ended: Mon Oct 21 21:58:30 2024
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+

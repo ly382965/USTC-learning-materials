@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Apr  6 19:40:02 2024
+# Process ID: 16508
+# Current directory: D:/Codes/Verilog/lab2_ALU_calculator_2/lab2_ALU_calculator_2.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/Codes/Verilog/lab2_ALU_calculator_2/lab2_ALU_calculator_2.sim/sim_1/behav/xsim/xsim.dir/TOP_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/Codes/Verilog/lab2_ALU_calculator_2/lab2_ALU_calculator_2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/Codes/Verilog/lab2_ALU_calculator_2/lab2_ALU_calculator_2.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/Codes/Verilog/lab2_ALU_calculator_2/lab2_ALU_calculator_2.sim/sim_1/behav/xsim/xsim.dir/TOP_tb_behav/webtalk/xsim_webtalk.tcl -notrace

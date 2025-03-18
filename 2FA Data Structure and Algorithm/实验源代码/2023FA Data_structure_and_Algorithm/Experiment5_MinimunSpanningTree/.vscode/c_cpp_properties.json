@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "compilerPath": "D:\\work_software\\mingw64\\bin\\g++.exe",
+            "cppStandard": "c++23",
+            "includePath": [
+                "${{workspaceFolder}}/**"
+            ],
+            "intelliSenseMode": "windows-gcc-x64",
+            "name": "Win32",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

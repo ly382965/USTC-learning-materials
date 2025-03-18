@@ -1,0 +1,4 @@
+; Sample Initialization file for a 512*16 distributed ROM （注释行）
+memory_initialization_radix = 16;
+memory_initialization_vector =
+00000000;

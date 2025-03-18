@@ -1,0 +1,7 @@
+; Sample Initialization file for a 32x16 distributed ROM （注释行）
+memory_initialization_radix = 16;
+memory_initialization_vector =
+23f4 0721 11ff ABe1 0001 1 0A 0
+23f4 0721 11ff ABe1 0001 1 0A 0
+23f4 721 11ff ABe1 0001 1 A 0
+23f4 721 11ff ABe1 0001 1 A 0;

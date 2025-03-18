@@ -1,0 +1,150 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Mon Apr  1 16:22:25 2024
+# Process ID: 6704
+# Current directory: D:/Codes/Verilog/lab2_ALUcalculator/lab2_ALUcalculator.runs/impl_1
+# Command line: vivado.exe -log TOP.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source TOP.tcl -notrace
+# Log file: D:/Codes/Verilog/lab2_ALUcalculator/lab2_ALUcalculator.runs/impl_1/TOP.vdi
+# Journal file: D:/Codes/Verilog/lab2_ALUcalculator/lab2_ALUcalculator.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source TOP.tcl -notrace
+Command: link_design -top TOP -part xc7a100tcsg324-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 747.414 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 36 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/Codes/Verilog/lab2_ALUcalculator/lab2_ALUcalculator.srcs/constrs_1/new/lab2_cst.xdc]
+Finished Parsing XDC File [D:/Codes/Verilog/lab2_ALUcalculator/lab2_ALUcalculator.srcs/constrs_1/new/lab2_cst.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 869.492 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+7 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:03 ; elapsed = 00:00:14 . Memory (MB): peak = 873.488 ; gain = 429.562
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_op[0] has multiple drivers: alu_op_reg[0]/Q, and alu_op_reg[0]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_op[1] has multiple drivers: alu_op_reg[1]/Q, and alu_op_reg[1]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_op[2] has multiple drivers: alu_op_reg[2]/Q, and alu_op_reg[2]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_op[3] has multiple drivers: alu_op_reg[3]/Q, and alu_op_reg[3]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_op[4] has multiple drivers: alu_op_reg[4]__0/Q, and alu_op_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[0] has multiple drivers: alu_res2_reg[0]/Q, and alu_res2_reg[0]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[10] has multiple drivers: alu_res2_reg[10]__0/Q, and alu_res2_reg[10]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[11] has multiple drivers: alu_res2_reg[11]/Q, and alu_res2_reg[11]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[12] has multiple drivers: alu_res2_reg[12]/Q, and alu_res2_reg[12]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[13] has multiple drivers: alu_res2_reg[13]__0/Q, and alu_res2_reg[13]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[14] has multiple drivers: alu_res2_reg[14]/Q, and alu_res2_reg[14]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[15] has multiple drivers: alu_res2_reg[15]/Q, and alu_res2_reg[15]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[16] has multiple drivers: alu_res2_reg[16]/Q, and alu_res2_reg[16]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[17] has multiple drivers: alu_res2_reg[17]/Q, and alu_res2_reg[17]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[18] has multiple drivers: alu_res2_reg[18]/Q, and alu_res2_reg[18]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[19] has multiple drivers: alu_res2_reg[19]__0/Q, and alu_res2_reg[19]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[1] has multiple drivers: alu_res2_reg[1]__0/Q, and alu_res2_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[20] has multiple drivers: alu_res2_reg[20]/Q, and alu_res2_reg[20]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[21] has multiple drivers: alu_res2_reg[21]__0/Q, and alu_res2_reg[21]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[22] has multiple drivers: alu_res2_reg[22]__0/Q, and alu_res2_reg[22]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[23] has multiple drivers: alu_res2_reg[23]/Q, and alu_res2_reg[23]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[24] has multiple drivers: alu_res2_reg[24]__0/Q, and alu_res2_reg[24]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[25] has multiple drivers: alu_res2_reg[25]__0/Q, and alu_res2_reg[25]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[26] has multiple drivers: alu_res2_reg[26]__0/Q, and alu_res2_reg[26]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[27] has multiple drivers: alu_res2_reg[27]__0/Q, and alu_res2_reg[27]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[28] has multiple drivers: alu_res2_reg[28]/Q, and alu_res2_reg[28]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[29] has multiple drivers: alu_res2_reg[29]/Q, and alu_res2_reg[29]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[2] has multiple drivers: alu_res2_reg[2]__0/Q, and alu_res2_reg[2]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[30] has multiple drivers: alu_res2_reg[30]/Q, and alu_res2_reg[30]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[31] has multiple drivers: alu_res2_reg[31]__0/Q, and alu_res2_reg[31]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[3] has multiple drivers: alu_res2_reg[3]__0/Q, and alu_res2_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[4] has multiple drivers: alu_res2_reg[4]/Q, and alu_res2_reg[4]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[5] has multiple drivers: alu_res2_reg[5]__0/Q, and alu_res2_reg[5]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[6] has multiple drivers: alu_res2_reg[6]/Q, and alu_res2_reg[6]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[7] has multiple drivers: alu_res2_reg[7]/Q, and alu_res2_reg[7]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[8] has multiple drivers: alu_res2_reg[8]/Q, and alu_res2_reg[8]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_res2[9] has multiple drivers: alu_res2_reg[9]__0/Q, and alu_res2_reg[9]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[0] has multiple drivers: alu_src0_reg[0]__0/Q, and alu_src0_reg[0]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[10] has multiple drivers: alu_src0_reg[10]/Q, and alu_src0_reg[10]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[11] has multiple drivers: alu_src0_reg[11]/Q, and alu_src0_reg[11]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[12] has multiple drivers: alu_src0_reg[12]/Q, and alu_src0_reg[12]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[13] has multiple drivers: alu_src0_reg[13]__0/Q, and alu_src0_reg[13]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[14] has multiple drivers: alu_src0_reg[14]/Q, and alu_src0_reg[14]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[15] has multiple drivers: alu_src0_reg[15]/Q, and alu_src0_reg[15]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[16] has multiple drivers: alu_src0_reg[16]__0/Q, and alu_src0_reg[16]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[17] has multiple drivers: alu_src0_reg[17]__0/Q, and alu_src0_reg[17]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[18] has multiple drivers: alu_src0_reg[18]__0/Q, and alu_src0_reg[18]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[19] has multiple drivers: alu_src0_reg[19]/Q, and alu_src0_reg[19]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[1] has multiple drivers: alu_src0_reg[1]__0/Q, and alu_src0_reg[1]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[20] has multiple drivers: alu_src0_reg[20]/Q, and alu_src0_reg[20]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[21] has multiple drivers: alu_src0_reg[21]/Q, and alu_src0_reg[21]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[22] has multiple drivers: alu_src0_reg[22]/Q, and alu_src0_reg[22]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[23] has multiple drivers: alu_src0_reg[23]__0/Q, and alu_src0_reg[23]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[24] has multiple drivers: alu_src0_reg[24]__0/Q, and alu_src0_reg[24]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[25] has multiple drivers: alu_src0_reg[25]/Q, and alu_src0_reg[25]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[26] has multiple drivers: alu_src0_reg[26]__0/Q, and alu_src0_reg[26]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[27] has multiple drivers: alu_src0_reg[27]__0/Q, and alu_src0_reg[27]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[28] has multiple drivers: alu_src0_reg[28]/Q, and alu_src0_reg[28]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[29] has multiple drivers: alu_src0_reg[29]/Q, and alu_src0_reg[29]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[2] has multiple drivers: alu_src0_reg[2]/Q, and alu_src0_reg[2]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[30] has multiple drivers: alu_src0_reg[30]__0/Q, and alu_src0_reg[30]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[31] has multiple drivers: alu_src0_reg[31]/Q, and alu_src0_reg[31]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[3] has multiple drivers: alu_src0_reg[3]/Q, and alu_src0_reg[3]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[4] has multiple drivers: alu_src0_reg[4]__0/Q, and alu_src0_reg[4]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[5] has multiple drivers: alu_src0_reg[5]/Q, and alu_src0_reg[5]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[6] has multiple drivers: alu_src0_reg[6]__0/Q, and alu_src0_reg[6]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[7] has multiple drivers: alu_src0_reg[7]/Q, and alu_src0_reg[7]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[8] has multiple drivers: alu_src0_reg[8]__0/Q, and alu_src0_reg[8]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src0[9] has multiple drivers: alu_src0_reg[9]__0/Q, and alu_src0_reg[9]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[0] has multiple drivers: alu_src1_reg[0]/Q, and alu_src1_reg[0]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[10] has multiple drivers: alu_src1_reg[10]__0/Q, and alu_src1_reg[10]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[11] has multiple drivers: alu_src1_reg[11]__0/Q, and alu_src1_reg[11]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[12] has multiple drivers: alu_src1_reg[12]__0/Q, and alu_src1_reg[12]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[13] has multiple drivers: alu_src1_reg[13]__0/Q, and alu_src1_reg[13]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[14] has multiple drivers: alu_src1_reg[14]/Q, and alu_src1_reg[14]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[15] has multiple drivers: alu_src1_reg[15]__0/Q, and alu_src1_reg[15]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[16] has multiple drivers: alu_src1_reg[16]/Q, and alu_src1_reg[16]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[17] has multiple drivers: alu_src1_reg[17]/Q, and alu_src1_reg[17]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[18] has multiple drivers: alu_src1_reg[18]/Q, and alu_src1_reg[18]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[19] has multiple drivers: alu_src1_reg[19]/Q, and alu_src1_reg[19]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[1] has multiple drivers: alu_src1_reg[1]/Q, and alu_src1_reg[1]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[20] has multiple drivers: alu_src1_reg[20]/Q, and alu_src1_reg[20]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[21] has multiple drivers: alu_src1_reg[21]/Q, and alu_src1_reg[21]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[22] has multiple drivers: alu_src1_reg[22]__0/Q, and alu_src1_reg[22]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[23] has multiple drivers: alu_src1_reg[23]__0/Q, and alu_src1_reg[23]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[24] has multiple drivers: alu_src1_reg[24]/Q, and alu_src1_reg[24]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[25] has multiple drivers: alu_src1_reg[25]__0/Q, and alu_src1_reg[25]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[26] has multiple drivers: alu_src1_reg[26]/Q, and alu_src1_reg[26]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[27] has multiple drivers: alu_src1_reg[27]/Q, and alu_src1_reg[27]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[28] has multiple drivers: alu_src1_reg[28]__0/Q, and alu_src1_reg[28]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[29] has multiple drivers: alu_src1_reg[29]/Q, and alu_src1_reg[29]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[2] has multiple drivers: alu_src1_reg[2]/Q, and alu_src1_reg[2]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[30] has multiple drivers: alu_src1_reg[30]/Q, and alu_src1_reg[30]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[31] has multiple drivers: alu_src1_reg[31]/Q, and alu_src1_reg[31]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[3] has multiple drivers: alu_src1_reg[3]__0/Q, and alu_src1_reg[3]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[4] has multiple drivers: alu_src1_reg[4]/Q, and alu_src1_reg[4]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[5] has multiple drivers: alu_src1_reg[5]/Q, and alu_src1_reg[5]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[6] has multiple drivers: alu_src1_reg[6]/Q, and alu_src1_reg[6]__0/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[7] has multiple drivers: alu_src1_reg[7]__0/Q, and alu_src1_reg[7]/Q.
+ERROR: [DRC MDRV-1] Multiple Driver Nets: Net alu_src1[8] has multiple drivers: alu_src1_reg[8]__0/Q, and alu_src1_reg[8]/Q.
+INFO: [Common 17-14] Message 'DRC MDRV-1' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Project 1-461] DRC finished with 101 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.647 . Memory (MB): peak = 889.480 ; gain = 15.992
+INFO: [Common 17-83] Releasing license: Implementation
+13 Infos, 0 Warnings, 0 Critical Warnings and 101 Errors encountered.
+opt_design failed
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+INFO: [Common 17-206] Exiting Vivado at Mon Apr  1 16:22:46 2024...

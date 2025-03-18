@@ -1,0 +1,20 @@
+[
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/build",
+  "command": "D:\\work_software\\mingw64\\bin\\c++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\huffman.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment4_HuffmanCoding\\source\\huffman.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/source/huffman.cpp",
+  "output": "CMakeFiles/main.dir/source/huffman.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/build",
+  "command": "D:\\work_software\\mingw64\\bin\\c++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\main.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment4_HuffmanCoding\\source\\main.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/source/main.cpp",
+  "output": "CMakeFiles/main.dir/source/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/build",
+  "command": "D:\\work_software\\mingw64\\bin\\c++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\sqstack.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment4_HuffmanCoding\\source\\sqstack.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment4_HuffmanCoding/source/sqstack.cpp",
+  "output": "CMakeFiles/main.dir/source/sqstack.cpp.obj"
+}
+]

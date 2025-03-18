@@ -1,0 +1,8 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sources_1/new/Counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sim_1/new/Counter_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ALU_tb
+ERROR: [VRFC 10-4982] syntax error near '#' [D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sim_1/new/Counter_tb.v:46]
+WARNING: [VRFC 10-994] loop statement with empty body is not permitted in this mode of verilog [D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sim_1/new/Counter_tb.v:44]
+ERROR: [VRFC 10-4982] syntax error near '}' [D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sim_1/new/Counter_tb.v:48]
+ERROR: [VRFC 10-2865] module 'ALU_tb' ignored due to previous errors [D:/Codes/Verilog/lab2_ALU/lab2_ALU.srcs/sim_1/new/Counter_tb.v:24]

@@ -1,0 +1,165 @@
+|FPGA_EXP4
+clk => clk.IN1
+rst => rst.IN2
+row_signal[0] => row_signal[0].IN1
+row_signal[1] => row_signal[1].IN1
+row_signal[2] => row_signal[2].IN1
+row_signal[3] => row_signal[3].IN1
+col_signal[0] <= FPGA_EXP4_core:fpga.col_signal
+col_signal[1] <= FPGA_EXP4_core:fpga.col_signal
+col_signal[2] <= FPGA_EXP4_core:fpga.col_signal
+col_signal[3] <= FPGA_EXP4_core:fpga.col_signal
+LED_data[0] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[1] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[2] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[3] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[4] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[5] <= FPGA_EXP4_core:fpga.LED_data
+LED_data[6] <= FPGA_EXP4_core:fpga.LED_data
+LED_sel <= FPGA_EXP4_core:fpga.LED_sel
+
+
+|FPGA_EXP4|div50MHZ:div
+clk => clkout~reg0.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+clk => cnt[11].CLK
+clk => cnt[12].CLK
+clk => cnt[13].CLK
+clk => cnt[14].CLK
+clk => cnt[15].CLK
+clk => cnt[16].CLK
+clk => cnt[17].CLK
+clk => cnt[18].CLK
+clk => cnt[19].CLK
+clk => cnt[20].CLK
+clk => cnt[21].CLK
+clk => cnt[22].CLK
+clk => cnt[23].CLK
+clk => cnt[24].CLK
+clk => cnt[25].CLK
+clk => cnt[26].CLK
+clk => cnt[27].CLK
+clk => cnt[28].CLK
+clk => cnt[29].CLK
+clk => cnt[30].CLK
+clk => cnt[31].CLK
+rst => clkout~reg0.ACLR
+rst => cnt[0].ACLR
+rst => cnt[1].ACLR
+rst => cnt[2].ACLR
+rst => cnt[3].ACLR
+rst => cnt[4].ACLR
+rst => cnt[5].ACLR
+rst => cnt[6].ACLR
+rst => cnt[7].ACLR
+rst => cnt[8].ACLR
+rst => cnt[9].ACLR
+rst => cnt[10].ACLR
+rst => cnt[11].ACLR
+rst => cnt[12].ACLR
+rst => cnt[13].ACLR
+rst => cnt[14].ACLR
+rst => cnt[15].ACLR
+rst => cnt[16].ACLR
+rst => cnt[17].ACLR
+rst => cnt[18].ACLR
+rst => cnt[19].ACLR
+rst => cnt[20].ACLR
+rst => cnt[21].ACLR
+rst => cnt[22].ACLR
+rst => cnt[23].ACLR
+rst => cnt[24].ACLR
+rst => cnt[25].ACLR
+rst => cnt[26].ACLR
+rst => cnt[27].ACLR
+rst => cnt[28].ACLR
+rst => cnt[29].ACLR
+rst => cnt[30].ACLR
+rst => cnt[31].ACLR
+clkout <= clkout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP4|FPGA_EXP4_core:fpga
+clk => col_signal[0]~reg0.CLK
+clk => col_signal[1]~reg0.CLK
+clk => col_signal[2]~reg0.CLK
+clk => col_signal[3]~reg0.CLK
+clk => st~1.DATAIN
+clk => position[0].CLK
+clk => position[1].CLK
+clk => position[2].CLK
+clk => position[3].CLK
+rst => position[0].PRESET
+rst => position[1].ACLR
+rst => position[2].PRESET
+rst => position[3].PRESET
+rst => st~3.DATAIN
+rst => col_signal[3]~reg0.ENA
+rst => col_signal[2]~reg0.ENA
+rst => col_signal[1]~reg0.ENA
+rst => col_signal[0]~reg0.ENA
+row_signal[0] => Mux2.IN18
+row_signal[0] => Mux3.IN18
+row_signal[0] => Mux4.IN18
+row_signal[0] => Mux5.IN18
+row_signal[1] => Mux2.IN17
+row_signal[1] => Mux3.IN17
+row_signal[1] => Mux4.IN17
+row_signal[1] => Mux5.IN17
+row_signal[2] => Mux2.IN16
+row_signal[2] => Mux3.IN16
+row_signal[2] => Mux4.IN16
+row_signal[2] => Mux5.IN16
+row_signal[3] => Mux2.IN15
+row_signal[3] => Mux3.IN15
+row_signal[3] => Mux4.IN15
+row_signal[3] => Mux5.IN15
+col_signal[0] <= col_signal[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+col_signal[1] <= col_signal[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+col_signal[2] <= col_signal[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+col_signal[3] <= col_signal[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+LED_data[0] <= LED_decoder:decoder.out
+LED_data[1] <= LED_decoder:decoder.out
+LED_data[2] <= LED_decoder:decoder.out
+LED_data[3] <= LED_decoder:decoder.out
+LED_data[4] <= LED_decoder:decoder.out
+LED_data[5] <= LED_decoder:decoder.out
+LED_data[6] <= LED_decoder:decoder.out
+LED_sel <= <VCC>
+
+
+|FPGA_EXP4|FPGA_EXP4_core:fpga|position_data:pos_data
+position[0] => Decoder0.IN3
+position[1] => Decoder0.IN2
+position[2] => Decoder0.IN1
+position[3] => Decoder0.IN0
+data[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+data[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+data[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+data[3] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP4|FPGA_EXP4_core:fpga|LED_decoder:decoder
+in[0] => Decoder0.IN3
+in[1] => Decoder0.IN2
+in[2] => Decoder0.IN1
+in[3] => Decoder0.IN0
+out[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+out[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+out[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+out[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

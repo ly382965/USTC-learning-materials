@@ -1,0 +1,11 @@
+vendor_name = ModelSim
+source_file = 1, D:/Codes/quartusII/bluetoothtest/bluetooth_test.v
+source_file = 1, D:/Codes/quartusII/bluetoothtest/db/bluetooth_test.cbx.xml
+design_name = bluetooth_test
+instance = comp, \txd~output , txd~output, bluetooth_test, 1
+instance = comp, \bt_rxd_emod0~output , bt_rxd_emod0~output, bluetooth_test, 1
+instance = comp, \bt_at_emod0~output , bt_at_emod0~output, bluetooth_test, 1
+instance = comp, \bt_sleep_emod0~output , bt_sleep_emod0~output, bluetooth_test, 1
+instance = comp, \bt_txd_emod0~input , bt_txd_emod0~input, bluetooth_test, 1
+instance = comp, \rxd~input , rxd~input, bluetooth_test, 1
+instance = comp, \~QUARTUS_CREATED_GND~I , ~QUARTUS_CREATED_GND~I, bluetooth_test, 1

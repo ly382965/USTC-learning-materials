@@ -1,0 +1,140 @@
+Flow report for FPGA_EXP4
+Mon Nov 04 14:42:26 2024
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; Flow Summary                                                                           ;
++-------------------------------------+--------------------------------------------------+
+; Flow Status                         ; Successful - Mon Nov 04 14:42:26 2024            ;
+; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                       ; FPGA_EXP4                                        ;
+; Top-level Entity Name               ; FPGA_EXP4                                        ;
+; Family                              ; Cyclone V                                        ;
+; Device                              ; 5CEFA2F23C8                                      ;
+; Timing Models                       ; Final                                            ;
+; Logic utilization (in ALMs)         ; 40 / 9,430 ( < 1 % )                             ;
+; Total registers                     ; 50                                               ;
+; Total pins                          ; 18 / 224 ( 8 % )                                 ;
+; Total virtual pins                  ; 0                                                ;
+; Total block memory bits             ; 0 / 1,802,240 ( 0 % )                            ;
+; Total DSP Blocks                    ; 0 / 25 ( 0 % )                                   ;
+; Total HSSI RX PCSs                  ; 0                                                ;
+; Total HSSI PMA RX Deserializers     ; 0                                                ;
+; Total HSSI PMA RX ATT Deserializers ; 0                                                ;
+; Total HSSI TX PCSs                  ; 0                                                ;
+; Total HSSI PMA TX Serializers       ; 0                                                ;
+; Total HSSI PMA TX ATT Serializers   ; 0                                                ;
+; Total PLLs                          ; 0 / 4 ( 0 % )                                    ;
+; Total DLLs                          ; 0 / 4 ( 0 % )                                    ;
++-------------------------------------+--------------------------------------------------+
+
+
++-----------------------------------------+
+; Flow Settings                           ;
++-------------------+---------------------+
+; Option            ; Setting             ;
++-------------------+---------------------+
+; Start date & time ; 11/04/2024 14:41:22 ;
+; Main task         ; Compilation         ;
+; Revision Name     ; FPGA_EXP4           ;
++-------------------+---------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                      ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                           ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 154724027668304.173070248202292 ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                              ; --            ; --          ; FPGA_EXP4_tb   ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; FPGA_EXP4_tb                    ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim (Verilog)              ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                 ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; FPGA_EXP4_tb.v                  ; --            ; --          ; FPGA_EXP4_tb   ;
+; EDA_TEST_BENCH_MODULE_NAME           ; FPGA_EXP4_tb                    ; --            ; --          ; FPGA_EXP4_tb   ;
+; EDA_TEST_BENCH_NAME                  ; FPGA_EXP4_tb                    ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 100 ms                          ; --            ; --          ; FPGA_EXP4_tb   ;
+; EDA_TIME_SCALE                       ; 1 ps                            ; --            ; --          ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                              ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                               ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; 16764057                        ; --            ; --          ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING           ; --            ; --          ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                          ; --            ; --          ; Top            ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                    ; --            ; --          ; --             ;
++--------------------------------------+---------------------------------+---------------+-------------+----------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                             ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4679 MB             ; 00:00:01                           ;
+; Fitter                    ; 00:00:39     ; 1.9                     ; 6456 MB             ; 00:00:23                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 4721 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:10     ; 1.0                     ; 5235 MB             ; 00:00:06                           ;
+; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4601 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:00     ; --                      ; --                  ; 00:00:33                           ;
++---------------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                        ;
++---------------------------+------------------+-----------+------------+----------------+
+; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
++---------------------------+------------------+-----------+------------+----------------+
+; Analysis & Synthesis      ; DESKTOP-6KORK05  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DESKTOP-6KORK05  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DESKTOP-6KORK05  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-6KORK05  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-6KORK05  ; Windows 7 ; 6.2        ; x86_64         ;
++---------------------------+------------------+-----------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off FPGA_EXP4 -c FPGA_EXP4
+quartus_fit --read_settings_files=off --write_settings_files=off FPGA_EXP4 -c FPGA_EXP4
+quartus_asm --read_settings_files=off --write_settings_files=off FPGA_EXP4 -c FPGA_EXP4
+quartus_sta FPGA_EXP4 -c FPGA_EXP4
+quartus_eda --read_settings_files=off --write_settings_files=off FPGA_EXP4 -c FPGA_EXP4
+
+
+

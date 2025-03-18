@@ -1,0 +1,1258 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 现代通信原理}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cccccc}
+         & \multicolumn{4}{c}{\textbf{基于软件无线电平台的ASK数字调制通信系统设计}} &  \vspace{1ex}\\
+信息科学技术学院  & \multicolumn{4}{c}{ } & 2024年12月12日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\setcounter{MaxMatrixCols}{14}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\definecolor{shadecolor}{RGB}{241, 241, 255}
+\definecolor{NavyBlue}{RGB}{0, 0, 128}
+\definecolor{PineGreen}{RGB}{11,211,11}
+\definecolor{Rhodamine}{RGB}{225,0,152}
+\definecolor{black}{RGB}{0,0,0}
+\definecolor{white}{RGB}{255,255,255}
+\newcounter{problemname}
+\newenvironment{code}{
+    \begin{center}
+    \begin{minipage}[r]{0.9\linewidth}
+        {\centering\noindent\rule{\linewidth}{0.5pt}} %代码区上横线
+        }{
+    {\centering\noindent\rule{\linewidth}{0.5pt}}   %代码区下横线
+    \end{minipage}
+    \end{center}
+}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+  language=matlab,                % the language of the code
+  basicstyle=\ttfamily,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\color{gray}\ttfamily,  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  commentstyle=\color{dkgreen},       % comment style
+  stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...}               % if you want to add more keywords to the set
+}
+
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        
+        \zihao{1}\textbf{基于软件无线电平台的ASK数字调制通信系统设计} \\
+        \zihao{2}\textbf{现代通信原理综合实验 \quad 实验报告} \\
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{报告人：}    \hspace{-0.5cm}	&\dlmu[5cm]{ } \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年12月12日}\vspace{1ex}\\
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{第一部分 \texorpdfstring{\quad}{} 综合设计目的}
+
+\begin{enumerate}
+    \item 巩固通信原理的基础理论知识，将理论知识应用到实践中
+    \item 通过软硬结合的方式，构建ASK数字调制通信系统
+    \item 掌握通过LabVIEW软件和XSRP软件无线电平台实现通信系统的方法
+\end{enumerate}
+
+\section{第二部分 \texorpdfstring{\quad}{} 综合设计内容}
+
+首先选择源文件类型，可选择的文件类型有语音、图片、文本文字，对语音使用PCM非均匀量化编码，对图片数据使用哈夫曼编码或者不编码，对文字数据使用LabVIEW自带的码型变换工具，得到比特数据。
+
+比特数据分帧后对每帧的比特数据处理，先添加CRC校验码，然后进行信道编码，可选择汉明码编码或循环码编码，之后加入同步码，上采样，进行ASK调制，得到待发送信号。
+
+生成的待发送信号数据通过以太网发送到XSRP软件无线电平台，在软件无线电平台中完成已调信号数据DA转换、上变频载波调制、射频在指定频率将信号通过天线发射出去。
+
+无线信号经过空中无线信道，再通过射频的接收天线在对应的频点将数据接收、下变频、低通滤波、AD转换得到待接收信号。接收的ASK信号通过以太网发送到电脑。在电脑上对接收信号进行处理，包括乘以相干载波、帧同步、抽样判决、去同步码、信道译码、CRC校验、还原比特数据，之后对比特数据转换为音频、图片、文字进行还原。
+
+本系统使用MATLAB构建。
+
+\section{第三部分 \texorpdfstring{\quad}{} 基础算法部分}
+
+\subsection{ASK信号调制算法的设计与实现}
+\label{para.3.1}
+
+振幅键控其原理是利用载波的幅度变换来转递数字信息，而其频率和初始相位保持不变，在2ASK中，载波的幅度只有两种变化状态，分别对应二进制信息“0”和“1”。一种常用的、也是最简单的二进制振幅键控方式称为通—断键控（OOK），其表达式为：
+
+\begin{equation*}
+    e_{ook}(t)=\begin{cases}
+                Acos\omega_c t& \text{以概率P发送“1”时}\\
+                0& \text{以概率1-p发送“0”时候}
+                \end{cases}
+\end{equation*}
+
+2ASK信号的一般表达式为：
+$$e_{2ASK}=s(t)cos\omega_ct$$。
+
+其中：
+
+$$s\left(t\right)=\ \sum_{n}{a_n g(t-n T_B))}$$
+
+$T_B$为码元持续时间；g(t)为持续时间为$T_B$的基带脉冲波形。
+
+根据此可以编写下面的matlab代码。代码文件名为ASK\_Modulation.m。载波频率为2048。对输入数据进行补0，若长度不足30720长度，则在输入数据后面补0至长度为30720，若长度大于30720则截去大于30720的部分。时间dt的范围为1/30720 - 1。
+
+matlab代码如下所示：
+
+\begin{lstlisting}[title=ASK\_Modulation.m, frame=shadowbox]
+% Parameter List:       
+% Output Parameter
+%    output_data    经ASK调制后的信号
+% Input Parameter
+%    input_data	    输入待调制信号
+function output_data = ASK_Modulation(input_data)
+    %%%%% 对数据不满30720的进行填充
+    N=30720;%目标长度
+    input_length = length(input_data); % 获取输入数据长度
+    if input_length < N
+        input_data = [input_data, zeros(1, N - input_length)]; % 用零填充
+    end
+    
+    %%%%% 调制参数设置
+    fc = 2048;    % 载波频率
+    A = 1;        % 载波幅度
+    
+    %%%%% 复数载波信号生成
+    dt = 1 / N;               % 计算时间间隔
+    t = 0:dt:(N-1)*dt;         % 时间序列
+    carrier_signal = exp(1j * 2*pi * fc * t); 
+    
+    %%%%% 调制过程
+    output_data = zeros(1, N); 
+    for i = 1:input_length
+        if input_data(i) == 1
+            output_data(i) = A * carrier_signal(i); % 对应比特为1时调制
+        else
+            output_data(i) = 0; % 对应比特为0时调制
+        end
+    end
+end
+\end{lstlisting}
+
+\subsection{ASK信号解调算法的设计与实现}
+\label{para.3.2}
+
+本次实验使用同步检波方法实现解调，解调的流程图如下所示：
+
+\begin{figure}[H]
+    \centering
+    
+    \includegraphics[width=0.75\textwidth]{pics/1.png}
+    \caption{ASK同步检波解调}\label{fig:1}
+
+\end{figure}
+
+ASK\_DeModulation.m 文件对ASK调制信号进行点乘载波与低通滤波。
+
+载波频率为2048，低通滤波时，先生成频域上的低通滤波器，通带为$-R_s$ - $+R_s$之间，将时域信号通过FFT变换到频域，再与滤波器相乘，最后进行IFFT变换得到滤波后时域信号。$F_s$=30720，$R_s$=3072。
+
+matlab代码如下所示：
+
+\begin{lstlisting}[title=ASK\_DeModulation.m, frame=shadowbox]
+%  Parameter List:       
+%     Output Parameter
+%        data	        解调后信号
+%     Input Parameter
+%        input_data     经信道传输后的信号
+function data = ASK_DeModulation(input_data)
+
+    N = 30720;                % 帧样点数据长度
+    Rs = 3072;                % 截止频率
+    fc = 2048;                % 载波频率
+
+    % 对数据长度标准化
+    if length(input_data) < N
+        input_data = [input_data, zeros(1, N - length(input_data))]; % 补零
+    elseif length(input_data) > N
+        input_data = input_data(1:N); % 截取
+    end
+
+    % 本地载波
+    dt = 1 / N;               
+    t = 0:dt:(N-1)*dt;         
+    carrier_signal = cos(2 * pi * fc * t); % 实数载波信号
+
+    % 相干解调：信号点乘载波
+    demodulated_signal = input_data .* carrier_signal;
+
+    % 低通滤波器（频域）
+    freq_axis = (-N/2:N/2-1);            % 频率轴
+    lpf = abs(freq_axis) <= Rs;          % 理想低通滤波器：通带为 [-Rs, Rs]
+
+    % 时域信号通过FFT变换到频域信号
+    fft_signal = fftshift(fft(demodulated_signal));
+
+    % 低通滤波
+    data_freq = fft_signal .* lpf;
+
+    % 频域信号IFFT变换得到时域信号
+    data = ifft(ifftshift(data_freq), 'symmetric');
+
+end
+\end{lstlisting}
+
+ASK\_Sync.m 文件 对ASK调制信号进行帧同步将每帧对齐。
+
+先将同步码变为极性码(1变成1，0变成-1)，再计算编码后比特长度len，将数据复制一份便于搜索同步码位置，相关峰长度设定为30720，将同步码变换后信号进行滑动相关运算，寻找峰值即帧头位置pos。从pos位置取数据，一直取到len*UpSampleRate。
+
+matlab代码如下所示：
+
+\begin{lstlisting}[title=ASK\_Sync.m, frame=shadowbox]
+%  Parameter List:       
+%      Output Parameter
+%         output_data	  经ASK调制后的信号
+%      Input Parameter
+%         input_data	  滤波后信号
+%         UpSampleRate  一个码元周期内样点数
+%         bitLen            信源数据一帧的长度
+%         n                     汉明码的码组长度
+%         crc_num        CRC校验码的码长
+%         code_model  信道编码方式   0代表汉明码  1代表循环码
+%         Preamble      同步码
+%         PreambleLen  同步码的长度
+function output_data = ASK_Sync(input_data, UpSampleRate, bitLen, n, crc_num, code_model, Preamble, PreambleLen)
+
+    % 将同步码转为极性码（1变1，0变-1）
+    PreamblePolar = 2 * Preamble - 1;
+  
+    % 计算编码后比特长度
+    if code_model == 0
+        if n == 7
+            len = floor((bitLen + crc_num) / 4) * 7 + mod(bitLen + crc_num, 4) + PreambleLen;
+        elseif n == 12
+            len = floor((bitLen + crc_num) / 8) * 12 + mod(bitLen + crc_num, 8) + PreambleLen;
+        else
+            error('Unsupported n.');
+        end
+    elseif code_model == 1
+        len = floor((bitLen + crc_num) / 4) * 7 + mod(bitLen + crc_num, 4) + PreambleLen;
+    else
+        error('Unsupported code_model.');
+    end
+    
+    % 将解调后的数据进行复制一份
+    input_data = [input_data, input_data];
+    % 搜索长度
+    N= 30720;
+    % 初始化相关系数数组
+    cov =zeros(1,N);
+    for i= 1:length(input_data)/2
+    % 计算相关性（现在的input_data 经过上采样，这里对input_data每隔UpSampleRate抽样使数据对齐）
+    cov(i)= abs(sum(input_data(i:UpSampleRate:i + PreambleLen*UpSampleRate-1).*PreamblePolar));
+    end
+    % 选取相关系数最大的位置作为帧头，截取len*UpsampleRate个数据
+    [~, max_position]= max(cov);
+    output_data = input_data(1, max_position:max_position + len * UpSampleRate- 1);
+end
+\end{lstlisting}
+
+ASK\_judgement.m 文件对ASK调制信号进行抽样判决。
+
+先对数据进行抽样，由于已经帧同步过，此时矩阵第一个元素位置即为帧头位置，每隔UpSampleRate个数据进行抽样。初始化一个全0矩阵judge\_data，长度为抽样后数据的长度。使用max(abs())函数取抽样后数据中的最大值。遍历抽样后的矩阵，当第i个值大于最大值0.5倍时，将judge\_data第i个位置判决为1，剩余的全为0。
+
+matlab代码如下所示：
+
+\begin{lstlisting}[title=ASK\_judgement.m, frame=shadowbox]
+%  Parameter List:       
+%      Output Parameter
+%          judge_data	 抽样判决后数据
+%      Input Parameter
+%          input_data	 帧同步后信号
+%          UpSampleRate  一个码元周期内样点数
+function judge_data = ASK_judgement(input_data, UpSampleRate)
+    % 抽样
+    sampled_data = input_data(1:UpSampleRate:end);  % 每隔UpSampleRate抽一个
+    len=length(sampled_data);
+    judge_data = zeros(1, len);
+
+    % 最大值
+    max_data = max(abs(sampled_data));
+
+    % 判决
+    for i = 1:len
+        if abs(sampled_data(i)) > 0.5 * max_data
+            judge_data(i) = 1;
+        else 
+            judge_data(i) = 0;
+        end
+    end
+end
+\end{lstlisting}
+
+\subsection{CRC编码的设计与实现}
+\label{para.3.3}
+
+传输块上的循环冗余校验CRC提供差错检测功能。接收端将接收到的传输块数据再次进行CRC编码，将编码得到的CRC比特与接收的CRC比特进行比较，如果不一致，则接收端认为接收到的传输块数据是错误的。
+
+CRC校验利用线性编码理论，在发送端根据要传送的k位二进制码序列，以一定的规则产生一个校验用的监督码（即CRC码）r位，并附在信息后面，构成一个新的二进制码序列数共k+r位，最后发送出去。在接收端，则根据信息码和CRC码之间所遵循的规则进行检验，以确定传送中是否出错。
+
+设编码前的原始信息多项式为P(x)，生成多项式为G(x)，CRC多项式为R(x)；编码后带循环校验码CRC的信息多项式为T(x)。CRC编码将待发送的k位二进制多项式P(x)转换成了可以被G(x)除尽的k+r位二进制多项式T(x)。译码时可以用接收到的数据去除G(x)，如果余数为0，则表示传输过程没有错误；否则，传输过程存在错误。其具体实现步骤如下：
+
+设待发送的数据块是k位的二进制多项式P(x)，生成多项式为r阶的G(x)。在数据块的末尾添加r个0，数据块的长度增加到k+r位，对应的二进制多项式为 $x^r P(x)$。
+
+用生成多项式G(x)去模2除 $x^r P(x)$。求得余数为r-1阶的二进制多项式R(x)。此二进制多项式R(x)就是P(x)经生成多项式G(x)编码的CRC校验码。
+将校验码R(x)添至P(x)的末尾，即可得到带循环校验码CRC的信息多项式T(x)。
+
+本次实验CRC长为24、16、12、8或0比特。CRC比特越长，则接收端差错检测的遗漏概率越低。CRC比特的产生来自下面的生成多项式：
+
+$$ g_{CRC24}(D) = D24 + D23 + D6 + D5 + D + 1 $$
+$$ g_{CRC16}(D) = D16 + D12 + D5 + 1 $$
+$$ g_{CRC12}(D) = D12 + D11 + D3 + D2 + D + 1 $$
+$$ g_{CRC8}(D) = D8 + D7 + D4 + D3 + D + 1 $$
+
+使用线性反馈寄存器实现，8比特和12比特的实现框图如下：
+
+\begin{figure}[H]
+    \centering
+    
+    \includegraphics[width=0.75\textwidth]{pics/2.png}
+    \caption{8比特和12比特线性反馈寄存器}\label{fig:2}
+
+\end{figure}
+
+16比特的和24比特的同理。实现的matlab代码如下：
+
+\begin{lstlisting}[title=ASK\_AddCRC.m, frame=shadowbox]
+%  Parameter List:
+%      Output Parameter:
+%           output_data       加入CRC后的输出数据
+%      Input Parameter
+%           input_data    输入的原始bit数据
+%           crc_num       CRC的位数，可选8，12，16，24
+function [output_data] = ASK_AddCRC(input_data, crc_num)
+    input_num = length(input_data);
+    %% 变量初始化
+    output_data = zeros(1, input_num+crc_num);
+    crcBit = zeros(1, crc_num);
+    regOut = zeros(1, crc_num); 
+    
+    %% 功能实现
+    switch crc_num
+        case 0
+            output_data = input_data;
+        case 8
+            %生成多项式 gD = D8+D7+D4+D3+D1+1
+            %%%%%%%%%%%%%%% student code %%%%%%%%%%%%%%%%%%%%%%%
+            % task: 进行CRC的添加
+        for num = 1:input_num
+                regOut = crcBit;  % shift bits
+                crcBit(8) = xor(regOut(7), xor(regOut(8), input_data(num)));
+                crcBit(7) = regOut(6);
+                crcBit(6) = regOut(5);
+                crcBit(5) = xor(regOut(4), xor(regOut(8), input_data(num)));
+                crcBit(4) = xor(regOut(3), xor(regOut(8), input_data(num)));
+                crcBit(3) = regOut(2);
+                crcBit(2) = xor(regOut(1), xor(regOut(8), input_data(num)));
+                crcBit(1) = xor(regOut(8), xor(regOut(8), input_data(num)));
+            end
+            output_data(1, 1:input_num) = input_data(1, 1:input_num);
+            output_data(1, input_num + 1:input_num + crc_num) = crcBit;          
+        case 12
+            %生成多项式 gD = D12+D11+D3+D2+D1+1  
+        for num = 1:input_num
+            regOut = crcBit;  % shift bits
+            crcBit(12) = xor(regOut(11), xor(regOut(12), input_data(num)));
+            crcBit(11) = regOut(10);
+            crcBit(10) = regOut(9);
+            crcBit(9) = regOut(8);
+            crcBit(8) = regOut(7);
+            crcBit(7) = regOut(6);
+            crcBit(6) = regOut(5);
+            crcBit(5) = regOut(4);
+            crcBit(4) = xor(regOut(3), xor(regOut(12), input_data(num)));
+            crcBit(3) = xor(regOut(2), xor(regOut(12), input_data(num)));
+            crcBit(2) = xor(regOut(1), xor(regOut(12), input_data(num)));
+            crcBit(1) = xor(regOut(12), xor(regOut(12), input_data(num)));
+        end
+        output_data(1, 1:input_num) = input_data(1, 1:input_num);
+        output_data(1, input_num + 1:input_num + crc_num) = crcBit;
+                    
+        case 16
+            %生成多项式 gD = D16+D12+D5+1
+        for num = 1:input_num
+            regOut = crcBit;  % shift bits
+            crcBit(16) = regOut(15);
+            crcBit(15) = regOut(14);
+            crcBit(14) = regOut(13);
+            crcBit(13) = xor(regOut(12), xor(regOut(16), input_data(num)));
+            crcBit(12) = regOut(11);
+            crcBit(11) = regOut(10);
+            crcBit(10) = regOut(9);
+            crcBit(9) = regOut(8);
+            crcBit(8) = regOut(7);
+            crcBit(7) = regOut(6);
+            crcBit(6) = xor(regOut(5), xor(regOut(16), input_data(num)));
+            crcBit(5) = regOut(4);
+            crcBit(4) = regOut(3);
+            crcBit(3) = regOut(2);
+            crcBit(2) = regOut(1);
+            crcBit(1) = xor(regOut(16), input_data(num));
+        end
+        output_data(1, 1:input_num) = input_data(1, 1:input_num);
+        output_data(1, input_num + 1:input_num + crc_num) = crcBit;
+    
+        case 24
+                %生成多项式 gD = D24+D23+D6+D5+D1+1
+            for num = 1:input_num
+                regOut = crcBit;            %shift bits
+                crcBit(24) = xor(regOut(23), xor(regOut(24), input_data(num)));
+                crcBit(23) = regOut(22);
+                crcBit(22) = regOut(21);
+                crcBit(21) = regOut(20);
+                crcBit(20) = regOut(19);
+                crcBit(19) = regOut(18);
+                crcBit(18) = regOut(17);
+                crcBit(17) = regOut(16);
+                crcBit(16) = regOut(15);	
+                crcBit(15) = regOut(14);
+                crcBit(14) = regOut(13);
+                crcBit(13) = regOut(12);
+                crcBit(12) = regOut(11);
+                crcBit(11) = regOut(10);
+                crcBit(10) = regOut(9);
+                crcBit(9)  = regOut(8);
+                crcBit(8)  = regOut(7);
+                crcBit(7)  = xor(regOut(6), xor(regOut(24), input_data(num)));
+                crcBit(6)  = xor(regOut(5), xor(regOut(24), input_data(num)));
+                crcBit(5)  = regOut(4);
+                crcBit(4)  = regOut(3);
+                crcBit(3)  = regOut(2);
+                crcBit(2)  = xor(regOut(1), xor(regOut(24), input_data(num)));
+                crcBit(1)  = xor(regOut(24), input_data(num)); 
+            end 
+            output_data(1, 1:input_num) = input_data(1, 1:input_num);
+            output_data(1, input_num+1:input_num+crc_num) = crcBit;
+        otherwise
+            fprintf('error:函数mfTxCRCattach的参数crc_num输入错误\n');
+    end    
+end
+\end{lstlisting}
+
+接收端将接收到的传输块数据再次进行CRC编码，实现逻辑和编码一致，将编码得到的CRC比特与接收的CRC比特进行比较，如果不一致，则接收端认为接收到的传输块数据是错误的。
+
+\begin{lstlisting}[title=ASK\_DeCRC.m, frame=shadowbox]
+%  Parameter List:
+%      output Parameter:
+%           out_data       去校验位后数据
+%           CRC_flag     CRC校验结果
+%      input Parameter
+%           input_data    输入信道译码后的数据
+%           crc_num       CRC的位数
+function [CRC_flag,out_data] =ASK_DeCRC(input_data, crc_num)
+    input_num=length(input_data);
+    
+    %% 变量初始化
+    crcBit = zeros(1, crc_num);
+    regOut = zeros(1, crc_num);         %移位寄存器初始化
+    oldCRC = zeros(1, crc_num);         %原CRC
+    
+    %% 功能实现
+    input_num = input_num - crc_num;
+    switch crc_num
+	    case 0
+            CRC_flag = 1;
+        case 8
+            %%%%%%%%%%%%%%% student code %%%%%%%%%%%%%%%%%%%%%%%
+            % 生成多项式 gD = D8+D7+D4+D3+D1+1
+            oldCRC = input_data(1, input_num+1:input_num+crc_num);
+            for num = 1:input_num
+                regOut = crcBit; % shift bits
+                crcBit(8) = xor(regOut(7), xor(regOut(8), input_data(num)));
+                crcBit(7) = regOut(6);
+                crcBit(6) = regOut(5);
+                crcBit(5) = xor(regOut(4), xor(regOut(8), input_data(num)));
+                crcBit(4) = xor(regOut(3), xor(regOut(8), input_data(num)));
+                crcBit(3) = regOut(2);
+                crcBit(2) = xor(regOut(1), xor(regOut(8), input_data(num)));
+                crcBit(1) = xor(regOut(8), xor(regOut(8), input_data(num)));
+            end
+            if isequal(oldCRC, crcBit)
+                CRC_flag = 1;
+                disp('CRC OK!\n');
+            else
+                CRC_flag = 0;
+                disp('CRC ERR!\n');
+            end
+        case 12
+           % 生成多项式 gD = D12+D11+D3+D2+D1+1
+            oldCRC = input_data(1, input_num+1:input_num+crc_num);
+            for num = 1:input_num
+                regOut = crcBit; % shift bits
+                crcBit(12) = xor(regOut(11), xor(regOut(12), input_data(num)));
+                crcBit(11) = regOut(10);
+                crcBit(10) = regOut(9);
+                crcBit(9) = regOut(8);
+                crcBit(8) = regOut(7);
+                crcBit(7) = regOut(6);
+                crcBit(6) = regOut(5);
+                crcBit(5) = regOut(4);
+                crcBit(4) = xor(regOut(3), xor(regOut(12), input_data(num)));
+                crcBit(3) = xor(regOut(2), xor(regOut(12), input_data(num)));
+                crcBit(2) = xor(regOut(1), xor(regOut(12), input_data(num)));
+                crcBit(1) = xor(regOut(12), xor(regOut(12), input_data(num)));
+            end
+            if isequal(oldCRC, crcBit)
+                CRC_flag = 1;
+                disp('CRC OK!\n');
+            else
+                CRC_flag = 0;
+                disp('CRC ERR!\n');
+            end
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
+        case 16 
+            %生成多项式 gD = D16+D12+D5+1
+            oldCRC = input_data(1, input_num+1:input_num+crc_num);
+            for num = 1:input_num
+                regOut = crcBit; % shift bits
+                crcBit(16) = regOut(15);
+                crcBit(15) = regOut(14);
+                crcBit(14) = regOut(13);
+                crcBit(13) = xor(regOut(12), xor(regOut(16), input_data(num)));
+                crcBit(12) = regOut(11);
+                crcBit(11) = regOut(10);
+                crcBit(10) = regOut(9);
+                crcBit(9) = regOut(8);
+                crcBit(8) = regOut(7);
+                crcBit(7) = regOut(6);
+                crcBit(6) = xor(regOut(5), xor(regOut(16), input_data(num)));
+                crcBit(5) = regOut(4);
+                crcBit(4) = regOut(3);
+                crcBit(3) = regOut(2);
+                crcBit(2) = regOut(1);
+                crcBit(1) = xor(regOut(16), input_data(num));
+            end
+            if isequal(oldCRC, crcBit)
+                CRC_flag = 1;
+                disp('CRC OK!\n');
+            else
+                CRC_flag = 0;
+                disp('CRC ERR!\n');
+            end  
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+        case 24
+            oldCRC = input_data(1, input_num+1:input_num+crc_num);
+             %生成多项式 gD = D24+D23+D6+D5+D1+1
+            for num = 1:input_num
+                regOut = crcBit;            %shift bits
+                crcBit(24) = xor(regOut(23), xor(regOut(24), input_data(num)));
+                crcBit(23) = regOut(22);
+                crcBit(22) = regOut(21);
+                crcBit(21) = regOut(20);
+                crcBit(20) = regOut(19);
+                crcBit(19) = regOut(18);
+                crcBit(18) = regOut(17);
+                crcBit(17) = regOut(16);
+                crcBit(16) = regOut(15);	
+                crcBit(15) = regOut(14);
+                crcBit(14) = regOut(13);
+                crcBit(13) = regOut(12);
+                crcBit(12) = regOut(11);
+                crcBit(11) = regOut(10);
+                crcBit(10) = regOut(9);
+                crcBit(9)  = regOut(8);
+                crcBit(8)  = regOut(7);
+                crcBit(7)  = xor(regOut(6), xor(regOut(24), input_data(num)));
+                crcBit(6)  = xor(regOut(5), xor(regOut(24), input_data(num)));
+                crcBit(5)  = regOut(4);
+                crcBit(4)  = regOut(3);
+                crcBit(3)  = regOut(2);
+                crcBit(2)  = xor(regOut(1), xor(regOut(24), input_data(num)));
+                crcBit(1)  = xor(regOut(24), input_data(num)); 
+            end 
+            if oldCRC == crcBit
+                CRC_flag = 1;
+                disp('CRC OK!\n');
+            else
+                CRC_flag = 0;
+                disp('CRC ERR!\n');
+            end
+        otherwise
+            disp('error:函数mfAddCrc的参数crc_num输入错误\n');
+    end 
+           
+    out_data=input_data(1,1:input_num);
+end
+\end{lstlisting}
+
+\subsection{汉明码的编码与解码}
+\label{para.3.4}
+
+汉明码是能够纠正一位错码的且编码效率较高的线性分组码，下面介绍汉明码的构造原理。
+
+设码长为n，信息位数为k，则监督位数r=n-k。r个监督关系式能指示一位错码的（$2^r-1$）个可能位置，如果希望用r个监督位构造出r个监督关系式来指示一位错码的n种可能位置，则要求$ 2^r-1\geq n $或 $ 2^r\geq k+r+1$。本项目使用k=4，r=3和k=8，r=4两种组合，即（7，4）汉明码和（12，8）汉明码。
+
+对于（7，4）汉明码，编码后一个码组有7个比特，记作$a_6 a_5 a_4 a_3 a_2 a_1 a_0$。其中$a_6 a_5 a_4 a_3$为信息位，$a_2 a_1 a_0$为监督位。监督位的生成方式由下面的方程组决定：
+
+\begin{align*}
+    \left\{     
+        \begin{aligned}
+        a_2&=a_6+a_5+a_4 \\
+        a_1&=a_6+a_5+a_3 \\
+        a_0&=a_6+a_4+a_3 
+        \end{aligned}
+    \right.
+\end{align*}
+
+设有：
+$$(a_6 a_5 a_4 a_3 a_2 a_1 a_0)=(a_6 a_5 a_4 a_3)G$$
+
+得到生成矩阵G为：
+
+\begin{equation*}
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+        0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 0 & 1 & 0 & 1 & 1 \\
+    \end{pmatrix}
+\end{equation*}
+
+对于（12，8）汉明码，编码后一个码组有12个比特，记作$a_{11} a_{10} a_9 a_8 a_7 a_6 a_5 a_4 a_3 a_2 a_1 a_0$。其中$a_11 a_10 a_9 a_8 a_7 a_6 a_5 a_4$为信息位，$a_3 a_2 a_1 a_0$为监督位。监督位的生成方式由下面的方程组决定：
+\begin{align*}
+    \left\{     
+        \begin{aligned}
+        a_3&=a_{11}+a_9+a_7+a_6 \\
+        a_2&=a_{11}+a_{10}+a_8+a_6+a_5\\
+        a_1&=a_{11}+a_{10}+a_9+a_7+a_5+a_4 \\
+        a_0&=a_{10}+a_8+a_7+a_4
+        \end{aligned}
+    \right.
+\end{align*}
+
+设有：
+$$(a_{11} a_{10} a_9 a_8 a_7 a_6 a_5 a_4 a_3 a_2 a_1 a_0)=(a_{11} a_{10} a_9 a_8 a_7 a_6 a_5 a_4)G$$
+
+得到生成矩阵G为：
+
+\begin{equation*}
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 0 \\
+        0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 1 & 1 \\
+        0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 1 \\
+        0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & 1 & 1 \\
+        0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 & 1 
+    \end{pmatrix}
+\end{equation*}
+
+据此，可以编写汉明码编码的matlab代码：
+
+\begin{lstlisting}[title=ASK\_Channelcode.m(汉明码部分), frame=shadowbox]
+%  Parameter List:
+%      Input Parameter:
+%           CRC_Bit:  加入CRC之后的比特数据
+%           codemodel:选择编码方式 
+%           Gx    循环码的生成多项式，[1,0,1,1]、[1,1,0,1]为（7,4）循环码优选多项式，有1位检错能力
+%           n       汉明码编码的码组长度，n与k可选（12，8）或者（7，4）
+%           k       汉明码编码的信息位
+function Channel_Bit = ASK_Channelcode(CRC_Bit,code_model,Gx,n,k)
+    %%%%%%%%%%%%%%% student code %%%%%%%%%%%%%%%%%%%%%%%      
+  
+    % 初始化
+    input_num = length(CRC_Bit);
+    group_num = floor(input_num / k); % 计算需要分成多少组
+    Channel_Bit = zeros(1, group_num*n+input_num-k*group_num); % 预分配输出数据
+    Channel_Bit(group_num*n+1:group_num*n+input_num-k*group_num)=CRC_Bit(group_num*k+1:input_num);
+    % 取整处理，使数据长度可以被k整除
+    CRC_Bit_Aligned = CRC_Bit(1:group_num*k);
+  
+    if code_model == 0 % 汉明码 % 使用 eye 生成单位矩阵
+        if n == 7 && k == 4
+            G = [eye(4), [1 1 1; 1 1 0; 1 0 1; 0 1 1]]; % (7,4) 生成矩阵
+        elseif n == 12 && k == 8
+            G = [eye(8), [1 1 1 0; 0 1 1 1; 1 0 1 0; 0 1 0 1; 1 0 1 1; 1 1 0 0; 0 1 1 0; 0 0 1 1]];% (12,8) 生成矩阵
+        else
+            error('Invalid n and k for Hamming code');
+        end
+        for i = 1:group_num
+            block = CRC_Bit_Aligned((i-1)*k+1:i*k); % 取出当前组
+            encoded_block = mod(block * G, 2); % 汉明编码
+            Channel_Bit((i-1)*n+1:i*n) = encoded_block; % 存入结果
+        end  
+\end{lstlisting}
+
+关于汉明码的解码，只需要计算校正子，根据校正子的值即可得到是否错码以及错码的位置。
+
+对于（7，4）汉明码，解码前一个码组有7个比特，记作$U_6 U_5 U_4 U_3 U_2 U_1 U_0$。其校正子为：
+
+\begin{align*}
+    \left\{     
+        \begin{aligned}
+        S_3&=U_6+U_4+U_3+U_0  \\
+        S_2&=U_6+U_5+U_3+U_1  \\
+        S_1&=U_6+U_5+U_4+U_2 
+        \end{aligned}
+    \right.
+\end{align*}
+
+校正子与错码的关系如下：
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    $S_3S_2S_1$ & 错码位置  & $S_3S_2S_1$ & 错码位置  \\ \hline
+    100         & $U_0$ & 101         & $U_4$ \\ \hline
+    010         & $U_1$ & 011         & $U_5$ \\ \hline
+    001         & $U_2$ & 111         & $U_6$ \\ \hline
+    110         & $U_3$ & 000         & 无错码   \\ \hline
+    \end{tabular}
+\end{table}
+
+对于（12，8）汉明码，解码前一个码组有12个比特，记作$U_{11} U_{10} U_9 U_8 U_7 U_6 U_5 U_4 U_3 U_2 U_1 U_0$。其校正子为：
+
+\begin{align*}
+    \left\{     
+        \begin{aligned}
+        S_3&=U_{11}+U_9+U_7+U_6+U_3  \\
+        S_2&=U_{11}+U_{10}+U_8+U_6+U_5+U_2  \\
+        S_1&=U_{11}+U_{10}+U_9+U_7 +U_5 +U_4+U_1  \\
+        S_0&=U_{10}+U_8+U_7+U_4+U_0 
+        \end{aligned}
+    \right.
+\end{align*}
+   
+校正子与错码的关系如下：
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    $S_3S_2S_1S_0$ & 错码位置  & $S_3S_2S_1S_0$ & 错码位置     \\ \hline
+    0000           & $U_0$ & 1100           & $U_7$    \\ \hline
+    0001           & $U_1$ & 1011           & $U_8$    \\ \hline
+    0010           & $U_2$ & 0101           & $U_9$    \\ \hline
+    0100           & $U_3$ & 1010           & $U_{10}$ \\ \hline
+    1000           & $U_4$ & 0111           & $U_{11}$ \\ \hline
+    0011           & $U_5$ & 1110           & 无错码      \\ \hline
+    0110           & $U_6$ &                &          \\ \hline
+    \end{tabular}
+\end{table}
+
+据此可以编写汉明码解码的matlab代码。注意，在matlab中，数组下标从1开始，向右依次增大，故$U_{11} U_{10} U_9 U_8 U_7 U_6 U_5 U_4 U_3 U_2 U_1 U_0$在matlab数组中的编号为$1,2 \dots 12$。
+
+解码基于查找表（LUT）逻辑，输入码先判断是否有错码，即$S_3 S_2 S_1 S_0$是否为0。如果不为0，则将其与所有的一位错码图样进行比较。
+
+\begin{lstlisting}[title=ASK\_DeChannelcode.m(汉明码部分), frame=shadowbox]
+%  Parameter List:
+%     Output Parameter:
+%        output_data     信道译码后数据
+%     Input Parameter:
+%        input_data      去同步码后数据
+%        code_model      信道编码方式
+%        Gx              循环码生成多项式
+%        n               汉明码码组长度
+%        k               汉明码信息位长度
+function [output_data] = ASK_DeChannelcode(input_data, code_model, Gx, n, k)
+    % 根据 code_model 选择译码方式
+    if code_model == 0  % 汉明码译码
+        input_num = length(input_data);  % 获取输入数据的长度
+        group_num = floor(input_num / n); % 计算需要分成多少组
+        output_data = zeros(1, group_num*k+input_num-n*group_num); % 预分配输出数据
+        output_data(group_num*k+1:group_num*k+input_num-n*group_num)=input_data(group_num*n+1:input_num);
+    
+        % 补零处理，使数据长度可以被n整除
+        input_data_aligned = input_data(1:group_num*n);
+        % 遍历每一组数据进行译码
+        for i = 1:group_num
+            current_group = input_data_aligned((i-1) * n + 1:i*n);  % 当前组数据
+            if n == 7 && k == 4  % (7,4) 汉明码
+                % 计算校验位 S3, S2, S1
+                S3 = mod(current_group(1) + current_group(3) + current_group(4) + current_group(7), 2);
+                S2 = mod(current_group(1) + current_group(2) + current_group(4) + current_group(6), 2);
+                S1 = mod(current_group(1) + current_group(2) + current_group(3) + current_group(5), 2);
+
+                s = 100 * S3 + 10 * S2 + 1 * S1;
+                if s~=0
+                    switch s
+                        case 100
+                            current_group(7) = mod(current_group(7) + 1, 2);  % 翻转错误位1
+                        case 010
+                            current_group(6) = mod(current_group(6) + 1, 2);  % 翻转错误位2
+                        case 001
+                            current_group(5) = mod(current_group(5) + 1, 2);  % 翻转错误位3
+                        case 110
+                            current_group(4) = mod(current_group(4) + 1, 2);  % 翻转错误位4
+                        case 101
+                            current_group(3) = mod(current_group(3) + 1, 2);  % 翻转错误位5
+                        case 011
+                            current_group(2) = mod(current_group(2) + 1, 2);  % 翻转错误位6
+                        case 111
+                            current_group(1) = mod(current_group(1) + 1, 2);  % 翻转错误位7
+                        otherwise
+                            %未知的校验位组合
+                            disp('unknown error pattern');
+                    end
+                end
+                    output_data((i-1) * k + 1:i * k) = current_group(1:k);  % 返回纠正后的信息位          
+            elseif n == 12 && k == 8  % (12,8) 汉明码
+                % 计算校验位 S3, S2, S1, S0
+                
+                S3 = mod(current_group(1) + current_group(3) + current_group(5) + current_group(6) + current_group(9), 2);
+                S2 = mod(current_group(1) + current_group(2) + current_group(4) + current_group(6) + current_group(7) + current_group(10), 2);
+                S1 = mod(current_group(1) + current_group(2) + current_group(3) + current_group(5) + current_group(7) + current_group(8) + current_group(11), 2);
+                S0 = mod(current_group(2) + current_group(4) + current_group(5) + current_group(8) + current_group(12), 2);
+                
+                s = 1000 * S3 + 100 * S2 + 10 * S1 + S0;
+                if s~=0
+                    switch s
+                        case 0001
+                            current_group(12) = mod(current_group(12) + 1, 2);  % 翻转错误位1
+                        case 0010
+                            current_group(11) = mod(current_group(11) + 1, 2);  % 翻转错误位2
+                        case 0100
+                            current_group(10) = mod(current_group(10) + 1, 2);  % 翻转错误位3
+                        case 1000
+                            current_group(9) = mod(current_group(9) + 1, 2);  % 翻转错误位4
+                        case 0011
+                            current_group(8) = mod(current_group(8) + 1, 2);  % 翻转错误位5
+                        case 0110
+                            current_group(7) = mod(current_group(7) + 1, 2);  % 翻转错误位6
+                        case 1100
+                            current_group(6) = mod(current_group(6) + 1, 2);  % 翻转错误位7
+                        case 1011
+                            current_group(5) = mod(current_group(5) + 1, 2);  % 翻转错误位8
+                        case 0101
+                            current_group(4) = mod(current_group(4) + 1, 2);  % 翻转错误位9
+                        case 1010
+                            current_group(3) = mod(current_group(3) + 1, 2); % 翻转错误位10
+                        case 0111
+                            current_group(2) = mod(current_group(2) + 1, 2); % 翻转错误位11
+                        case 1110
+                            current_group(1) = mod(current_group(1) + 1, 2); % 翻转错误位12
+                        otherwise
+                            % 默认情况下，无错误检测到，或者处理未知的校验位组合
+                            disp('unknown error pattern');
+                    end
+                end
+                output_data((i-1) * k + 1:i * k) = current_group(1:k);  % 返回纠正后的信息位
+            else
+                error('Invalid (n, k) for Hamming code.');
+            end
+        end
+\end{lstlisting}
+
+\subsection{循环码的编码与解码}
+\label{para.3.5}
+
+循环码是一种具有循环性的线性码。在编码时，首先要根据给定的(n,k)值选定生成多项式g(x)，即从$(x^n+1)$的因子中选一个(n-k)次多项式作为g(x)。本项目使用的是(7,4)循环码，有两种不同的生成多项式$g_x=x^3+x^2+1$或$g_x=x^3+x+1$。
+
+循环码的编码步骤归纳如下：
+
+\begin{enumerate}
+    \item 用$x^{n-k}$乘m(x)。这一运算实际上是在信息码后附加上(n-k)个0。
+    \item 用g(x)除$x^{n-k}$m(x)，得到余式r(x)
+    \item 编出的码组即为$x^{n-k}$ m(x)+r(x)
+\end{enumerate}
+
+编写matlab代码如下：
+
+\begin{lstlisting}[title=ASK\_Channelcode.m(循环码部分), frame=shadowbox]
+%  Parameter List:
+%      Input Parameter:
+%           CRC_Bit:  加入CRC之后的比特数据
+%           codemodel:选择编码方式 
+%           Gx    循环码的生成多项式，[1,0,1,1]、[1,1,0,1]为（7,4）循环码优选多项式，有1位检错能力
+%           n       汉明码编码的码组长度，n与k可选（12，8）或者（7，4）
+%           k       汉明码编码的信息位
+%      Output Parameter:
+%          Channel_Bit      信道编码后数据
+function Channel_Bit = ASK_Channelcode(CRC_Bit,code_model,Gx,n,k) 
+    % 初始化
+    input_num = length(CRC_Bit);
+    group_num = floor(input_num / k); % 计算需要分成多少组
+    Channel_Bit = zeros(1, group_num*n+input_num-k*group_num); % 预分配输出数据
+    Channel_Bit(group_num*n+1:group_num*n+input_num-k*group_num)=CRC_Bit(group_num*k+1:input_num);
+    % 取整处理，使数据长度可以被k整除
+    CRC_Bit_Aligned = CRC_Bit(1:group_num*k);
+
+    elseif code_model == 1 % 循环码
+    n=7;k=4;
+    for i = 1:group_num
+        % 取出当前组并附加 (n-k) 个零
+        block = CRC_Bit_Aligned((i-1)*k+1:i*k); % 当前组的原始信息位
+        block_out = [block, zeros(1, n-k)]; % 补零形成临时编码
+        
+        % deconv解卷，实现多项式的除法
+        [~, remainder] = deconv(block_out, Gx);
+        Sx = mod(remainder, 2); % 模 2 取余
+        %拼接信息位和校验位
+        encoded_block = [block, Sx(k+1:n)];
+        %存入结果
+        Channel_Bit((i-1)*n+1:i*n) = encoded_block;
+    end
+\end{lstlisting}
+
+循环码译码一般包括以下三个步骤：
+
+\begin{enumerate}
+    \item 根据接收码字多项式R(x)计算相应的伴随式多项式： S(x)=R(x) \quad mod \quad g(x) 
+    \item 求对应的错误图样E(x)
+    \item 利用错误图样进行纠错C(x)=R(x)+E(x)。
+\end{enumerate}
+
+使用遍历全部可能的一位错误图样的方式进行匹配，编写matlab代码如下：
+
+\begin{lstlisting}[title=ASK\_DeChannelcode.m(循环码部分), frame=shadowbox]
+%  Parameter List:
+%     Output Parameter:
+%        output_data        信道译码后数据
+%     Input Parameter:
+%        input_data         去同步码后数据
+%        code_model         信道编码方式
+%        Gx                 循环码生成多项式
+%        n                  汉明码码组长度
+%        k                  汉明码信息位长度
+function [output_data] = ASK_DeChannelcode(input_data, code_model, Gx, n, k)
+elseif code_model == 1  % 循环码译码
+        n=7;k=4;
+        input_num = length(input_data);  % 获取输入数据的长度
+        group_num = floor(input_num / n); % 计算需要分成多少组
+        output_data = zeros(1, group_num*k+input_num-n*group_num); % 预分配输出数据
+        output_data(group_num*k+1:group_num*k+input_num-n*group_num)=input_data(group_num*n+1:input_num);
+    
+        % 补零处理，使数据长度可以被n整除
+        input_data_aligned = input_data(1:group_num*n);
+        % 遍历每一组数据进行译码
+        for i = 1:group_num
+            % 提取当前组的数据
+            current_group = input_data_aligned((i - 1) * n + 1:i * n);
+            % 计算伴随式 S(x)
+            Sx = calculate_Sx(current_group, Gx);
+            % 计算错误图样 E(x)
+            Ex = calculate_Ex(Sx, Gx, n);
+            % 利用错误图样纠正数据
+            corrected_data = mod(current_group + Ex, 2);
+            % 提取信息位
+            output_data((i - 1) * k + 1:i * k) = corrected_data(1:k);
+        end
+
+function Sx = calculate_Sx(Rx, Gx)
+    % 计算伴随式 S(x) = R(x) mod g(x)
+    [~, remainder] = deconv(Rx, Gx);% 多项式除法
+    Sx = mod(remainder, 2); % 模 2 取余
+end
+
+function Ex = calculate_Ex(Sx, Gx, n)
+    % 根据伴随式 S(x) 计算错误图样 E(x)
+    
+    Ex = zeros(1, n);
+
+    % 遍历可能的错误图样
+    for i = 1:n
+        % 构造单一错误图样,计算错误图样的伴随式实现匹配
+        error_pattern = zeros(1, n);
+        error_pattern(i) = 1;
+
+        error_syndrome = calculate_Sx(error_pattern, Gx);
+
+        if isequal(Sx, error_syndrome)
+            Ex = error_pattern;
+            break;
+        end
+    end
+end
+\end{lstlisting}
+
+\newpage
+
+\section{第四部分 \texorpdfstring{\quad}{} 综合设计部分}
+
+\subsection{系统总体组成与描述}
+
+系统的总体组成框图如下：
+
+\begin{figure}[H]
+    \centering
+    
+    \includegraphics[width=0.75\textwidth]{pics/3.png}
+    \caption{系统原理框图}\label{fig:3}
+
+\end{figure}
+
+\subsection{系统各组成模块功能分析}
+
+\subsubsection{信源编码}
+
+本课程设计根据要求有三种源文件类型，分别是语音，图片，文本。
+
+对于语音使用的是固定的语音文件，它的采样率为8000个样点每秒，由于音频时长过多、数据量大，截取前几秒钟进行调试。对于语音编码使用的非均匀量化编码。其功能由ASK\_PCM.m文件实现。该编码器的任务是把输人的每个样值脉冲编出相应的8位二进制码,除第1位极性码外,其余7位幅度码是通过逐次比较确定的。编码规则如下表所示：
+
+\begin{figure}[H]
+    \centering
+    
+    \includegraphics[width=0.75\textwidth]{pics/4.png}
+    \caption{PCM编码规则}\label{fig:4}
+
+\end{figure}
+
+对于图像编码使用两种方式：哈夫曼编码或者无编码。为了减少数据传输量，哈夫曼编码采用灰度图像进行传输。无编码时传输彩图，直接将图像的二维矩阵数据转化为一维矩阵，并将0-255的十进制数转化为二进制数。哈夫曼编码由ASK\_Picturecode.m文件实现。
+
+对于文本，使用LabVIEW中自带的字符串到数组的转换函数进行编码。
+
+\subsubsection{数据分帧}
+在得到源文件产生的比特数据后，数据量较大，由于XSRP硬件的传输限制，需要将数据分成许多“帧”进行串行传输。并根据不同的信道编码方式、加入不同的CRC校验码位数，来对一帧的比特数据进行分配。数据分帧由ASK\_BitAllocation.m文件实现。该文件规定，当使用10倍上采样时，若使用（12，8）汉明码，帧长度为1920，若使用（7，4）汉明码，帧长度为1700，若使用（7，4）循环码，帧长度为1700。当使用30倍上采样时，若使用（12，8）汉明码，帧长度为640，若使用（7，4）汉明码，帧长度为544，若使用（7，4）循环码，帧长度为544。
+
+编码后在信道传输的比特长度为：
+
+(floor((bitLen + crc\_num) / k) * n + mod(bitLen + crc\_num, k) + PreambleLen) * UpSampleRate
+
+式中n,k代表（n，k）汉明码或循环码，bitLen为信源数据一帧的长度，UpSampleRate为上采样率，crc\_num为CRC校验码的码长，PreambleLen为同步码的长度。
+
+本次实验PreambleLen=21。crc\_num的最大值为24。
+
+10倍上采样时，若使用（12，8）汉明码，代入得到编码后在信道传输的比特长度为29370，若使用（7，4）循环码或汉明码，代入得到编码后在信道传输的比特长度为30380。30倍上采样时，若使用（12，8）汉明码，代入得到编码后在信道传输的比特长度为30510，若使用（7，4）循环码或汉明码，代入得到编码后在信道传输的比特长度为30450。均小于本次实验长度限制30720。
+
+\subsubsection{加CRC}
+
+见\ref{para.3.3}节。
+
+\subsubsection{信道编码}
+使用汉明码和循环码两种方式进行信道编码，分别见\ref{para.3.4}节和\ref{para.3.5}节。
+
+\subsubsection{加同步码}
+在数字通信系统中，代表消息的数字信号是分帧传送的。帧同步就是从接收的数据流中搜索并识别这一同步码字，并以该时隙作为一帧的排头，使接收端的帧结构和发送端完全一致，从而保证两个交换机能同步的工作。本实验插入的同步码为[1 1 1 1 0 1 0 1 1 0 0 1 0 0 0 1 1 1 0 1 1]。
+
+\subsubsection{上采样}
+
+通过上采样将正弦或复正弦模拟信号以离散方式采样表示出来，有10倍上采样和30倍上采样两种选择。
+
+\subsubsection{ASK调制}
+
+见\ref{para.3.1}节。
+
+\subsubsection{信道}
+
+无线信道，从发射天线到接收天线，使用复数描述，其原因是用复数可以同时表示衰减和时延。在接收端取实部转换为实数信号。
+
+注意，仿真系统时，进入下一步的信号为\textbf{实数信号}，而使用真实系统时，进入下一步的信号为\textbf{复数信号}。ASK解调前需要先将信号取实部以统一。
+
+\subsubsection{ASK解调}
+
+见\ref{para.3.2}节。
+
+\subsubsection{帧同步}
+
+见\ref{para.3.2}节。
+
+\subsubsection{抽样判决}
+
+见\ref{para.3.2}节。
+
+\subsubsection{去同步码}
+
+已知同步码的位数可以将判决后的数据直接截取相应同步码长度的数据得到去同步码后数据
+
+\subsubsection{信道译码}
+分别对汉明码和循环码两种方式进行信道译码，分别见\ref{para.3.4}和\ref{para.3.5}。
+
+\subsubsection{CRC校验}
+
+见\ref{para.3.3}节
+
+\subsubsection{数据组帧}
+
+数据分帧后会得到m行n列的数据，取到第i行数据进行处理即一帧数据，将一帧数据处理完以后，将其整个放入一个数组的第i行，最后组合成新的m行n列数据
+
+\subsubsection{信源译码}
+
+根据数据源类型的不同，变化成不同的矩阵形式，还原成音频、图片或文字。译码过程与编码对称，此处不在赘述。
+
+\subsection{系统运行结果分析}
+
+\subsubsection{不同类型数据源对传输的影响}
+
+使用真实系统，固定使用（7，4）汉明码，CRC长度为8。发送文本，音频，无编码图片，哈夫曼编码图片，结果如下：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_text.png}
+    \caption{发送文本结果}
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_video.png}
+    \caption{发送音频结果}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_pics.png}
+    \caption{发送无编码图片结果}
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_pichuffman.png}
+    \caption{发送哈夫曼编码图片结果}
+
+\end{figure}
+
+均成功发送，由于测数据时在中午，实验室没人，干扰较小。发送文本，音频，哈夫曼编码图片时均无误码，发送无编码图片时误码率为0.12\%。
+
+\newpage
+
+\subsubsection{不同CRC对传输的影响}
+
+使用真实系统，固定使用（7，4）汉明码，发送无编码图片，其帧数较多可以更好的反应系统性能。结果如下：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_pics.png}
+    \caption{crc=8}
+    \includegraphics[width=0.7\textwidth]{pics/crc12.png}
+    \caption{crc=12}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/crc16.png}
+    \caption{crc=16}
+    \includegraphics[width=0.7\textwidth]{pics/crc24.png}
+    \caption{crc=24}
+\end{figure}
+
+均成功发送，由于测数据时在中午，实验室没人，干扰较小。crc=8时误码率为0.12\%，crc=12时误码率为0，crc=16时误码率为0.002\%，crc=24时误码率为0。
+
+\newpage
+
+\subsubsection{不同编码方式对传输的影响}
+
+使用真实系统，固定crc=8，发送无编码图片，其帧数较多可以更好的反应系统性能。结果如下：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/74Hcrc8_pics.png}
+    \caption{(7,4)汉明码}
+    \includegraphics[width=0.7\textwidth]{pics/(12,8).png}
+    \caption{(12,8)汉明码}
+
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{pics/1011.png}
+    \caption{循环码，G(x)=[1,0,1,1]}
+    \includegraphics[width=0.7\textwidth]{pics/1101.png}
+    \caption{循环码，G(x)=[1,1,0,1]}
+\end{figure}
+
+均成功发送，由于测数据时在中午，实验室没人，干扰较小。(7,4)汉明码误码率为0.12\%，(12,8)汉明码的误码率为0.64\%。两种循环码的误码率为0。
+
+综上所述，该系统成功发送了文本，音频，无编码图片，哈夫曼编码图片，完成了实验要求。CRC编码位越多，系统的抗噪声能力越强。循环码的抗噪声能力即纠错能力强于（7，4）汉明码，强于（12，8）汉明码。符合理论。（12，8）汉明码纠错密度比（7，4）汉明码稀疏，故抗噪声能力较弱。
+
+\newpage
+
+\section{第五部分 \texorpdfstring{\quad}{} 收获与体会}
+
+通过本次通信系统设计，我将课本的知识应用于实践，对整个通信系统的构建有了更加全面的认识，深入理解了CRC，汉明码，循环码的编码和解码原理，以及ASK信号的调制与解调原理。同时通过查阅各种资料，使我对MATLAB代码的编写，XSRP软件无线电平台也有了更加深入的认识。
+   
+\end{document}

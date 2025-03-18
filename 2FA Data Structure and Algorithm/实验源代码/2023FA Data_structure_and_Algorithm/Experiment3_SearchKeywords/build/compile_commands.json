@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment3_SearchKeywords/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\main.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment3_SearchKeywords\\source\\main.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment3_SearchKeywords/source/main.cpp",
+  "output": "CMakeFiles/main.dir/source/main.cpp.obj"
+},
+{
+  "directory": "D:/Codes/Codes_Cpp/Experiment3_SearchKeywords/build",
+  "command": "D:\\work_software\\mingw64\\bin\\g++.exe  @CMakeFiles/main.dir/includes_CXX.rsp  -Wall -fexec-charset=GBK -g -o CMakeFiles\\main.dir\\source\\sstring.cpp.obj -c D:\\Codes\\Codes_Cpp\\Experiment3_SearchKeywords\\source\\sstring.cpp",
+  "file": "D:/Codes/Codes_Cpp/Experiment3_SearchKeywords/source/sstring.cpp",
+  "output": "CMakeFiles/main.dir/source/sstring.cpp.obj"
+}
+]

@@ -1,0 +1,4 @@
+const char *keywords[] = {"void",     "int",     "for",    "char",  "if",
+                          "else",     "do",      "switch", "case",  "break",
+                          "continue", "default", "struct", "union", "enum",
+                          "typedef",  "goto"};

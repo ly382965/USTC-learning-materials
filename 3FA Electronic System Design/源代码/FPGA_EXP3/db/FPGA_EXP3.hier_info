@@ -1,0 +1,140 @@
+|FPGA_EXP3
+clk => clk.IN1
+rst => rst.IN4
+sel => sel.IN1
+signal <= seq_detector:detector.seq_out
+debug_st[0] <= seq_detector:detector.debug_st
+debug_st[1] <= seq_detector:detector.debug_st
+debug_st[2] <= seq_detector:detector.debug_st
+debug_st[3] <= seq_detector:detector.debug_st
+
+
+|FPGA_EXP3|div50MHZ:div
+clk => clkout~reg0.CLK
+clk => cnt[0].CLK
+clk => cnt[1].CLK
+clk => cnt[2].CLK
+clk => cnt[3].CLK
+clk => cnt[4].CLK
+clk => cnt[5].CLK
+clk => cnt[6].CLK
+clk => cnt[7].CLK
+clk => cnt[8].CLK
+clk => cnt[9].CLK
+clk => cnt[10].CLK
+clk => cnt[11].CLK
+clk => cnt[12].CLK
+clk => cnt[13].CLK
+clk => cnt[14].CLK
+clk => cnt[15].CLK
+clk => cnt[16].CLK
+clk => cnt[17].CLK
+clk => cnt[18].CLK
+clk => cnt[19].CLK
+clk => cnt[20].CLK
+clk => cnt[21].CLK
+clk => cnt[22].CLK
+clk => cnt[23].CLK
+clk => cnt[24].CLK
+clk => cnt[25].CLK
+clk => cnt[26].CLK
+clk => cnt[27].CLK
+clk => cnt[28].CLK
+clk => cnt[29].CLK
+clk => cnt[30].CLK
+clk => cnt[31].CLK
+rst => clkout~reg0.ACLR
+rst => cnt[0].ACLR
+rst => cnt[1].ACLR
+rst => cnt[2].ACLR
+rst => cnt[3].ACLR
+rst => cnt[4].ACLR
+rst => cnt[5].ACLR
+rst => cnt[6].ACLR
+rst => cnt[7].ACLR
+rst => cnt[8].ACLR
+rst => cnt[9].ACLR
+rst => cnt[10].ACLR
+rst => cnt[11].ACLR
+rst => cnt[12].ACLR
+rst => cnt[13].ACLR
+rst => cnt[14].ACLR
+rst => cnt[15].ACLR
+rst => cnt[16].ACLR
+rst => cnt[17].ACLR
+rst => cnt[18].ACLR
+rst => cnt[19].ACLR
+rst => cnt[20].ACLR
+rst => cnt[21].ACLR
+rst => cnt[22].ACLR
+rst => cnt[23].ACLR
+rst => cnt[24].ACLR
+rst => cnt[25].ACLR
+rst => cnt[26].ACLR
+rst => cnt[27].ACLR
+rst => cnt[28].ACLR
+rst => cnt[29].ACLR
+rst => cnt[30].ACLR
+rst => cnt[31].ACLR
+clkout <= clkout~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP3|seq_generator:gen1
+clk => seq~reg0.CLK
+clk => st~1.DATAIN
+rst => st~3.DATAIN
+rst => seq~reg0.ENA
+seq <= seq~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP3|seq_generator_2:gen2
+clk => seq~reg0.CLK
+clk => st~1.DATAIN
+rst => st~3.DATAIN
+rst => seq~reg0.ENA
+seq <= seq~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP3|choose2_1:choose
+in1 => out.DATAA
+in2 => out.DATAB
+sel => Decoder0.IN0
+out <= out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|FPGA_EXP3|seq_detector:detector
+clk => seq_out~reg0.CLK
+clk => debug_st[0]~reg0.CLK
+clk => debug_st[1]~reg0.CLK
+clk => debug_st[2]~reg0.CLK
+clk => debug_st[3]~reg0.CLK
+clk => st~1.DATAIN
+rst => st~3.DATAIN
+rst => seq_out~reg0.ENA
+rst => debug_st[3]~reg0.ENA
+rst => debug_st[2]~reg0.ENA
+rst => debug_st[1]~reg0.ENA
+rst => debug_st[0]~reg0.ENA
+seq_in => st.DATAB
+seq_in => st.DATAB
+seq_in => st.DATAB
+seq_in => Selector0.IN0
+seq_in => Selector0.IN1
+seq_in => Selector0.IN2
+seq_in => Selector0.IN3
+seq_in => Selector0.IN4
+seq_in => Selector0.IN5
+seq_in => Selector0.IN6
+seq_in => Selector1.IN1
+seq_in => Selector2.IN1
+seq_in => Selector3.IN1
+seq_in => st.DATAB
+seq_in => st.DATAB
+seq_in => st.DATAB
+seq_out <= seq_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
+debug_st[0] <= debug_st[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+debug_st[1] <= debug_st[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+debug_st[2] <= debug_st[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+debug_st[3] <= debug_st[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

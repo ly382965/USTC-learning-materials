@@ -1,0 +1,7 @@
+
+State Machine - |FPGA_EXP4|FPGA_EXP4_core:fpga|st
+Name st.11 st.10 st.01 st.00 
+st.00 0 0 0 0 
+st.01 0 0 1 1 
+st.10 0 1 0 1 
+st.11 1 0 0 1 

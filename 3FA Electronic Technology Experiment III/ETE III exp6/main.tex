@@ -1,0 +1,644 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 电子技术实验III}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cccccc}
+         & \multicolumn{4}{c}{\textbf{电子技术实验III\quad 实验报告}}                                    &            \vspace{1ex}\\
+信息科学技术学院 & \multicolumn{2}{c}{PB22051030 王旭东} & \multicolumn{2}{c}{PB22051031 李毅} & 2024年12月6日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        \zihao{1}\textbf{电子技术实验III\quad 实验报告}\\
+        \vspace{0.5cm}
+        \zihao{2}\textbf{实验六\quad 鉴频器}
+    
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{实验人：}    \hspace{-0.5cm}	&\dlmu[5cm]{王旭东 PB22051030} \vspace{1ex}\\
+                \makebox[4em][s]{}    \hspace{-0.5cm}	&\dlmu[5cm]{李\quad 毅 PB22051031} \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年12月6日}\vspace{1ex}\\
+                \makebox[4em][s]{台\quad 号：}    \hspace{-0.5cm}	&\dlmu[5cm]{26}
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+\section{第一部分 \texorpdfstring{\quad}{} 实验目的}
+\begin{enumerate}
+    \item 了解鉴频器的基本原理。
+    \item 理解四种鉴频器的各种实现方法。
+    \item 掌握鉴频特性曲线及鉴频器性能指标的测量方法。
+\end{enumerate}
+    
+\section{第二部分 \texorpdfstring{\quad}{} 实验原理}
+
+\subsection*{1.鉴频的定义}
+
+鉴频（频率检波）： 从调频信号中解调出原调制信号。
+
+鉴频器： 实现鉴频功能的电路。
+
+\subsection*{2.鉴频器的主要性能指标}
+\begin{enumerate}[(1)]
+    \item \textbf{鉴频特性曲线}
+    
+    指鉴频器的输出电压$u_o(t)$与输入FM信号频率$f$或$\Delta f(t)$之间的关系曲线。(S曲线）
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/1.png}
+
+        \caption{鉴频特性曲线示意图}\label{fig:1}
+    \end{figure}
+
+    \item \textbf{鉴频器的中心频率$f$}
+
+    即为鉴频特性曲线原点处（$\Delta f=0$）的频率。
+
+    \item \textbf{鉴频跨导（鉴频灵敏度）}
+
+    即为中心频率附近，单位频偏所引起的输出电压的变化量。
+    
+    $$\left.S_d= \dfrac{\partial U_0}{\partial f}\right|_{f=f_0}=\dfrac{\Delta U_0}{\Delta f}$$
+
+    \item \textbf{鉴频线性范围(鉴频带宽）}
+
+    鉴频特性曲线接近于直线段的频率范围， 用$2\Delta f_{max}$表示。
+    
+\end{enumerate}
+
+\subsection*{3.四种鉴频电路}
+\begin{enumerate}[(1)]
+    \item \textbf{脉冲计数鉴频}
+    
+    脉冲计数鉴频电路如图 \ref{fig:2} 所示。 FM 信号从 P4 输入，放大、限幅后的波形可在 TP5得到， C12、 R11 组成微分电路， R13、 C13、 R14、 C14 组成低通滤波器。鉴频得到的低频信号从 TP9 输出。
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/2.png}
+
+        \caption{脉冲计数鉴频电路}\label{fig:2}
+    \end{figure}
+    \vspace{-2em}
+    \item \textbf{电容耦合相位鉴频器}
+
+    电容耦合相位鉴频器电路如图 \ref{fig:3} 所示，由 LC 双调谐耦合回路构成移相网络， D1、D2 构成平衡叠加型鉴相器。 FM 信号从 P1 或 TP1 输入，调节 C3、 C8、 C9 可以改变鉴频器中心频率和鉴频带宽，调节 W1 可改善鉴频特性的对称性，鉴频得到的低频信号从 TP3 输出。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{pics/3.png}
+
+        \caption{电容耦合相位鉴频器电路}\label{fig:3}
+    \end{figure}
+    \vspace{-2em}
+    \item \textbf{锁相鉴频}
+
+    锁相鉴频电路如图 \ref{fig:4} 所示。本实验电路是基于锁相环集成电路 4046 实现的锁相鉴频器。 FM 调频信号从相位比较器 I 输入（14 脚）， PLL 入锁后， VCO 的振荡频率将跟踪调频信号的频率变化，经低通滤波器滤去载频信号后，从 10 脚输出解调信号。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/4.png}
+
+        \caption{锁相鉴频电路}\label{fig:4}
+    \end{figure}
+    
+    \item \textbf{乘积型(正交)鉴频}
+
+    正交鉴频电路原理框图如图 \ref{fig:5} 所示，调频信号从 P4 端口输入，经限幅处理后送入到移相网络中，其中限幅的作用是防止调频过程的寄生调幅混在转换后的调幅调频波中，使最后检出的信号受到干扰。本实验提供4.5MHz 鉴频频率。实验中使用 MCl496 构成的乘积型相位鉴频器。由电容 C29 与 T1 的并联谐振回路组成线性移相网络，将调频波的瞬时频率的变化转变成瞬时相位的变化，再将调频波与调频调相波相乘，其输出经低通滤波后得到原始的调制信号。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/5.png}
+
+        \caption{乘积型(正交)鉴频示意框图}\label{fig:5}
+    \end{figure}
+    
+\end{enumerate}
+
+\section{第三部分 \texorpdfstring{\quad}{} 实验内容及结果}
+\textbf{需要说明的是，由于实验时示波器显示的测量数据处于抖动状态，我们的测量方法是按Stop键之后读取数值作为试验记录，之后按Run键再将波形保存为图片，所以试验记录和图片中显示数据可能会有细微差别，报告中的计算全部按照原始数据来计算，图片仅作波形参考}
+
+\subsection*{1.脉冲计数鉴频器特性参数测试}
+
+\begin{enumerate}[(1)]
+    \item \textbf{鉴频输入端P4接入正弦信号时的波形和参数}
+
+    接入正弦信号为 500mVpp，465KHz。波形如图6所示，自上而下分别为记录放大(TP5)、限幅输出(TP6)、微分输出(TP7)、整形输出(TP8)的波形。测得参数如表1所示。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/11.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/12.png}
+        \caption{接入正弦信号时的波形}\label{fig:11}
+    \end{figure}
+    \vspace{-2em}
+    \begin{table}[!ht]
+        \centering
+
+        \caption{接入正弦信号时的参数}
+        
+        \begin{tabular}{|c|c|c|}
+        \hline
+            & Vpp   & f        \\ \hline
+        TP5 & 11.7V & 465.3kHz \\ \hline
+        TP6 & 11.5V & 464.9kHz \\ \hline
+        TP7 & 8.9V  & 465.6kHz \\ \hline
+        TP8 & 11.5V & 463.8kHz \\ \hline
+        \end{tabular}
+    \end{table}
+
+    各端口输出与预期一致。最后整形输出幅值和频率和输入信号保持一致。
+
+    \item \textbf{鉴频输入端P4接入正弦 FM 信号时的波形和参数}
+
+    接入FM信号载波频率 465KHz，幅度500mVpp，调制频率 1KHz，频率偏移 75 KHz。波形如图7所示，自上而下分别为记录放大(TP5)、限幅输出(TP6)、微分输出(TP7)、整形输出(TP8)、低通滤波器输出(TP9，即鉴频输出)的波形。测得参数如表2所示。
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{pics/13.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/14.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/15.png}
+        \caption{接入正弦FM信号时的波形}\label{fig:12}
+    \end{figure}
+    \begin{table}[!ht]
+        \centering
+
+        \caption{接入FM信号时的参数}
+        
+        \begin{tabular}{|c|c|c|}
+        \hline
+            & Vpp   & f        \\ \hline
+        TP5 & 11.7V & - \\ \hline
+        TP6 & 11.5V & - \\ \hline
+        TP7 & 8.9V  & - \\ \hline
+        TP8 & 11.7V & - \\ \hline
+        TP9 & 960mV & 1.0019kHz \\ \hline
+        \end{tabular}
+    \end{table}
+
+    TP9成功从FM波中解调出基带信号，频率与设定的调制频率一致。
+    
+    \item \textbf{频偏与输出电压的关系}
+
+    从 20KHz 开始以 10KHz 为步进单位改变频偏$\Delta f$，最大至 100KHz，逐一测量记录鉴频输出(TP9)电压值 $u_o$，如下表所示：
+
+    \begin{table}[!ht]
+        \centering
+
+        \caption{频偏与输出电压的关系}
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $\Delta f/kHz$ & 20    & 30    & 40    & 50    & 60    & 70   & 80   & 90   & 100  \\ \hline
+        $u_o/V$        & 0.249 & 0.344 & 0.482 & 0.567 & 0.683 & 0.84 & 0.92 & 1.02 & 1.14 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.65\textwidth]{pics/graph1.png}
+        \caption{$u_o$-$\Delta f$ 曲线}\label{fig:graph1}
+    \end{figure}
+    $$\left.S_d= \dfrac{\partial U_0}{\partial f}\right|_{f=f_0}=\dfrac{\Delta U_0}{\Delta f}=k=0.01124 \pm 0.00022 \quad \mathrm{V/kHz}$$
+
+    相关系数$R^2=0.99743$，故频偏与输出电压具有较好的正相关线性关系。
+    
+\end{enumerate}
+
+\subsection*{2.电容耦合相位鉴频器特性参数测试}
+\begin{enumerate}[(1)]
+    \item \textbf{用频谱仪测量相位鉴频器的鉴频特性曲线}
+
+    测得曲线如图9所示，测量结果如下：
+
+    $+\Delta f_{max}=320\mathrm{kHz} $，$-\Delta f_{max}=-340\mathrm{kHz} $
+
+    鉴频带宽 $2\Delta f_{max}=660\mathrm{kHz} $
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/20.png}
+        \caption{电容耦合相位鉴频器鉴频特性曲线}\label{fig:20}
+    \end{figure}
+
+    鉴频特性曲线为良好的S型曲线。
+
+    \item \textbf{鉴频输入端接入正弦 FM 信号时的输出波形和参数}
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.65\textwidth]{pics/21.png}
+        \caption{鉴频输入端接入正弦 FM 信号时的输出波形}\label{fig:21}
+    \end{figure}
+
+    测量得：$U_{pp}=1.15V$，$f=1.0006$kHz，$U_{max}=575mV$，$U_{min}=-575mV$。
+
+    成功从FM波中解调出基带信号，频率与设定的调制频率一致。
+
+    \item \textbf{频偏与输出电压的关系}
+    \begin{table}[H]
+        \centering
+        \caption{频偏与输出电压的测量值}
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $\Delta f/kHz$ & 20    & 30    & 40   & 50   & 60   & 70   & 80   & 90   & 100  \\ \hline
+        $u_o/V$        & 0.422 & 0.607 & 0.84 & 1.01 & 1.18 & 1.23 & 1.22 & 1.27 & 1.31 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    绘出$u_o$-$\Delta f$ 曲线如下：
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.9\textwidth]{pics/graph2.png}
+        \caption{$u_o$-$\Delta f$ 曲线}\label{fig:graph2}
+    \end{figure}
+
+    开始工作在线性区，$u_o$和$\Delta f$为线性关系。$\Delta f$较大时工作在非线性区，接近S型曲线最大值的一段，随着$\Delta f$的增大，$u_o$增长变缓。
+
+    \item \textbf{接入单一频率高频等幅正弦信号，测量鉴频输出电压与输入频率的关系}
+
+    $U_o$和$f$的测量值如下：
+
+    \begin{table}[!ht]
+    \centering
+
+        \caption{$U_o$和$f$的测量值}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $f/MHz$ & 7      & 7.2    & 7.4    & 7.6    & 7.8    & 8      & 8.2    & 8.4    \\ \hline
+        $u_o/V$ & -0.269 & -0.377 & -0.546 & -0.832 & -1.358 & -2.467 & -4.586 & -2.924 \\ \hline
+        $f/MHz$ & 8.6    & 8.8    & 9      & 9.2    & 9.4    & 9.6    & 9.8    & 10     \\ \hline
+        $u_o/V$ & 2.486  & 4.933  & 4.261  & 3.093  & 2.151  & 1.472  & 1.061  & 0.802  \\ \hline
+        \end{tabular}
+    \end{table}
+
+    绘出$u_o$-$f$ 曲线如下：
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.85\textwidth]{pics/graph3.png}
+        \caption{$u_o$-$f$ 曲线}\label{fig:graph3}
+    \end{figure}
+
+    呈现出S型曲线，和频谱仪测量结果一致。
+
+    \newpage
+    
+    \item \textbf{示波器及【SWEEP】信号测试鉴频特性曲线}
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/22.png}
+        \caption{示波器及【SWEEP】信号测试鉴频特性曲线}\label{fig:22}
+    \end{figure}
+
+    最大电平$U_{max}=5.06V$，最小电平$U_{min}=-5.15V$
+
+    呈现出S型曲线，和频谱仪测量结果一致。
+    
+\end{enumerate}
+
+\subsection*{3.锁相鉴频器特性参数测试}
+
+\begin{enumerate}[(1)]
+    \item \textbf{鉴频输入端接入正弦信号时的波形和参数}
+
+    锁相环 VCO 输出(TP3)波形如下：
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/31.png}
+        \caption{锁相环 VCO 输出波形}\label{fig:31}
+    \end{figure}
+
+    其中$V_{pp}=11.7V$，$f=466.7$kHz。
+
+    \item \textbf{鉴频输入端接入正弦FM信号时的频偏与输出电压的关系}
+    
+    正弦 FM 信号载波频率为465KHz，幅度 1Vpp，调制频率 1KHz。
+    
+    \begin{table}[!ht]
+        \centering
+
+        \caption{频偏与输出电压的测量值}
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $\Delta f/kHz$ & 20    & 30   & 40   & 50   & 60   & 70   & 80   & 90   & 100  \\ \hline
+        $u_o/V$        & 0.527 & 0.78 & 1.02 & 1.27 & 1.55 & 1.79 & 2.01 & 2.25 & 2.49 \\ \hline
+        $f/kHz$        & 1.0000 & 1.0004 & 0.9996 & 1.0005 & 1.0006 & 1.0006 & 0.9994 & 1.0000 & 1.0000 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    绘出$u_o$-$\Delta f$ 曲线如图15所示。
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/graph4.png}
+        \caption{$u_o$-$\Delta f$ 曲线}\label{fig:graph4}
+    \end{figure}
+
+    $$\left.S_d= \dfrac{\partial U_0}{\partial f}\right|_{f=f_0}=\dfrac{\Delta U_0}{\Delta f}=k=0.0246 \pm 0.00021 \quad \mathrm{V/kHz}$$
+
+    相关系数$R^2=0.99948$，频偏与输出电压具有较好的线性关系。
+
+    \item \textbf{$\Delta f$为 100KHz时的波形及参数}
+
+    下面为$u_{FM}$(P1 或 TP1)，$u_o$(TP2)的波形：
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pics/33.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{pics/32.png}
+        \caption{$\Delta f$为 100KHz时的波形}\label{fig:32}
+    \end{figure}
+
+    参数如下：$U_{FM}=1.13V$，$U_o=2.53V$，$f=1.0006kHz$。
+
+    成功从FM波中解调出基带信号，频率与设定的调制频率一致。
+    
+\end{enumerate}
+
+\subsection*{4.乘积型相位鉴频器特性参数测试}
+\begin{enumerate}[(1)]
+    \item \textbf{用频谱仪测量相位鉴频器的鉴频特性曲线}
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/40.png}
+        \caption{乘积型相位鉴频器鉴频特性曲线}\label{fig:40}
+    \end{figure}
+    测量结果如下：
+    $+\Delta f_{max}=204\mathrm{kHz} $，$-\Delta f_{max}=-216\mathrm{kHz} $
+
+    鉴频带宽 $2\Delta f_{max}=420\mathrm{kHz} $
+
+    鉴频特性曲线为良好的S型曲线。
+    
+    \item \textbf{鉴频输入端接入正弦 FM 信号时的输出波形和参数}
+
+    输入正弦 FM 信号载波频率为4.5MHz、幅度 100mVPP、调制频率 1KHz、频率偏移为 75KHz。
+    
+    微调 T1 和 W2，使 uo 幅值最大、上下对称且直流电平约为 0V，波形如下。从上到下依次为TP4、 TP5、 TP6、 TP7 及输出 TP8 。
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.65\textwidth]{pics/41.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.65\textwidth]{pics/42.png}
+
+        \caption{接入正弦FM信号时的波形}\label{fig:42}
+    \end{figure}
+
+    \vspace{-2em}
+    各端口参数如表7所示：
+    \begin{table}[H]
+        \centering
+        \vspace{-1em}
+        \caption{接入FM信号时的参数}
+        
+        \begin{tabular}{|c|c|c|}
+        \hline
+            & Vpp   & f        \\ \hline
+        TP4 & 101mV & - \\ \hline
+        TP5 & 76mV & - \\ \hline
+        TP6 & 35mV  & - \\ \hline
+        TP7 & 550mV & 999.78Hz \\ \hline
+        TP8 & 530mV & 1.0014kHz \\ \hline
+        \end{tabular}
+    \end{table}
+
+    成功从FM波中解调出基带信号，频率与设定的调制频率一致。
+    
+    \item \textbf{频偏与输出电压的关系}
+
+    \begin{table}[!ht]
+        \centering
+        
+        \caption{频偏与输出电压的测量值}
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $\Delta f/kHz$ & 20    & 30    & 40    & 50    & 60    & 70    & 80    & 90    & 100   \\ \hline
+        $u_o/V$        & 0.164 & 0.219 & 0.291 & 0.352 & 0.416 & 0.476 & 0.527 & 0.568 & 0.607 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    绘出$u_o$-$\Delta f$ 曲线如图19所示。
+
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.7\textwidth]{pics/graph5.png}
+        \caption{$u_o$-$\Delta f$ 曲线}\label{fig:graph5}
+    \end{figure}
+
+    $$\left.S_d= \dfrac{\partial U_0}{\partial f}\right|_{f=f_0}=\dfrac{\Delta U_0}{\Delta f}=k=0.00569 \pm 0.00019 \quad \mathrm{V/kHz}$$
+
+    相关系数$R^2=0.99254$，线性程度很好。
+    
+    \item \textbf{接入单一频率高频等幅正弦信号，测量鉴频输出电压与输入频率的关系}
+
+    $U_o$和$f$的测量值如下：
+
+    \begin{table}[!ht]
+        \centering
+        \caption{$U_o$和$f$的测量值}
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        $f/MHz$ & 4      & 4.05   & 4.1    & 4.15   & 4.2    & 4.25   & 4.3   & 4.35   & 4.4   & 4.45   & 4.5   \\ \hline
+        $u_o/V$ & 0.267  & 0.287  & 0.309  & 0.331  & 0.353  & 0.372  & 0.379 & 0.362  & 0.303 & 0.183  & 0.008 \\ \hline
+        $f/MHz$ & 4.55   & 4.6    & 4.65   & 4.7    & 4.75   & 4.8    & 4.85  & 4.9    & 4.95  & 5      &       \\ \hline
+        $u_o/V$ & -0.177 & -0.318 & -0.394 & -0.418 & -0.413 & -0.394 & -0.37 & -0.344 & -0.32 & -0.298 &       \\ \hline
+        \end{tabular}
+    \end{table}
+
+    绘出$u_o$-$f$ 曲线如图20所示。
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.75\textwidth]{pics/graph6.png}
+        \caption{$u_o$-$f$ 曲线}\label{fig:graph6}
+    \end{figure}
+
+    呈现出S型曲线，和频谱仪测量结果一致。
+    
+    \item \textbf{示波器及【SWEEP】信号测试鉴频特性曲线}
+    
+    \begin{figure}[H]
+        \centering
+        
+        \includegraphics[width=0.75\textwidth]{pics/43.png}
+        \caption{示波器及【SWEEP】信号测试鉴频特性曲线}\label{fig:22}
+    \end{figure}
+
+    最大电平$U_{max}=402mV$，最小电平$U_{min}=-442mV$。
+
+    呈现出S型曲线，和频谱仪测量结果一致。
+    
+\end{enumerate}
+
+\section*{第四部分 \texorpdfstring{\quad}{} 思考题}
+
+\begin{enumerate}
+    \item \textbf{对鉴频器的性能指标要求有哪些？}
+
+        \begin{enumerate}
+        \item 鉴频特性曲线
+        
+        指鉴频器的输出电压$u_o(t)$与输入FM信号频率$f$或$\Delta f(t)$之间的关系曲线。(S曲线）
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{pics/1.png}
+    
+            \caption{鉴频特性曲线示意图}\label{fig:1}
+        \end{figure}
+    
+        \item 鉴频器的中心频率$f$：
+        即为鉴频特性曲线原点处（$\Delta f=0$）的频率。
+    
+        \item 鉴频跨导$s_d$（鉴频灵敏度）：
+        即为中心频率附近，单位频偏所引起的输出电压的变化量。
+        
+        $$\left.S_d= \dfrac{\partial U_0}{\partial f}\right|_{f=f_0}=\dfrac{\Delta U_0}{\Delta f}$$
+    
+        \item 鉴频线性范围（鉴频带宽）：
+        鉴频特性曲线接近于直线段的频率范围， 用$2\Delta f_{max}$表示。
+        
+        \end{enumerate}
+    
+    \item \textbf{分析鉴频器输出波形出现失真的原因，实验中应如何保证鉴频输出不失真？}
+    \begin{enumerate}
+        \item 鉴频器的非线性失真
+        
+        在频率—电压转换过程中，如果输入信号的频率偏移范围超出了鉴频器的线性工作区。则输出波形会产生失真。
+        
+        解决方案：校正鉴频器特性曲线，确保工作在其线性范围内。或使用线性度更高的鉴频器设计（如锁相环鉴频器）。
+
+        \item 载波频率偏离鉴频器中心频率
+        
+        载波频率偏离设计中心频率，使得鉴频器工作在非线性区。
+        
+        解决方案：调整载波频率，使其保持在鉴频器的工作范围内。
+
+        \item 实验电路中的噪声与干扰
+        
+        电源噪声或外部干扰等噪声导致输出波形出现失真。
+
+        解决方案：增加滤波器滤除高频噪声。
+        
+    \end{enumerate}
+    
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,32 @@
+\contentsline {section}{\numberline {\hskip 1em\relax }第一部分 \hskip 1em\relax 综合设计目的}{2}{section.1}%
+\contentsline {section}{\numberline {\hskip 1em\relax }第二部分 \hskip 1em\relax 综合设计内容}{2}{section.2}%
+\contentsline {section}{\numberline {\hskip 1em\relax }第三部分 \hskip 1em\relax 基础算法部分}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1\hskip 1em\relax }ASK信号调制算法的设计与实现}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2\hskip 1em\relax }ASK信号解调算法的设计与实现}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3\hskip 1em\relax }CRC编码的设计与实现}{8}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4\hskip 1em\relax }汉明码的编码与解码}{16}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5\hskip 1em\relax }循环码的编码与解码}{23}{subsection.3.5}%
+\contentsline {section}{\numberline {\hskip 1em\relax }第四部分 \hskip 1em\relax 综合设计部分}{27}{section.4}%
+\contentsline {subsection}{\numberline {4.1\hskip 1em\relax }系统总体组成与描述}{27}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2\hskip 1em\relax }系统各组成模块功能分析}{27}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1\hskip 1em\relax }信源编码}{27}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2\hskip 1em\relax }数据分帧}{28}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3\hskip 1em\relax }加CRC}{28}{subsubsection.4.2.3}%
+\contentsline {subsubsection}{\numberline {4.2.4\hskip 1em\relax }信道编码}{28}{subsubsection.4.2.4}%
+\contentsline {subsubsection}{\numberline {4.2.5\hskip 1em\relax }加同步码}{29}{subsubsection.4.2.5}%
+\contentsline {subsubsection}{\numberline {4.2.6\hskip 1em\relax }上采样}{29}{subsubsection.4.2.6}%
+\contentsline {subsubsection}{\numberline {4.2.7\hskip 1em\relax }ASK调制}{29}{subsubsection.4.2.7}%
+\contentsline {subsubsection}{\numberline {4.2.8\hskip 1em\relax }信道}{29}{subsubsection.4.2.8}%
+\contentsline {subsubsection}{\numberline {4.2.9\hskip 1em\relax }ASK解调}{29}{subsubsection.4.2.9}%
+\contentsline {subsubsection}{\numberline {4.2.10\hskip 1em\relax }帧同步}{29}{subsubsection.4.2.10}%
+\contentsline {subsubsection}{\numberline {4.2.11\hskip 1em\relax }抽样判决}{29}{subsubsection.4.2.11}%
+\contentsline {subsubsection}{\numberline {4.2.12\hskip 1em\relax }去同步码}{29}{subsubsection.4.2.12}%
+\contentsline {subsubsection}{\numberline {4.2.13\hskip 1em\relax }信道译码}{29}{subsubsection.4.2.13}%
+\contentsline {subsubsection}{\numberline {4.2.14\hskip 1em\relax }CRC校验}{29}{subsubsection.4.2.14}%
+\contentsline {subsubsection}{\numberline {4.2.15\hskip 1em\relax }数据组帧}{29}{subsubsection.4.2.15}%
+\contentsline {subsubsection}{\numberline {4.2.16\hskip 1em\relax }信源译码}{29}{subsubsection.4.2.16}%
+\contentsline {subsection}{\numberline {4.3\hskip 1em\relax }系统运行结果分析}{30}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1\hskip 1em\relax }不同类型数据源对传输的影响}{30}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2\hskip 1em\relax }不同CRC对传输的影响}{32}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3\hskip 1em\relax }不同编码方式对传输的影响}{34}{subsubsection.4.3.3}%
+\contentsline {section}{\numberline {\hskip 1em\relax }第五部分 \hskip 1em\relax 收获与体会}{36}{section.5}%

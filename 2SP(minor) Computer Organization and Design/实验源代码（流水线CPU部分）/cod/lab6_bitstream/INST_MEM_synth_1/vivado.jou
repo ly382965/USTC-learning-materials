@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Wed May 22 21:55:28 2024
+# Process ID: 18376
+# Current directory: D:/Codes/Verilog/lab6_bitstream/INST_MEM_synth_1
+# Command line: vivado.exe -log INST_MEM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source INST_MEM.tcl
+# Log file: D:/Codes/Verilog/lab6_bitstream/INST_MEM_synth_1/INST_MEM.vds
+# Journal file: D:/Codes/Verilog/lab6_bitstream/INST_MEM_synth_1\vivado.jou
+#-----------------------------------------------------------
+source INST_MEM.tcl -notrace

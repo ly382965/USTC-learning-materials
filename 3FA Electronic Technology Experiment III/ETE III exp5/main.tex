@@ -1,0 +1,536 @@
+\documentclass[UTF8]{ctexart}
+
+\title{\Large 中国科学技术大学\\{\Large 电子技术实验III}\\{\Large 实验报告}}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{enumerate}
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=3cm}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\pagestyle{fancy}
+\fancyhead[l]{ }
+\fancyhead[r]{ }
+\fancyhead[C]{
+	\begin{tabular}{cccccc}
+         & \multicolumn{4}{c}{\textbf{混频器与 AGC 中频放大系统\quad 实验报告}}                                    &            \vspace{1ex}\\
+信息科学技术学院 & \multicolumn{2}{c}{PB22051030 王旭东} & \multicolumn{2}{c}{PB22051031 李毅} & 2024年11月29日
+\end{tabular}
+}
+\fancyfoot[C]{ 第 {\thepage} 页，共 \pageref{LastPage} 页}
+\setlength{\headheight}{29.83218pt}
+\setlength{\abovecaptionskip}{1em}
+\renewcommand{\headrulewidth}{1pt}
+\usepackage{graphicx,tikz}
+\usepackage{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage[square,comma,numbers,super]{natbib}
+\bibliographystyle{unsrt}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage{diagbox}
+\usepackage{listings}
+\usepackage{makecell}
+\usepackage[final]{pdfpages}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\makeatletter
+\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
+\makeatother
+\ctexset{
+    % 修改 section。
+    section={   
+        name={,\quad},
+        number={\empty},
+        format=\bfseries\centering\zihao{3}, % 设置 section 标题为黑体、右对齐、小4号字
+        aftername=\hspace{0pt},
+        beforeskip=2ex,
+        afterskip=2ex
+    },
+    % 修改 subsection。
+    subsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\bfseries\zihao{4}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=2ex
+    },
+    % 修改 subsubsection。
+    subsubsection={   
+        name={,\quad},
+        number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+        format=\bfseries\zihao{5}, % 设置 subsection 标题为黑体、5号字
+        aftername=\hspace{0pt},
+        beforeskip=1ex,
+        afterskip=1ex
+    }
+}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4} % how many sectioning levels to show in ToC
+\input {highlight.sty}
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+
+        \zihao{1}\textbf{电子技术实验III\quad 实验报告}\\
+        \vspace{0.5cm}
+        \zihao{2}\textbf{实验五\quad 混频器与 AGC 中频放大系统}
+    
+        \vspace{1.5cm}
+        \input{school_badge}
+    
+        \vspace*{1.35cm}
+        \begin{center}
+            \hspace{-2em}
+            \zihao{4}
+            \begin{tabular}{rl}
+                \makebox[4em][s]{实验人：}    \hspace{-0.5cm}	&\dlmu[5cm]{王旭东 PB22051030} \vspace{1ex}\\
+                \makebox[4em][s]{}    \hspace{-0.5cm}	&\dlmu[5cm]{李\quad 毅 PB22051031} \vspace{1ex}\\
+                \makebox[4em][s]{院\quad 系：}    \hspace{-0.5cm}	&\dlmu[5cm]{信息科学技术学院}\vspace{1ex}\\
+                \makebox[4em][s]{时\quad 间：}    \hspace{-0.5cm}	&\dlmu[5cm]{2024年11月29日}\vspace{1ex}\\
+                \makebox[4em][s]{台\quad 号：}    \hspace{-0.5cm}	&\dlmu[5cm]{26}
+                
+            \end{tabular}
+        \end{center}
+    \end{center}
+    \end{titlepage}
+
+\newpage
+\section{第一部分 \texorpdfstring{\quad}{} 实验目的}
+\begin{enumerate}
+    \item 了解混频器的基本原理，掌握模拟乘法器和三极管实现混频的方法。
+    \item 了解自动增益控制的基本原理，理解AGC系统的构成，掌握自动增益控制系统的测试方法。    
+\end{enumerate}
+    
+\section{第二部分 \texorpdfstring{\quad}{} 实验原理}
+\begin{enumerate}
+    \item \textbf{混频器的概念}
+
+    将载波频率为$f_s$（高频）的已调波信号不失真地变换为载波频率为 $f_I$（固定中频）的已调波信号，并保持原调制规律不变。即将信号频谱自载频$f_s$线性搬移到中频$f_I$，且
+    信号的相对频谱分布不变。混频器频率变换示意图如图 \ref{fig:0.1} 所示。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/0.1.png}
+
+        \caption{混频器频率变换示意图}\label{fig:0.1}
+    \end{figure}
+    \vspace{-2em}
+    \item \textbf{混频器主要性能指标}
+
+    混频增益$K_V=\dfrac{u_{Im}}{u_{sm}}$，选择性S为3dB带宽与40dB带宽的比值，越接近1越好。噪声系数、失真和干扰：越小越好。
+
+    \item \textbf{常用的混频器电路}
+
+    三极管混频：利用晶体管$i_c-u_{BE}$的非线性特性实现，经过带通滤波器后输出的中频电流
+    \[i_I=\dfrac{g_1}{2}U_{sm}cos(\omega_L-\omega_s)t\]
+
+    乘法器混频：经过非线性频率变换后的输出
+    \[u_I=\dfrac{K}{2}U_{sm}U_{Lm}cos(\omega_L+\omega_s)t+cos(\omega_L+\omega_s)t\]
+    用带通滤波器可取出和频分量$\omega_L+\omega_s$，或取出差频分量$\omega_L-\omega_s$。
+
+    \item \textbf{AGC中频放大系统}
+
+    中频放大器输入为混频输出的中频信号，谐振频率调谐在中频，输出作为检波器输入，放大倍数受AGC电压控制，保证输入信号在很大范围变化时，接收机的输出电压基本稳定。
+
+    自动增益控制电路在接收机输入信号电压出现较大波动时，自动调整接收机各级增益，保持接收机输出电压几乎不变。$u_o-u_i$曲线如图 \ref{fig:0.2} 所示。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.5\textwidth]{pics/0.2.png}
+
+        \caption{AGC电路$u_o-u_i$曲线}\label{fig:0.2}
+    \end{figure}
+    \item \textbf{实验电路}
+    \begin{figure}[H]
+        \centering
+        \vspace{-2em}
+        \includegraphics[width=0.6\textwidth]{pics/0.3.png}
+
+        \caption{模拟集成乘法器混频电路}\label{fig:0.3}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \vspace{-2em}
+        \includegraphics[width=0.6\textwidth]{pics/0.4.png}
+
+        \caption{三极管混频电路}\label{fig:0.4}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \vspace{-2em}
+        \includegraphics[width=0.6\textwidth]{pics/0.5.png}
+
+        \caption{中放AGC实验电路}\label{fig:0.5}
+    \end{figure}
+\end{enumerate} 
+
+
+\section{第三部分 \texorpdfstring{\quad}{} 实验内容及结果}
+\textbf{需要说明的是，由于实验时示波器显示的测量数据处于抖动状态，我们的测量方法是按Stop键之后读取数值作为试验记录，之后按Run键再将波形保存为图片，所以试验记录和图片中显示数据可能会有细微差别，报告中的计算全部按照原始数据来计算，图片仅作波形参考}
+
+\subsection{混频器电路测试}
+\subsubsection{集成模拟乘法器混频}
+\begin{enumerate}
+    \item \textbf{465KHz混频输出信号观测}
+
+    调节本振信号$f_L=6.465MHz$，$u_{Lpp}=800mV$，射频信号$f_s=6MHz$，$u_{Spp}=700mV$，混频输出信号通过中心频率为465KHz的带通滤波器，进行滤波处理，用示波器观测记录中频信号$u_I$的波形如图\ref{fig:11}所示，可以看到$u_I$为正弦波，峰峰值$510mV$，频率$465.6KHz$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pics/11.png}
+
+        \caption{465KHz混频输出中频信号波形}\label{fig:11}
+    \end{figure}
+    \vspace{-2em}
+    保持$u_L$和$u_S$幅度不变，保持$f_s$不变，改变$f_L$，记录混频输出信号频率$f_I$的变化如表\ref{tab:1}所示。可以得到频率关系为$f_I=f_L-f_s$
+    \begin{table}[H]
+        \centering
+        \caption{465KHz混频输出信号频率的变化}
+        \label{tab:1}
+        \begin{tabular}{c|cccccccc}
+        \hline
+        $f_s$ &
+          \multicolumn{8}{c}{6$MHz$} \\ \hline
+        $f_L/MHz$ &
+          \multicolumn{1}{c|}{6.42} &
+          \multicolumn{1}{c|}{6.43} &
+          \multicolumn{1}{c|}{6.44} &
+          \multicolumn{1}{c|}{6.45} &
+          \multicolumn{1}{c|}{6.46} &
+          \multicolumn{1}{c|}{6.47} &
+          \multicolumn{1}{c|}{6.48} &
+          6.49 \\ \hline
+        $f_I/MHz$ &
+          \multicolumn{1}{c|}{0.4200} &
+          \multicolumn{1}{c|}{0.4300} &
+          \multicolumn{1}{c|}{0.4400} &
+          \multicolumn{1}{c|}{0.4500} &
+          \multicolumn{1}{c|}{0.4600} &
+          \multicolumn{1}{c|}{0.4700} &
+          \multicolumn{1}{c|}{0.4825} &
+          0.4925 \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{-1em}
+
+    恢复$f_L=6.465MHz$，保持$u_{Spp} = 700mV$不变，调整本振信号$u_L$的幅值，用示波器观测$u_L$的幅值、混频输出信号$u_I$的幅值以及混频增益如表\ref{tab:2}所示。
+    \begin{table}[H]
+        \centering
+        \vspace{-1em}
+        \caption{465KHz 混频输出信号幅值数据表}
+        \label{tab:2}
+        \begin{tabular}{c|c|c|c|c|c|c}
+        \hline
+        $u_{Lpp}/mV$ & 500   & 600   & 700   & 800   & 900   & 1000  \\ \hline
+        $u_{Ipp}/mV$ & 500   & 500   & 500   & 510   & 510   & 510   \\ \hline
+        $K_V$        & 0.714 & 0.714 & 0.714 & 0.729 & 0.729 & 0.729 \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{-1em}
+    
+    \item \textbf{4.5MHz混频输出信号观测}
+    调节本振信号$f_L=10.5MHz$，$u_{Lpp}=800mV$，射频信号$f_s=6MHz$，$u_{Spp}=700mV$，混频输出信号通过中心频率为4.5MHz的带通滤波器，进行滤波处理，用示波器观测记录中频信号$u_I$的波形如图\ref{fig:12}所示，可以看到$u_I$为正弦波，峰峰值$205mV$，频率$4.48MHz$。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pics/12.png}
+
+        \caption{4.5MHz混频输出中频信号波形}\label{fig:12}
+    \end{figure}
+    \vspace{-2em}
+    保持$u_L$和$u_S$幅度不变，保持$f_s$不变，改变$f_L$，记录混频输出信号频率$f_I$的变化如表\ref{tab:3}所示。可以得到频率关系为$f_I=f_L-f_s$
+    \begin{table}[H]
+        \centering
+        \vspace{-1ex}
+        \caption{4.5MHz混频输出信号频率数据表}
+        \label{tab:3}
+        \begin{tabular}{c|ccccccccc}
+            \hline
+            $f_s$ &
+              \multicolumn{9}{c}{6$MHz$} \\ \hline
+            $f_L/MHz$ &
+              \multicolumn{1}{c|}{10.1} &
+              \multicolumn{1}{c|}{10.2} &
+              \multicolumn{1}{c|}{10.3} &
+              \multicolumn{1}{c|}{10.4} &
+              \multicolumn{1}{c|}{10.5} &
+              \multicolumn{1}{c|}{10.6} &
+              \multicolumn{1}{c|}{10.7} &
+              \multicolumn{1}{c|}{10.8} &
+              10.9 \\ \hline
+            $f_I/MHz$ &
+              \multicolumn{1}{c|}{4.098} &
+              \multicolumn{1}{c|}{4.198} &
+              \multicolumn{1}{c|}{4.298} &
+              \multicolumn{1}{c|}{4.398} &
+              \multicolumn{1}{c|}{4.498} &
+              \multicolumn{1}{c|}{4.598} &
+              \multicolumn{1}{c|}{4.698} &
+              \multicolumn{1}{c|}{4.798} &
+              4.898 \\ \hline
+            \end{tabular}
+        \end{table}
+    \vspace{-1em}
+
+    恢复$f_L=10.5MHz$，保持$u_{Lpp} = 800mV$不变，调整参考输入信号$u_S$的幅值，频率为6MHz不变，用示波器观测$u_S$的幅值、混频输出信号$u_I$的幅值以及混频增益如表\ref{tab:4}所示。
+    \begin{table}[H]
+        \centering
+        \caption{4.5MHz 混频输出信号幅值数据表}
+        \label{tab:4}
+        \begin{tabular}{c|c|c|c|c|c|c}
+        \hline
+        $u_{spp}/mV$ & 200   & 300   & 400   & 500   & 600   & 700   \\ \hline
+        $u_{Ipp}/mV$ & 59    & 86    & 115   & 140   & 166   & 195   \\ \hline
+        $K_V$        & 0.295 & 0.287 & 0.288 & 0.280 & 0.277 & 0.279 \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{-1em}
+    \item \textbf{调频波经混频输出信号观测}
+
+    调节本振信号$f_L=10.5MHz$，$u_{Lpp}=800mV$，射频信号$f_s=6MHz$，$u_{Spp}=1Vpp$，调制类型FM，调制频率1KHz，频偏75KHz，混频输出信号通过中心频率为4.5MHz的带通滤波器，进行滤波处理，用频谱仪观测记录本振信号的频谱如图\ref{fig:13}所示，峰值频率为10.498MHz。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/13.png}
+
+        \caption{本振信号频谱}\label{fig:13}
+    \end{figure}
+    \vspace{-2em}
+    调频输入信号频谱如图 \ref{fig:14} 所示，中心频率6MHz，左侧峰值频偏为-72.5KHz，右侧峰值频偏为+74.5KHz。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/14.png}
+
+        \caption{调频波混频输入信号频谱}\label{fig:14}
+    \end{figure}
+    \vspace{-1em}
+    混频输出信号频谱与调频输入信号形状相同，中心频率4.5MHz，左侧峰值频偏为-72KHz，右侧峰值频偏为+72KHz。
+
+    可以看出，混频后的信号是将输入信号频谱近似线性地搬移到中频，频谱形状与两侧峰值频偏均基本没有变化。
+\end{enumerate}
+
+\subsubsection{三极管混频输出信号观测}
+\begin{enumerate}
+    \item \textbf{实验现象观测}
+
+    调节本振信号$f_L=10.5MHz$，$u_{Lpp}=800mV$，射频信号$f_s=6MHz$，$u_{Spp}=200mV$，用示波器观察测晶体三极管混频的输出$u_I$波形如图\ref{fig:31}所示，调整W1、W2使$u_I$幅度最大且波形不失真。记录$u_L$幅值800mV，频率10.4MHz，$u_S$幅值200mV，频率6MHz，$u_I$幅值237mV，频率4.48MHz。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/31.png}
+
+        \caption{三极管混频输入输出信号波形}\label{fig:31}
+    \end{figure}
+    \vspace{-1em}
+    改变本振信号频率，频谱仪观测混频输出信号的频率如表\ref{tab:5}所示。分析频率关系为$f_I=f_L-f_S$。
+    \begin{table}[H]
+        \centering
+        \caption{混频输出信号频率数据表}
+        \label{tab:5}
+        \begin{tabular}{c|ccccccc}
+        \hline
+        $f_s$ &
+          \multicolumn{7}{c}{6MHz} \\ \hline
+        $f_L/MHz$ &
+          \multicolumn{1}{c|}{10.2} &
+          \multicolumn{1}{c|}{10.3} &
+          \multicolumn{1}{c|}{10.4} &
+          \multicolumn{1}{c|}{10.5} &
+          \multicolumn{1}{c|}{10.6} &
+          \multicolumn{1}{c|}{10.7} &
+          10.8 \\ \hline
+        $f_I/MHz$ &
+          \multicolumn{1}{c|}{4.2000} &
+          \multicolumn{1}{c|}{4.3005} &
+          \multicolumn{1}{c|}{4.3995} &
+          \multicolumn{1}{c|}{4.5000} &
+          \multicolumn{1}{c|}{4.6005} &
+          \multicolumn{1}{c|}{4.6995} &
+          4.8000 \\ \hline
+        \end{tabular}
+    \end{table}
+    \vspace{-1em}
+    恢复$f_L=10.5MHz$，保持$u_{Spp}=200mV$不变，调整本振信号电压幅值$u_{Lpp}$为1V和1.2V，示波器观测本真信号和混频输出的幅值，计算混频电压增益如表\ref{tab:6}所示。
+    \begin{table}[H]
+        \centering
+        \caption{三极管混频电压数据表}
+        \label{tab:6}
+        \begin{tabular}{c|c|c}
+        \hline
+        $u_{Lpp}/V$  & 1    & 1.2  \\ \hline
+        $u_{Ipp}/mV$ & 350  & 386  \\ \hline
+        $K_V$        & 1.75 & 1.93 \\ \hline
+        \end{tabular}
+    \end{table}
+    \item \textbf{调幅波经混频输出信号观测}
+    
+    调节本振信号$f_L=10.5MHz$，$u_{Lpp}=1.2V$，射频信号$f_s=6MHz$，$u_{Spp}=0.4V$，调制类型AM，调制频率2KHz，调制深度30\%，用示波器观察测晶体三极管混频的输出$u_I$波形如图\ref{fig:31}所示，调整W1、W2使混频输出调幅波形幅值较大且包络不失真。
+    输入波形如图\ref{fig:32}通道2所示，输出波形如图\ref{fig:33}通道2所示。
+    记录参数如下：
+
+    调幅输入：$A_{max}=120.5mV,A_{min}=57.5mV$，调制度$m=0.354$
+
+    混频输出：$A_{max}=228mV,A_{min}=118mV$，调制度$m=0.289$
+
+    本振信号：$f_L=10.5MHz,u_{Lpp}=1.24V$
+
+    受限于时域测量精度问题，输入输出信号的调制度误差较大。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/32.png}
+
+        \caption{本振信号与调幅波混频输入信号波形}\label{fig:32}
+    \end{figure}
+    \vspace{-1em}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/33.png}
+
+        \caption{本振信号与调幅波混频输出信号波形}\label{fig:33}
+    \end{figure}
+    \vspace{-1em}
+
+    频谱仪测量本振信号频谱如图\ref{fig:34}所示，峰值频率$f_L=10.5004MHz$。
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pics/34.png}
+
+        \caption{本振信号频谱}\label{fig:34}
+    \end{figure}
+    \vspace{-1em}
+    调幅输入信号频谱如图\ref{fig:35}所示，左侧和右侧峰值频率差值$\Delta f_{min}=\Delta f_{max}=2KHz$，中心频率$f_S=6MHz$，幅度差值$\Delta A=-16.25dB$，调制度$m=\dfrac{2}{10^{\left\lvert \Delta A\right\rvert /20}}=0.308$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{pics/35.png}
+
+        \caption{输入调幅波信号频谱}\label{fig:35}
+    \end{figure}
+    \vspace{-1em}
+    混频输出信号频谱如图\ref{fig:36}所示，左侧和右侧峰值频率差值$\Delta f_{min}=\Delta f_{max}=2KHz$，中心频率$f_S=4.5004MHz$，幅度差值$\Delta A=-16.72dB$，调制度$m=\dfrac{2}{10^{\left\lvert \Delta A\right\rvert /20}}=0.292$
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{pics/36.png}
+
+        \caption{输出混频波信号频谱}\label{fig:36}
+    \end{figure}
+    \vspace{-2em}
+    可以看出频域测量的输入输出调制度近似相等，左右峰值频率差值相同，说明混频前后频谱结构无失真，只是进行线性搬移。
+
+\end{enumerate}
+
+\subsection{AGC中频放大系统测试}
+\subsubsection{测量开环（无AGC）时中频放大器输入、输出特性曲线}
+从中放输入端接入4.5MHz，0.2Vpp的正弦信号，调节W3使输出信号最大不失真，测得$u_{ipp}=221mV,u_{opp}=3.86V$中放谐振电压放大倍数$A_u=17.466$。
+
+以0.2Vpp为步进单位改变输入信号幅值，测量中放输入输出电压幅值，计算开环电压放大倍数$A_u$如表 \ref{tab:7} 所示，绘制$u_o\thicksim u_i$和$A_u\thicksim u_i$曲线如图 \ref{fig:41} 和 \ref{fig:42} 所示。
+\begin{table}[H]
+    \centering
+    \caption{开环输入、输出特性测量数据表}
+    \label{tab:7}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+    \hline
+    $u_i/Vpp$ & 0.11  & 0.32  & 0.53  & 0.74  & 0.94 & 1.14 & 1.32 & 1.56  & 1.75  & 1.96  \\ \hline
+    $u_o/Vpp$ & 2.06  & 5.40  & 7.10  & 8.00  & 8.80 & 9.20 & 9.60 & 10.00 & 10.00 & 10.10 \\ \hline
+    $A_u$     & 18.90 & 16.88 & 13.40 & 10.81 & 9.36 & 8.07 & 7.27 & 6.41  & 5.71  & 5.15  \\ \hline
+    \end{tabular}
+\end{table}
+
+随输入电压幅值增大，输出电压幅值逐渐增大，到达10V左右后不再增加。随输入电压幅值增大，开环电压放大倍数近似线性下降。
+\subsubsection{测量闭环（有AGC）时中频放大器输入、输出特性曲线}
+保持W3不变，测量中放AGC系统输入输出电压幅值及AGC控制电压$V_{AGC}$如表\ref{tab:8}所示，绘制曲线$u_o\thicksim u_i$曲线、$A_u\thicksim u_i$曲线及$V_{AGC}\thicksim u_i$曲线 \ref{fig:43}、图 \ref{fig:44} 和图 \ref{fig:45} 所示。
+
+可以看出，闭环时中放随$u_i$增大，$u_o$先增大，后保持不变，再增大，与理论上的起控到失控的过程相符合，起控电压$u_{imin}\approx 0.1V$，失控电压$u_{imax}\approx 0.35V$。在$u_i\leq u_{imin}$时，电压增益$A_u$和AGC控制电压$V_{AGC}$几乎不变；$u_{imin}\leq u_i\leq u_{imax}$时，$A_u$下降，$V_{AGC}$上升，变化趋势渐缓；$u_i\geq u_{imax}$时，电压增益$A_u$和AGC控制电压$V_{AGC}$几乎不变。
+
+\begin{table}[H]
+    \centering
+    \vspace{-2em}
+    \caption{闭环输入、输出特性测量数据表}
+    \label{tab:8}
+    \begin{tabular}{c|c|c|c|c|c|c|c|c|c}
+    \hline
+    $u_i/Vpp$   & 0.043  & 0.068  & 0.087  & 0.106  & 0.206  & 0.321  & 0.422  & 0.518  & 0.73   \\ \hline
+    $u_o/Vpp$   & 0.90   & 1.45   & 1.83   & 1.93   & 1.93   & 1.93   & 2.21   & 2.69   & 3.87   \\ \hline
+    $V_{AGC}/V$ & -6.380 & -6.380 & -6.380 & -4.276 & -1.386 & -0.507 & -0.003 & -0.003 & -0.003 \\ \hline
+    $A_u$       & 20.930 & 21.324 & 21.034 & 18.208 & 9.369  & 6.012  & 5.237  & 5.193  & 5.301  \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/41.png}
+
+    \caption{开环$u_o\thicksim u_i$曲线}\label{fig:41}
+\end{figure}
+\vspace{-1em}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{pics/42.png}
+
+    \caption{开环$A_u\thicksim u_i$曲线}\label{fig:42}
+\end{figure}
+\vspace{-1em}
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[c]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/43.png}
+        \caption{闭环$u_o\thicksim u_i$曲线}\label{fig:43}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/44.png}
+        \caption{闭环$A_u\thicksim u_i$曲线}\label{fig:44}
+    \end{subfigure}
+
+    \begin{subfigure}[c]{0.7\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{pics/45.png}
+        \caption{闭环$V_{AGC}\thicksim u_i$曲线}\label{fig:45}
+    \end{subfigure}
+    \vspace{-1em}
+    \caption{闭环（有AGC）时中频放大器输入、输出特性曲线}\label{fig:6}
+\end{figure}
+
+\section{第四部分 \texorpdfstring{\quad}{} 思考题}
+\begin{enumerate}[I.]
+
+    \item \textbf{分析混频的必要性}
+
+    答：（1）\textbf{方便进行信号处理}
+    
+    在无线通信系统中，尤其是接收端的设计中，直接使用高频信号进行处理较为困难，因为信号的传输、放大和解调都受到高频电路的限制。混频器可以将接收到的高频信号转换为中频或基带信号，从而使信号处理更加容易。
+
+    （2） \textbf{改善信号的抗干扰能力}
+
+    在高频通信系统中，高频信号容易受到噪声和干扰的影响。混频后得到中频信号再进行信号滤波和处理，有助于提升系统的抗干扰能力。
+    
+    （3）\textbf{降低硬件复杂度}
+
+    对于需要接收不同频段信号的接收机，将所有频段统一使用混频器变换到同一个中频上再进行信号处理，避免针对不同频率设计不同电路，降低硬件复杂度。
+
+    \item \textbf{分析混频与调幅有什么异同}
+
+    相同点：混频与AM调制都是对频谱的线性变换，都可以利用模拟乘法器实现，二者的结果都是获得两种频率的和、差新频率。
+    
+    不同点：
+    
+    （1）目的不同，混频的目的是将难以直接处理的高频信号变换到中频，调幅的目的是将难以直接传输的基带信号搭载到高频载波上，用基带信号控制高频信号的幅值。
+
+    （2）频谱结构不同，调幅的输出频谱可能包含载波信号，也可能只有单/双边带信号，混频的输出频谱通常是两个输入频率的和频和差频。
+
+    （3）应用不同，调幅主要用于信号的传输过程中，混频主要应用于信号的接收解调过程。
+
+    \item \textbf{简述AGC的控制原理}
+
+    当输入信号电压在很大范围内变化时，AGC电路能够自动调整各级放大器的增益，保持接收机输出电压几乎不变。较强的输入信号，增益较小；对于较弱的输入信号，增益较大。
+
+\end{enumerate}
+
+\end{document}

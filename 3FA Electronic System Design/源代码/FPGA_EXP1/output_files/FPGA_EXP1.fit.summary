@@ -1,0 +1,21 @@
+Fitter Status : Successful - Tue Oct 08 19:47:28 2024
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : FPGA_EXP1
+Top-level Entity Name : FPGA_EXP1
+Family : Cyclone V
+Device : 5CEFA2F23C8
+Timing Models : Final
+Logic utilization (in ALMs) : 5 / 9,430 ( < 1 % )
+Total registers : 0
+Total pins : 11 / 224 ( 5 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 1,802,240 ( 0 % )
+Total DSP Blocks : 0 / 25 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI PMA RX ATT Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total HSSI PMA TX ATT Serializers : 0
+Total PLLs : 0 / 4 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

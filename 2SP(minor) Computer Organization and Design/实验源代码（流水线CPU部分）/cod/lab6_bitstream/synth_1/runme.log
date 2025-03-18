@@ -1,0 +1,1296 @@
+
+*** Running vivado
+    with args -log TOP.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source TOP.tcl -notrace
+create_project: Time (s): cpu = 00:00:01 ; elapsed = 00:00:05 . Memory (MB): peak = 439.254 ; gain = 150.707
+Command: synth_design -top TOP -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 16964 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 988.672 ; gain = 233.664
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'TOP' [D:/Codes/Verilog/vsrc/TOP.v:1]
+INFO: [Synth 8-6157] synthesizing module 'PLLE2_BASE' [D:/work_software/Vivado/Vivado/2019.2/scripts/rt/data/unisim_comp.v:61495]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT bound to: 16 - type: integer 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: double 
+	Parameter CLKOUT0_DIVIDE bound to: 32 - type: integer 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT1_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: double 
+	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: double 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: double 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter REF_JITTER1 bound to: 0.000000 - type: double 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'PLLE2_BASE' (1#1) [D:/work_software/Vivado/Vivado/2019.2/scripts/rt/data/unisim_comp.v:61495]
+INFO: [Synth 8-6157] synthesizing module 'PDU' [D:/Codes/Verilog/vsrc/PDU/PDU.v:1]
+	Parameter STATE_RESET bound to: 0 - type: integer 
+	Parameter STATE_SEND_LOGO bound to: 1 - type: integer 
+	Parameter STATE_SEND_LINE_HEAD bound to: 2 - type: integer 
+	Parameter STATE_ECHO_WAIT_QUEUE bound to: 3 - type: integer 
+	Parameter STATE_ECHO_WAIT_CHAR bound to: 4 - type: integer 
+	Parameter STATE_ECHO bound to: 5 - type: integer 
+	Parameter STATE_N_ECHO bound to: 6 - type: integer 
+	Parameter STATE_SEND_ENTER bound to: 7 - type: integer 
+	Parameter STATE_WAIT bound to: 8 - type: integer 
+	Parameter STATE_RI_INIT bound to: 10 - type: integer 
+	Parameter STATE_RD_INIT bound to: 11 - type: integer 
+	Parameter STATE_RR_INIT bound to: 12 - type: integer 
+	Parameter STATE_R_SEND_ENTER bound to: 13 - type: integer 
+	Parameter STATE_R_ADDR_CHECK bound to: 14 - type: integer 
+	Parameter STATE_R_READ_M bound to: 15 - type: integer 
+	Parameter STATE_R_WAIT_TX bound to: 16 - type: integer 
+	Parameter STATE_R_BLANK bound to: 17 - type: integer 
+	Parameter STATE_R_DONE bound to: 18 - type: integer 
+	Parameter STATE_R_SEND_TX bound to: 19 - type: integer 
+	Parameter STATE_R_WAIT_M bound to: 20 - type: integer 
+	Parameter STATE_WI_INIT bound to: 50 - type: integer 
+	Parameter STATE_WD_INIT bound to: 51 - type: integer 
+	Parameter STATE_W_WAIT bound to: 52 - type: integer 
+	Parameter STATE_W_DATA bound to: 53 - type: integer 
+	Parameter STATE_W_ZERO_1 bound to: 54 - type: integer 
+	Parameter STATE_W_ZERO_2 bound to: 55 - type: integer 
+	Parameter STATE_W_ADDR_CHECK bound to: 56 - type: integer 
+	Parameter STATE_W_DONE bound to: 57 - type: integer 
+	Parameter STATE_BL_ENTER bound to: 30 - type: integer 
+	Parameter STATE_BL_SEND_0 bound to: 31 - type: integer 
+	Parameter STATE_BL_SEND_1 bound to: 32 - type: integer 
+	Parameter STATE_BL_SEND_2 bound to: 33 - type: integer 
+	Parameter STATE_BS_ENTER bound to: 34 - type: integer 
+	Parameter STATE_BS_SEND_INFO bound to: 35 - type: integer 
+	Parameter STATE_BS_WAIT bound to: 36 - type: integer 
+	Parameter STATE_BS_DONE bound to: 37 - type: integer 
+	Parameter STATE_BC_ENTER bound to: 38 - type: integer 
+	Parameter STATE_BC_SEND_INFO bound to: 39 - type: integer 
+	Parameter STATE_B_DONE bound to: 40 - type: integer 
+	Parameter STATE_STEP_INIT bound to: 41 - type: integer 
+	Parameter STATE_STEP_ENABLE bound to: 42 - type: integer 
+	Parameter STATE_STEP_ENTER bound to: 43 - type: integer 
+	Parameter STATE_STEP_INFO bound to: 44 - type: integer 
+	Parameter STATE_STEP_DONE bound to: 45 - type: integer 
+	Parameter STATE_RUN_INIT bound to: 60 - type: integer 
+	Parameter STATE_RUN_N_ECHO bound to: 61 - type: integer 
+	Parameter STATE_RUN_PRINT_HEAD bound to: 62 - type: integer 
+	Parameter STATE_RUN_WAIT bound to: 63 - type: integer 
+	Parameter STATE_RUN_UART_INIT bound to: 64 - type: integer 
+	Parameter STATE_RUN_UART_DATA bound to: 65 - type: integer 
+	Parameter STATE_RUN_REACH_BP bound to: 66 - type: integer 
+	Parameter STATE_RUN_BP_INFO bound to: 67 - type: integer 
+	Parameter STATE_HALT_INIT bound to: 70 - type: integer 
+	Parameter STATE_CMD_NOT_FOUND bound to: 255 - type: integer 
+	Parameter ECHO_ENABLE bound to: 1 - type: integer 
+	Parameter ECHO_DISABLE bound to: 0 - type: integer 
+	Parameter ACCESS_IM bound to: 0 - type: integer 
+	Parameter ACCESS_DM bound to: 1 - type: integer 
+	Parameter ACCESS_RF bound to: 2 - type: integer 
+	Parameter BRIDGE_CPU bound to: 0 - type: integer 
+	Parameter BRIDGE_PDU bound to: 1 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/PDU/PDU.v:670]
+INFO: [Synth 8-6157] synthesizing module 'PDU_DECODE' [D:/Codes/Verilog/vsrc/PDU/RTL/PDU_decode.v:34]
+	Parameter _N bound to: 8'b00001010 
+	Parameter _R bound to: 8'b00001101 
+	Parameter ACCESS_IM bound to: 0 - type: integer 
+	Parameter ACCESS_DM bound to: 1 - type: integer 
+	Parameter ACCESS_RF bound to: 2 - type: integer 
+	Parameter WAIT bound to: 0 - type: integer 
+	Parameter R_1 bound to: 1 - type: integer 
+	Parameter W_1 bound to: 2 - type: integer 
+	Parameter B_1 bound to: 3 - type: integer 
+	Parameter S_1 bound to: 4 - type: integer 
+	Parameter H_1 bound to: 5 - type: integer 
+	Parameter NOT_FOUND bound to: 7 - type: integer 
+	Parameter RI_INIT bound to: 10 - type: integer 
+	Parameter R_ADDR bound to: 11 - type: integer 
+	Parameter R_LEN bound to: 12 - type: integer 
+	Parameter R_DONE bound to: 13 - type: integer 
+	Parameter RD_INIT bound to: 20 - type: integer 
+	Parameter RR_INIT bound to: 21 - type: integer 
+	Parameter WI_INIT bound to: 30 - type: integer 
+	Parameter W_ADDR bound to: 31 - type: integer 
+	Parameter W_LEN bound to: 32 - type: integer 
+	Parameter W_INFO_1 bound to: 33 - type: integer 
+	Parameter W_INFO_2 bound to: 34 - type: integer 
+	Parameter W_DATA bound to: 35 - type: integer 
+	Parameter W_SEND bound to: 36 - type: integer 
+	Parameter W_DONE bound to: 37 - type: integer 
+	Parameter WD_INIT bound to: 40 - type: integer 
+	Parameter BP_LIST bound to: 41 - type: integer 
+	Parameter BP_SET bound to: 42 - type: integer 
+	Parameter BP_CLEAR bound to: 43 - type: integer 
+	Parameter PRE_BP_LIST bound to: 44 - type: integer 
+	Parameter PRE_BP_SET bound to: 45 - type: integer 
+	Parameter PRE_BP_CLEAR bound to: 46 - type: integer 
+	Parameter STEP bound to: 50 - type: integer 
+	Parameter RUN bound to: 51 - type: integer 
+	Parameter HALT bound to: 52 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/PDU/RTL/PDU_decode.v:155]
+INFO: [Synth 8-6155] done synthesizing module 'PDU_DECODE' (2#1) [D:/Codes/Verilog/vsrc/PDU/RTL/PDU_decode.v:34]
+INFO: [Synth 8-6157] synthesizing module 'HEX2UART' [D:/Codes/Verilog/vsrc/PDU/UTILS/HEX2UART.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'HEX2UART' (3#1) [D:/Codes/Verilog/vsrc/PDU/UTILS/HEX2UART.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/PDU/PDU.v:745]
+INFO: [Synth 8-6157] synthesizing module 'BP_LIST_REG' [D:/Codes/Verilog/vsrc/PDU/RTL/BP_LIST_REG.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'BP_LIST_REG' (4#1) [D:/Codes/Verilog/vsrc/PDU/RTL/BP_LIST_REG.v:1]
+INFO: [Synth 8-6157] synthesizing module 'INFO_SENDER' [D:/Codes/Verilog/vsrc/PDU/RTL/INFO_SENDER.v:1]
+	Parameter WAIT bound to: 0 - type: integer 
+	Parameter SEND_DATA bound to: 2 - type: integer 
+	Parameter SEND_WAIT bound to: 3 - type: integer 
+	Parameter PRINT_DONE bound to: 4 - type: integer 
+	Parameter PRINT_START_LOGO bound to: 5 - type: integer 
+	Parameter PRINT_LINE_HEAD bound to: 6 - type: integer 
+	Parameter PRINT_ENTER bound to: 7 - type: integer 
+	Parameter PRINT_BLANK bound to: 8 - type: integer 
+	Parameter PRINT_DOUBLE_ENTER bound to: 9 - type: integer 
+	Parameter PRINT_BP_VALID bound to: 10 - type: integer 
+	Parameter PRINT_BP_SET bound to: 11 - type: integer 
+	Parameter PRINT_BP_CLEAR bound to: 12 - type: integer 
+	Parameter PRINT_BP_INVALID bound to: 13 - type: integer 
+	Parameter PRINT_CUR_PC bound to: 14 - type: integer 
+	Parameter PRINT_CMD_NOT_FOUND bound to: 15 - type: integer 
+	Parameter PRINT_CPU_HEAD bound to: 16 - type: integer 
+	Parameter _N bound to: 8'b00001010 
+	Parameter _R bound to: 8'b00001101 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/PDU/RTL/INFO_SENDER.v:65]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/PDU/RTL/INFO_SENDER.v:194]
+INFO: [Synth 8-6157] synthesizing module 'Hex2ASC' [D:/Codes/Verilog/vsrc/PDU/UTILS/HEX2ASCII.v:1]
+	Parameter HEX_NUM bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Hex2ASC' (5#1) [D:/Codes/Verilog/vsrc/PDU/UTILS/HEX2ASCII.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'INFO_SENDER' (6#1) [D:/Codes/Verilog/vsrc/PDU/RTL/INFO_SENDER.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_TX' [D:/Codes/Verilog/vsrc/PDU/UART/UART_TX.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'UART_TX' (7#1) [D:/Codes/Verilog/vsrc/PDU/UART/UART_TX.v:9]
+INFO: [Synth 8-6157] synthesizing module 'QUEUE' [D:/Codes/Verilog/vsrc/PDU/UTILS/QUEUE.v:2]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter DEPTH bound to: 8 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'QUEUE' (8#1) [D:/Codes/Verilog/vsrc/PDU/UTILS/QUEUE.v:2]
+INFO: [Synth 8-6157] synthesizing module 'POSEDGE_GEN' [D:/Codes/Verilog/vsrc/PDU/UTILS/POSEDGE_GEN.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'POSEDGE_GEN' (9#1) [D:/Codes/Verilog/vsrc/PDU/UTILS/POSEDGE_GEN.v:1]
+INFO: [Synth 8-6157] synthesizing module 'UART_RX' [D:/Codes/Verilog/vsrc/PDU/UART/UART_RX.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'UART_RX' (10#1) [D:/Codes/Verilog/vsrc/PDU/UART/UART_RX.v:9]
+WARNING: [Synth 8-3848] Net pdu_mmio_data in module/entity PDU does not have driver. [D:/Codes/Verilog/vsrc/PDU/PDU.v:34]
+WARNING: [Synth 8-3848] Net pdu_mmio_data_ready in module/entity PDU does not have driver. [D:/Codes/Verilog/vsrc/PDU/PDU.v:35]
+INFO: [Synth 8-6155] done synthesizing module 'PDU' (11#1) [D:/Codes/Verilog/vsrc/PDU/PDU.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'mmio_pdu_data' does not match port width (8) of module 'PDU' [D:/Codes/Verilog/vsrc/TOP.v:154]
+INFO: [Synth 8-6157] synthesizing module 'CPU' [D:/Codes/Verilog/vsrc/CPU/CPU.v:17]
+INFO: [Synth 8-6157] synthesizing module 'PC' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1042]
+INFO: [Synth 8-6155] done synthesizing module 'PC' (12#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1042]
+INFO: [Synth 8-6157] synthesizing module 'ADD4' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1160]
+INFO: [Synth 8-6155] done synthesizing module 'ADD4' (13#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1160]
+INFO: [Synth 8-6157] synthesizing module 'Intersegment_reg' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1343]
+INFO: [Synth 8-6155] done synthesizing module 'Intersegment_reg' (14#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1343]
+WARNING: [Synth 8-7023] instance 'IF2ID' of module 'Intersegment_reg' has 45 connections declared, but only 29 given [D:/Codes/Verilog/vsrc/CPU/CPU.v:275]
+INFO: [Synth 8-6157] synthesizing module 'DECODER' [D:/Codes/Verilog/vsrc/CPU/CPU.v:792]
+WARNING: [Synth 8-151] case item 7'b0110111 is unreachable [D:/Codes/Verilog/vsrc/CPU/CPU.v:866]
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:883]
+INFO: [Synth 8-6155] done synthesizing module 'DECODER' (15#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:792]
+INFO: [Synth 8-6157] synthesizing module 'REG_FILE' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1110]
+INFO: [Synth 8-6155] done synthesizing module 'REG_FILE' (16#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1110]
+WARNING: [Synth 8-7023] instance 'ID2EX' of module 'Intersegment_reg' has 45 connections declared, but only 43 given [D:/Codes/Verilog/vsrc/CPU/CPU.v:377]
+INFO: [Synth 8-6157] synthesizing module 'MUX1' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1147]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MUX1' (17#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1147]
+INFO: [Synth 8-6157] synthesizing module 'ALU' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1071]
+INFO: [Synth 8-6155] done synthesizing module 'ALU' (18#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1071]
+INFO: [Synth 8-6157] synthesizing module 'BRANCH' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1172]
+INFO: [Synth 8-6155] done synthesizing module 'BRANCH' (19#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1172]
+INFO: [Synth 8-6157] synthesizing module 'NPCMUX' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1197]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:1209]
+INFO: [Synth 8-6155] done synthesizing module 'NPCMUX' (20#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1197]
+WARNING: [Synth 8-7023] instance 'EX2MEM' of module 'Intersegment_reg' has 45 connections declared, but only 36 given [D:/Codes/Verilog/vsrc/CPU/CPU.v:480]
+INFO: [Synth 8-6157] synthesizing module 'SLU' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1224]
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:1238]
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:1262]
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:1286]
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/CPU/CPU.v:1302]
+INFO: [Synth 8-6155] done synthesizing module 'SLU' (21#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1224]
+WARNING: [Synth 8-7023] instance 'MEM2WB' of module 'Intersegment_reg' has 45 connections declared, but only 35 given [D:/Codes/Verilog/vsrc/CPU/CPU.v:546]
+INFO: [Synth 8-6157] synthesizing module 'MUX2' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1330]
+	Parameter WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'MUX2' (22#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1330]
+INFO: [Synth 8-6157] synthesizing module 'Forwarding' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1484]
+INFO: [Synth 8-6155] done synthesizing module 'Forwarding' (23#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1484]
+INFO: [Synth 8-6157] synthesizing module 'Segctr' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1533]
+INFO: [Synth 8-6155] done synthesizing module 'Segctr' (24#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:1533]
+WARNING: [Synth 8-6014] Unused sequential element commit_dmem_wa_reg_reg was removed.  [D:/Codes/Verilog/vsrc/CPU/CPU.v:695]
+WARNING: [Synth 8-6014] Unused sequential element commit_dmem_wd_reg_reg was removed.  [D:/Codes/Verilog/vsrc/CPU/CPU.v:696]
+WARNING: [Synth 8-3848] Net commit_dmem_wa in module/entity CPU does not have driver. [D:/Codes/Verilog/vsrc/CPU/CPU.v:42]
+WARNING: [Synth 8-3848] Net commit_dmem_wd in module/entity CPU does not have driver. [D:/Codes/Verilog/vsrc/CPU/CPU.v:43]
+INFO: [Synth 8-6155] done synthesizing module 'CPU' (25#1) [D:/Codes/Verilog/vsrc/CPU/CPU.v:17]
+WARNING: [Synth 8-7023] instance 'cpu' of module 'CPU' has 40 connections declared, but only 21 given [D:/Codes/Verilog/vsrc/TOP.v:169]
+INFO: [Synth 8-6157] synthesizing module 'MMIO' [D:/Codes/Verilog/vsrc/MEM/MMIO.v:1]
+	Parameter WAIT bound to: 0 - type: integer 
+	Parameter CPU_UART_VALID bound to: 1 - type: integer 
+	Parameter CPU_UART_SEND_DATA bound to: 2 - type: integer 
+	Parameter CPU_UART_CLEAR_VALID bound to: 3 - type: integer 
+	Parameter PDU_UART_READY bound to: 5 - type: integer 
+	Parameter PDU_UART_WAIT bound to: 6 - type: integer 
+	Parameter PDU_UART_DATA_READ bound to: 7 - type: integer 
+	Parameter ADDR_CPU_UART_VALID bound to: -65536 - type: integer 
+	Parameter ADDR_CPU_UART_DATA bound to: -65532 - type: integer 
+	Parameter ADDR_CPU_LED bound to: -65528 - type: integer 
+	Parameter ADDR_PDU_UART_READY bound to: -65524 - type: integer 
+	Parameter ADDR_PDU_UART_DATA bound to: -65520 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Codes/Verilog/vsrc/MEM/MMIO.v:62]
+INFO: [Synth 8-6155] done synthesizing module 'MMIO' (26#1) [D:/Codes/Verilog/vsrc/MEM/MMIO.v:1]
+WARNING: [Synth 8-689] width (32) of port connection 'cpu_uart_data' does not match port width (8) of module 'MMIO' [D:/Codes/Verilog/vsrc/TOP.v:219]
+INFO: [Synth 8-6157] synthesizing module 'MEM_BRIDGE' [D:/Codes/Verilog/vsrc/MEM/MEM_BRIDGE.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'MEM_BRIDGE' (27#1) [D:/Codes/Verilog/vsrc/MEM/MEM_BRIDGE.v:1]
+INFO: [Synth 8-6157] synthesizing module 'INST_MEM' [D:/Codes/Verilog/lab6_bitstream/synth_1/.Xil/Vivado-18300-DESKTOP-6KORK05/realtime/INST_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'INST_MEM' (28#1) [D:/Codes/Verilog/lab6_bitstream/synth_1/.Xil/Vivado-18300-DESKTOP-6KORK05/realtime/INST_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'DATA_MEM' [D:/Codes/Verilog/lab6_bitstream/synth_1/.Xil/Vivado-18300-DESKTOP-6KORK05/realtime/DATA_MEM_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'DATA_MEM' (29#1) [D:/Codes/Verilog/lab6_bitstream/synth_1/.Xil/Vivado-18300-DESKTOP-6KORK05/realtime/DATA_MEM_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Segment' [D:/Codes/Verilog/vsrc/PDU/UTILS/Segment.v:1]
+	Parameter COUNT_NUM bound to: 125000 - type: integer 
+	Parameter SEG_NUM bound to: 8 - type: integer 
+INFO: [Synth 8-226] default block is never used [D:/Codes/Verilog/vsrc/PDU/UTILS/Segment.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'Segment' (30#1) [D:/Codes/Verilog/vsrc/PDU/UTILS/Segment.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'TOP' (31#1) [D:/Codes/Verilog/vsrc/TOP.v:1]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[31]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[30]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[29]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[28]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[27]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[26]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[25]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[24]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[23]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[22]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[21]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[20]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[19]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[18]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[17]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[16]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[15]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[14]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[13]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[12]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[11]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[10]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[9]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[8]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[7]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[6]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[5]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[4]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[3]
+WARNING: [Synth 8-3331] design SLU has unconnected port addr[2]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[31]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[30]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[29]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[28]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[27]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[26]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[25]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[24]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[23]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[22]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[21]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[20]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[19]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[18]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[17]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[16]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[15]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[14]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[13]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[12]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[11]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[10]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[9]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[8]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[7]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[6]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[5]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[4]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[3]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[2]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[1]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wa[0]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[31]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[30]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[29]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[28]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[27]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[26]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[25]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[24]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[23]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[22]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[21]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[20]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[19]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[18]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[17]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[16]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[15]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[14]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[13]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[12]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[11]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[10]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[9]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[8]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[7]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[6]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[5]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[4]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[3]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[2]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[1]
+WARNING: [Synth 8-3331] design CPU has unconnected port commit_dmem_wd[0]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[7]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[6]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[5]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[4]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[3]
+WARNING: [Synth 8-3331] design PDU has unconnected port pdu_mmio_data[2]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1063.660 ; gain = 308.652
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.660 ; gain = 308.652
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.660 ; gain = 308.652
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.285 . Memory (MB): peak = 1063.660 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Synth 37-20] Could not find a clock associated with pin WE1 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RA2 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RA3 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RA4 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RO2 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RO3 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin RO4 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin WA1 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+WARNING: [Synth 37-20] Could not find a clock associated with pin WD1 for RAM cell RTL_RAM0. Constraints related to this pin or cell won't work with elaborated design.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/DATA_MEM/DATA_MEM/DATA_MEM_in_context.xdc] for cell 'data_memory'
+Finished Parsing XDC File [d:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/DATA_MEM/DATA_MEM/DATA_MEM_in_context.xdc] for cell 'data_memory'
+Parsing XDC File [d:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/INST_MEM/INST_MEM/INST_MEM_in_context.xdc] for cell 'instruction_memory'
+Finished Parsing XDC File [d:/Codes/Verilog/Lab3_Lab4_CPU/Lab3_CPU2.srcs/sources_1/ip/INST_MEM/INST_MEM/INST_MEM_in_context.xdc] for cell 'instruction_memory'
+Parsing XDC File [D:/Codes/Verilog/vsrc/constraints.xdc]
+Finished Parsing XDC File [D:/Codes/Verilog/vsrc/constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Codes/Verilog/vsrc/constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/TOP_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/TOP_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+WARNING: [Timing 38-3] User defined clock exists on pin PLLE2_BASE_inst/CLKOUT0 [See D:/Codes/Verilog/vsrc/constraints.xdc:9] and will prevent any subsequent automatic derivation of generated clocks on that pin. If the user defined clock specifies '-add', any existing auto-derived clocks on that pin are retained.
+INFO: [Timing 38-2] Deriving generated clocks
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1204.184 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  PLLE2_BASE => PLLE2_ADV: 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 1204.184 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for data_memory. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for instruction_memory. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:29 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'print_cs_reg' in module 'INFO_SENDER'
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "buffer" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-802] inferred FSM for state register 'status_cur_reg' in module 'UART_TX'
+INFO: [Synth 8-5544] ROM "status_cur" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'status_cur_reg' in module 'UART_RX'
+INFO: [Synth 8-5544] ROM "status_cur" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "alu_op" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "dmem_access" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "rf_we" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "rf_wd_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "alu_src0_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "alu_src1_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'mmio_cs_reg' in module 'MMIO'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    WAIT |                             0000 | 00000000000000000000000000000000
+        PRINT_START_LOGO |                             0001 | 00000000000000000000000000000101
+         PRINT_LINE_HEAD |                             0010 | 00000000000000000000000000000110
+             PRINT_ENTER |                             0011 | 00000000000000000000000000000111
+             PRINT_BLANK |                             0100 | 00000000000000000000000000001000
+      PRINT_DOUBLE_ENTER |                             0101 | 00000000000000000000000000001001
+          PRINT_BP_VALID |                             0110 | 00000000000000000000000000001010
+        PRINT_BP_INVALID |                             0111 | 00000000000000000000000000001101
+            PRINT_BP_SET |                             1000 | 00000000000000000000000000001011
+          PRINT_BP_CLEAR |                             1001 | 00000000000000000000000000001100
+            PRINT_CUR_PC |                             1010 | 00000000000000000000000000001110
+          PRINT_CPU_HEAD |                             1011 | 00000000000000000000000000010000
+     PRINT_CMD_NOT_FOUND |                             1100 | 00000000000000000000000000001111
+               SEND_DATA |                             1101 | 00000000000000000000000000000010
+               SEND_WAIT |                             1110 | 00000000000000000000000000000011
+              PRINT_DONE |                             1111 | 00000000000000000000000000000100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'print_cs_reg' using encoding 'sequential' in module 'INFO_SENDER'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                              000 |                              111
+                 iSTATE0 |                              001 |                              000
+                 iSTATE1 |                              010 |                              001
+                 iSTATE2 |                              011 |                              010
+                 iSTATE3 |                              100 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'status_cur_reg' using encoding 'sequential' in module 'UART_TX'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                            00001 |                              111
+                 iSTATE0 |                            00010 |                              000
+                 iSTATE1 |                            00100 |                              001
+                 iSTATE2 |                            01000 |                              010
+                 iSTATE3 |                            10000 |                              011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'status_cur_reg' using encoding 'one-hot' in module 'UART_RX'
+WARNING: [Synth 8-327] inferring latch for variable 'npc_reg' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1166]
+WARNING: [Synth 8-327] inferring latch for variable 'rf_rd0_fd_reg' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1508]
+WARNING: [Synth 8-327] inferring latch for variable 'rf_rd1_fd_reg' [D:/Codes/Verilog/vsrc/CPU/CPU.v:1520]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    WAIT |                              000 |                            00000
+          CPU_UART_VALID |                              001 |                            00001
+      CPU_UART_SEND_DATA |                              010 |                            00010
+    CPU_UART_CLEAR_VALID |                              011 |                            00011
+          PDU_UART_READY |                              100 |                            00101
+           PDU_UART_WAIT |                              101 |                            00110
+      PDU_UART_DATA_READ |                              110 |                            00111
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'mmio_cs_reg' using encoding 'sequential' in module 'MMIO'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 5     
+	   3 Input     32 Bit       Adders := 3     
+	   2 Input     10 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 10    
+	   2 Input      7 Bit       Adders := 16    
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 3     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 59    
+	               10 Bit    Registers := 2     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 51    
+	                5 Bit    Registers := 13    
+	                4 Bit    Registers := 10    
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 38    
++---Multipliers : 
+	                 4x32  Multipliers := 1     
++---RAMs : 
+	               2K Bit         RAMs := 2     
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   6 Input     64 Bit        Muxes := 1     
+	   2 Input     64 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 68    
+	   4 Input     32 Bit        Muxes := 5     
+	   7 Input     32 Bit        Muxes := 1     
+	  13 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 1     
+	   5 Input     10 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 22    
+	  20 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 28    
+	  14 Input      8 Bit        Muxes := 32    
+	   5 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	  42 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 16    
+	   5 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 6     
+	   3 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	  52 Input      6 Bit        Muxes := 1     
+	  28 Input      5 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 21    
+	  11 Input      5 Bit        Muxes := 1     
+	   9 Input      5 Bit        Muxes := 2     
+	   7 Input      5 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 12    
+	  18 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 3     
+	   6 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 12    
+	   6 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 3     
+	   7 Input      3 Bit        Muxes := 2     
+	   9 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 4     
+	  10 Input      2 Bit        Muxes := 1     
+	   8 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 44    
+	   5 Input      1 Bit        Muxes := 14    
+	  12 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 11    
+	   3 Input      1 Bit        Muxes := 4     
+	  10 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module TOP 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module PDU_DECODE 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                9 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
++---Multipliers : 
+	                 4x32  Multipliers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 22    
+	  20 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   5 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 5     
+	   3 Input      6 Bit        Muxes := 1     
+	   4 Input      6 Bit        Muxes := 1     
+	  28 Input      5 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 1     
+Module HEX2UART 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module BP_LIST_REG 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 4     
+Module Hex2ASC 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 16    
++---Muxes : 
+	   2 Input      7 Bit        Muxes := 16    
+Module INFO_SENDER 
+Detailed RTL Component Info : 
++---Registers : 
+	               64 Bit    Registers := 1     
+	                8 Bit    Registers := 42    
++---Muxes : 
+	  14 Input      8 Bit        Muxes := 32    
+	  18 Input      4 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 1     
+	  14 Input      1 Bit        Muxes := 11    
+	   5 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module UART_TX 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   5 Input     10 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 5     
+	   3 Input      1 Bit        Muxes := 1     
+Module QUEUE 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 3     
++---Registers : 
+	                8 Bit    Registers := 2     
++---RAMs : 
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module POSEDGE_GEN 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module UART_RX 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   5 Input     10 Bit        Muxes := 1     
+	   5 Input      8 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 6     
+Module PDU 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                8 Bit    Registers := 4     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   6 Input     64 Bit        Muxes := 1     
+	   2 Input     64 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 2     
+	   4 Input     32 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 26    
+	   4 Input      8 Bit        Muxes := 1     
+	  42 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 1     
+	  52 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   4 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module PC 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module ADD4 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+Module Intersegment_reg 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 8     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 8     
+	   2 Input      5 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module DECODER 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   7 Input     32 Bit        Muxes := 1     
+	  11 Input      5 Bit        Muxes := 1     
+	   9 Input      5 Bit        Muxes := 2     
+	   6 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 2     
+	   7 Input      4 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	  10 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+	  10 Input      1 Bit        Muxes := 3     
+Module REG_FILE 
+Detailed RTL Component Info : 
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+Module MUX1__mod 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module ALU 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	  13 Input     32 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+Module BRANCH 
+Detailed RTL Component Info : 
++---Muxes : 
+	   8 Input      2 Bit        Muxes := 1     
+Module NPCMUX 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 1     
+Module SLU 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+Module MUX2 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+Module Forwarding 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
+Module Segctr 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module CPU 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
+Module MMIO 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 5     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 3     
+	   7 Input      5 Bit        Muxes := 2     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 3     
+	   3 Input      1 Bit        Muxes := 1     
+Module MEM_BRIDGE 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 6     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 1     
+Module Segment 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5587] ROM size for "decode_ns" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5544] ROM "decode_ns" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "decode_ns" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "alu_op" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rf_we" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "rf_wd_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "alu_src0_sel" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "alu_src1_sel" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][7]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][6]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][5]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][4]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][3]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][2]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[41][1]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][7]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][6]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][5]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][4]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][3]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][2]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][1]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[40][0]' (FDRE) to 'pdu/info_sender/buffer_reg[41][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][7]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][6]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][5]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][4]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][3]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][2]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[39][1]' (FDRE) to 'pdu/info_sender/buffer_reg[39][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][7]' (FDRE) to 'pdu/info_sender/buffer_reg[38][6]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][6]' (FDRE) to 'pdu/info_sender/buffer_reg[38][5]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][5]' (FDRE) to 'pdu/info_sender/buffer_reg[38][4]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][4]' (FDRE) to 'pdu/info_sender/buffer_reg[38][3]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][3]' (FDRE) to 'pdu/info_sender/buffer_reg[38][2]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][2]' (FDRE) to 'pdu/info_sender/buffer_reg[38][1]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[38][1]' (FDRE) to 'pdu/info_sender/buffer_reg[38][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][7]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][6]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][5]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][4]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][3]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][2]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[37][1]' (FDRE) to 'pdu/info_sender/buffer_reg[37][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][7]' (FDRE) to 'pdu/info_sender/buffer_reg[36][6]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][6]' (FDRE) to 'pdu/info_sender/buffer_reg[36][5]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][5]' (FDRE) to 'pdu/info_sender/buffer_reg[36][4]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][4]' (FDRE) to 'pdu/info_sender/buffer_reg[36][3]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][3]' (FDRE) to 'pdu/info_sender/buffer_reg[36][2]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][2]' (FDRE) to 'pdu/info_sender/buffer_reg[36][1]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[36][1]' (FDRE) to 'pdu/info_sender/buffer_reg[36][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][7]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][6]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][5]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][4]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][3]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][2]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[35][1]' (FDRE) to 'pdu/info_sender/buffer_reg[35][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][7]' (FDRE) to 'pdu/info_sender/buffer_reg[34][6]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][6]' (FDRE) to 'pdu/info_sender/buffer_reg[34][5]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][5]' (FDRE) to 'pdu/info_sender/buffer_reg[34][4]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][4]' (FDRE) to 'pdu/info_sender/buffer_reg[34][3]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][3]' (FDRE) to 'pdu/info_sender/buffer_reg[34][2]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][2]' (FDRE) to 'pdu/info_sender/buffer_reg[34][1]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[34][1]' (FDRE) to 'pdu/info_sender/buffer_reg[34][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][7]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][6]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][5]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][4]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][3]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][2]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[33][1]' (FDRE) to 'pdu/info_sender/buffer_reg[33][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][7]' (FDRE) to 'pdu/info_sender/buffer_reg[32][6]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][6]' (FDRE) to 'pdu/info_sender/buffer_reg[32][5]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][5]' (FDRE) to 'pdu/info_sender/buffer_reg[32][4]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][4]' (FDRE) to 'pdu/info_sender/buffer_reg[32][3]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][3]' (FDRE) to 'pdu/info_sender/buffer_reg[32][2]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][2]' (FDRE) to 'pdu/info_sender/buffer_reg[32][1]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/buffer_reg[32][1]' (FDRE) to 'pdu/info_sender/buffer_reg[32][0]'
+INFO: [Synth 8-3886] merging instance 'pdu/info_sender/local_print_data_reg[63]' (FDRE) to 'pdu/info_sender/local_print_data_reg[62]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[0]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[0]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[1]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[1]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[2]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[2]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[3]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[4]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[4]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[5]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[5]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[6]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[6]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[7]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[8]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[9]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[10]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[11]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[12]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[13]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[14]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[15]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[16]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[17]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[18]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[19]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[20]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[20]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[21]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[21]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[22]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[22]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[23]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[24]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[24]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[25]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[25]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[26]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[26]'
+INFO: [Synth 8-3886] merging instance 'mem_bridge/pdu_imem_wdata_r_reg[27]' (FDR) to 'mem_bridge/pdu_dmem_wdata_r_reg[27]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mmio/pdu_uart_data_reg_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\pdu_decode/decode_ls_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (pdu/\info_sender/buffer_reg[41][0] )
+WARNING: [Synth 8-3332] Sequential element (alu_op_out_regi_32) is unused and will be removed from module Intersegment_reg__1.
+WARNING: [Synth 8-3332] Sequential element (alu_op_out_regi_32) is unused and will be removed from module Intersegment_reg__3.
+WARNING: [Synth 8-3332] Sequential element (alu_op_out_regi_32) is unused and will be removed from module Intersegment_reg.
+WARNING: [Synth 8-3332] Sequential element (mmio/FSM_sequential_mmio_cs_reg[2]) is unused and will be removed from module TOP.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:01:21 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++-------------+-------------------------+-----------+----------------------+--------------------------+
+|Module Name  | RTL Object              | Inference | Size (Depth x Width) | Primitives               | 
++-------------+-------------------------+-----------+----------------------+--------------------------+
+|pdu          | tx_queue/fifo_queue_reg | Implied   | 256 x 8              | RAM64X1D x 8	RAM64M x 8	 | 
+|pdu          | rx_queue/fifo_queue_reg | Implied   | 256 x 8              | RAM64X1D x 8	RAM64M x 8	 | 
+|cpu/reg_file | reg_file_reg            | Implied   | 32 x 32              | RAM32M x 18	             | 
++-------------+-------------------------+-----------+----------------------+--------------------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:56 ; elapsed = 00:01:29 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:32 . Memory (MB): peak = 1204.184 ; gain = 449.176
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++-------------+-------------------------+-----------+----------------------+--------------------------+
+|Module Name  | RTL Object              | Inference | Size (Depth x Width) | Primitives               | 
++-------------+-------------------------+-----------+----------------------+--------------------------+
+|pdu          | tx_queue/fifo_queue_reg | Implied   | 256 x 8              | RAM64X1D x 8	RAM64M x 8	 | 
+|pdu          | rx_queue/fifo_queue_reg | Implied   | 256 x 8              | RAM64X1D x 8	RAM64M x 8	 | 
+|cpu/reg_file | reg_file_reg            | Implied   | 32 x 32              | RAM32M x 18	             | 
++-------------+-------------------------+-----------+----------------------+--------------------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:01:37 . Memory (MB): peak = 1275.094 ; gain = 520.086
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:04 ; elapsed = 00:01:41 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:04 ; elapsed = 00:01:41 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:05 ; elapsed = 00:01:41 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:05 ; elapsed = 00:01:41 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:05 ; elapsed = 00:01:42 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:05 ; elapsed = 00:01:42 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |INST_MEM      |         1|
+|2     |DATA_MEM      |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |DATA_MEM   |     1|
+|2     |INST_MEM   |     1|
+|3     |BUFG       |     4|
+|4     |CARRY4     |   126|
+|5     |LUT1       |    72|
+|6     |LUT2       |   514|
+|7     |LUT3       |   412|
+|8     |LUT4       |   456|
+|9     |LUT5       |   638|
+|10    |LUT6       |  1134|
+|11    |MUXF7      |    13|
+|12    |PLLE2_BASE |     1|
+|13    |RAM32M     |    18|
+|14    |RAM64M     |    16|
+|15    |RAM64X1D   |    16|
+|16    |FDCE       |   669|
+|17    |FDPE       |     1|
+|18    |FDRE       |  1165|
+|19    |FDSE       |     2|
+|20    |LD         |    96|
+|21    |IBUF       |     3|
+|22    |OBUF       |    16|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-------------------+-------------------+------+
+|      |Instance           |Module             |Cells |
++------+-------------------+-------------------+------+
+|1     |top                |                   |  5436|
+|2     |  cpu              |CPU                |  2464|
+|3     |    EX2MEM         |Intersegment_reg   |   457|
+|4     |    ID2EX          |Intersegment_reg_2 |   798|
+|5     |    IF2ID          |Intersegment_reg_3 |   354|
+|6     |    MEM2WB         |Intersegment_reg_4 |   201|
+|7     |    add4           |ADD4               |    64|
+|8     |    forwarding     |Forwarding         |   181|
+|9     |    mux2           |MUX2               |    32|
+|10    |    mypc           |PC                 |    90|
+|11    |    npcmux         |NPCMUX             |    32|
+|12    |    reg_file       |REG_FILE           |    18|
+|13    |    rf_rd0         |MUX1__mod          |    16|
+|14    |    rf_rd0_pc      |MUX1__mod_5        |    32|
+|15    |    rf_rd1         |MUX1__mod_6        |    32|
+|16    |    rf_rd1_imm     |MUX1__mod_7        |    32|
+|17    |  mem_bridge       |MEM_BRIDGE         |   111|
+|18    |  mmio             |MMIO               |   173|
+|19    |  pdu              |PDU                |  2540|
+|20    |    bp_reg         |BP_LIST_REG        |   288|
+|21    |    hex2uart       |HEX2UART           |   120|
+|22    |    info_sender    |INFO_SENDER        |   717|
+|23    |    pdu_decode     |PDU_DECODE         |   464|
+|24    |    rx_enqueue_gen |POSEDGE_GEN        |     3|
+|25    |    rx_queue       |QUEUE              |   146|
+|26    |    tx_enqueue_gen |POSEDGE_GEN_0      |     4|
+|27    |    tx_queue       |QUEUE_1            |    86|
+|28    |    uart_rx        |UART_RX            |    74|
+|29    |    uart_tx        |UART_TX            |    46|
+|30    |  segment          |Segment            |    58|
++------+-------------------+-------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:05 ; elapsed = 00:01:42 . Memory (MB): peak = 1280.074 ; gain = 525.066
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 112 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:01:34 . Memory (MB): peak = 1280.074 ; gain = 384.543
+Synthesis Optimization Complete : Time (s): cpu = 00:01:05 ; elapsed = 00:01:42 . Memory (MB): peak = 1280.074 ; gain = 525.066
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 1290.016 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 286 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 18 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1290.484 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 147 instances were transformed.
+  LD => LDCE: 96 instances
+  PLLE2_BASE => PLLE2_ADV: 1 instance 
+  RAM32M => RAM32M (inverted pins: WCLK) (RAMD32(x6), RAMS32(x2)): 18 instances
+  RAM64M => RAM64M (RAMD64E(x4)): 16 instances
+  RAM64X1D => RAM64X1D (RAMD64E(x2)): 16 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+263 Infos, 131 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:09 ; elapsed = 00:01:52 . Memory (MB): peak = 1290.484 ; gain = 821.383
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1290.484 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'D:/Codes/Verilog/lab6_bitstream/synth_1/TOP.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file TOP_utilization_synth.rpt -pb TOP_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed May  8 17:12:09 2024...

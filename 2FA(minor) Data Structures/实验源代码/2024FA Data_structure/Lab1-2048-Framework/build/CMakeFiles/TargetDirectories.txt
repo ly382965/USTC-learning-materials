@@ -1,0 +1,3 @@
+D:/Codes/Data_structure/Lab1-2048-Framework/build/CMakeFiles/2048.dir
+D:/Codes/Data_structure/Lab1-2048-Framework/build/CMakeFiles/edit_cache.dir
+D:/Codes/Data_structure/Lab1-2048-Framework/build/CMakeFiles/rebuild_cache.dir

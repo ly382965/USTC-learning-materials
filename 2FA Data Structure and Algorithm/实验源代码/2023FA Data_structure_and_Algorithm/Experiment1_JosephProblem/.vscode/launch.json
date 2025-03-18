@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "name": "g++.exe",
+          "type": "cppdbg", 
+          "request": "launch",
+          "program": "${workspaceFolder}/build/${fileBasenameNoExtension}.exe",//${fileBasenameNoExtension}
+          //            "program": "${command:cmake.launchTargetPath}", //${fileBasenameNoExtension}
+          //如果用上面这条program的设置，可以一键调试，需要注释preLaunchTask同时可以不需要编写tasks.json，需要安装cmake Tool插件
+          "args": [],
+          "stopAtEntry": false,
+          "cwd": "${workspaceFolder}",
+          "environment": [],
+          "externalConsole": true,//是否有黑框框
+          "MIMode": "gdb",  
+          "miDebuggerPath": "D:\\work_software\\mingw64\\bin\\gdb.exe", //调试器地址
+          "preLaunchTask": "Build" ,//预编译，调用tasks.json,与tasks.json里面的label一致
+          "setupCommands": [
+              {
+                   "description": "为 gdb 启用整齐打印",
+                  "text": "-enable-pretty-printing",
+                  "ignoreFailures": true
+              },
+              {
+                  "description": "将反汇编风格设置为 Intel",
+                  "text": "-gdb-set disassembly-flavor intel",
+                  "ignoreFailures": true
+              }
+          ]
+
+      }
+  ]
+}
+

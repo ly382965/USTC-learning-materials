@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Codes/Verilog/lab2_RegisterFile/lab2_RegisterFile.srcs/sources_1/new/Counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module REG_FILE
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/Codes/Verilog/lab2_RegisterFile/lab2_RegisterFile.srcs/sim_1/new/Counter_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile_tb

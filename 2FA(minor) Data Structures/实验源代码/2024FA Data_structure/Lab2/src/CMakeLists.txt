@@ -1,0 +1,4 @@
+add_subdirectory(structures)
+add_subdirectory(1_Test)
+add_subdirectory(2_Expression)
+add_subdirectory(3_Robot)

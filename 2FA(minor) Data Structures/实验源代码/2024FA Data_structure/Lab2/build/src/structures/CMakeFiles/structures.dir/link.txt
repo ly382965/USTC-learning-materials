@@ -1,0 +1,2 @@
+D:\work_software\mingw64\bin\ar.exe qc libstructures.a CMakeFiles/structures.dir/queue.cpp.obj CMakeFiles/structures.dir/stack.cpp.obj CMakeFiles/structures.dir/unordered_set.cpp.obj
+D:\work_software\mingw64\bin\ranlib.exe libstructures.a

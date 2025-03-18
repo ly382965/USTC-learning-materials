@@ -1,0 +1,106 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/Codes/quartusII/FPGA_EXP2/simulation/modelsim
+T_opt
+!s110 1729495360
+VcdW>N7f7zFdF<caQKKj6F0
+04 12 4 work FPGA_EXP2_tb fast 0
+=1-8cb87eb5174c-6716013f-18f-4360
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cyclonev_ver -L cyclonev_hssi_ver -L cyclonev_pcie_hip_ver -L rtl_work -L work +acc
+n@_opt
+OL;O;10.4;61
+vdiv50MHZ
+Z1 !s110 1729495356
+!i10b 1
+!s100 ?6=GYjeOKH[9`UhIM`AZA2
+IXnTHm6E:gFzKhOZVJC9aH0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1729495189
+Z4 8D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2.v
+Z5 FD:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2.v
+L0 128
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+Z7 !s108 1729495356.912000
+Z8 !s107 D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Codes/quartusII/FPGA_EXP2|D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2.v|
+!i113 0
+Z10 o-vlog01compat -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z11 !s92 -vlog01compat -work work +incdir+D:/Codes/quartusII/FPGA_EXP2 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+ndiv50@m@h@z
+vFPGA_EXP2
+R1
+!i10b 1
+!s100 =ScfRVU6kVM0h4VNkR^360
+I<0Y@9RYofYQlJhflRlM7^2
+R2
+R0
+R3
+R4
+R5
+L0 3
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+n@f@p@g@a_@e@x@p2
+vFPGA_EXP2_tb
+!s110 1729495357
+!i10b 1
+!s100 X[CN5ZhWGafR:IJM`4A`:0
+IRKKOJ;ozECRk4keU`DCfl3
+R2
+R0
+w1729357654
+8D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2_tb.v
+FD:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2_tb.v
+L0 3
+R6
+r1
+!s85 0
+31
+!s108 1729495357.087000
+!s107 D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Codes/quartusII/FPGA_EXP2|D:/Codes/quartusII/FPGA_EXP2/FPGA_EXP2_tb.v|
+!i113 0
+R10
+R11
+n@f@p@g@a_@e@x@p2_tb
+vLED_decoder
+R1
+!i10b 1
+!s100 G9ElIHAWdL=KV9Y>8;4>[2
+ITJic:zFmm04cZzKZN<_[o1
+R2
+R0
+R3
+R4
+R5
+L0 102
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 0
+R10
+R11
+n@l@e@d_decoder

@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"options": {
+		"cwd": "${workspaceFolder}/build"
+	},
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "cmake",
+			"command": "cmake",
+			"args": [
+				".."
+			]
+		},
+		{
+			"label": "make",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"command": "mingw32-make.exe",	//windows下的命令
+			"args": [
+
+			]
+		},
+		{
+			"label": "Build",
+			//依赖于上面两个task命令
+			"dependsOn":[
+				"cmake",
+				"make"
+			]
+		}
+	]
+}

@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+
+  int i, sum = 0;
+
+  for (i = 0; i < 100; i++) {
+    if (i % 5 == 0) {
+      sum += i;
+    }
+  }
+
+  switch (sum % 3) {
+  case 0:
+    printf("Zero");
+    break;
+  case 1:
+    printf("One");
+    break;
+  case 2:
+    printf("Two");
+    break;
+  }
+
+  typedef char CHAR;
+
+  for (i = 0; i < 50; i++)
+    continue;
+
+  return 0;
+}
